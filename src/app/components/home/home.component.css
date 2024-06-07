@@ -85,7 +85,7 @@ body {
 }
 .carousel-inner {
     position: relative;
-    height: 100vh; /* Assuming 56px is the height of the navbar */
+    height: 100vh; 
   }
   
   .carousel-item {
@@ -361,4 +361,19 @@ html {
 
 .text {
   white-space: nowrap; 
+}
+
+
+.img-overlay {
+  position: absolute;
+ 
+  width: 50%; 
+  height: 25%; 
+  z-index: 111111; 
+
+}
+
+.carousel {
+  position: relative; 
+  z-index: 2;
 }
