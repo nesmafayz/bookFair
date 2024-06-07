@@ -1,0 +1,364 @@
+
+body {
+    background: #111;
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+.cta-background {
+    background-size: cover;
+    background-position: center center;
+    bottom: 0;
+    filter: blur(50px);
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+.container {
+    align-items: center;
+    display: flex;
+    height: 70vh;
+    justify-content: center;
+    margin:0;
+    padding:0;
+    
+}
+
+.cta {
+    background: #333;
+    box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.2);
+    height: 60%;
+    overflow: hidden;
+    position: relative;
+    width: 85%;
+    border-radius: 10px; 
+    margin: 2px; 
+    padding: 2px; 
+
+    &:hover {
+        img {
+            top: -5%;
+            filter: brightness(70%);
+        }
+
+        .text {
+            bottom: 0;
+        }
+    }
+
+    img {
+        bottom: 0;
+        filter: brightness(100%);
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition: 0.5s ease-in-out;
+        width: 110%;
+    }
+
+    .text {
+        bottom: -100%;
+        padding: 15px;
+        position: absolute;
+        transition: 0.5s ease-in-out;
+        
+
+        h2 {
+            color: #fff;
+            display: inline-block;
+            font-weight: bold; 
+            margin-bottom: 5px;
+            position: relative;
+        }
+
+        p {
+            color: #fff;
+            font-weight: bold; 
+         
+        }
+    }
+}
+.carousel-inner {
+    position: relative;
+    height: 100vh; /* Assuming 56px is the height of the navbar */
+  }
+  
+  .carousel-item {
+    position: relative;
+    height: 100%;
+  }
+  
+  .carousel-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 20s ease;
+  }
+  
+  .carousel-item.active img {
+    transform: scale(1.3);
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+  }
+  
+  .carousel-caption {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    z-index: 2;
+    text-align: left;
+    font-size:20px;
+   
+    
+  }
+  
+  .carousel-caption h1, .carousel-caption p {
+    color: #fff;
+    padding:40px;
+    display:flex;
+    justify-content:flex-end;
+    text-shadow: 1px 1px #ff751a;
+    
+   
+  }
+  h4{
+    line-height:2;
+    text-align: right;
+  }
+
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body,
+html {
+	height: 100vh;
+	display: grid;
+	
+	background: #d83565;
+	color: black;
+	font-size: 14px;
+	letter-spacing: 0.1em;
+}
+
+.ticket {
+	margin: auto;
+	display: flex;
+	background: white;
+	box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.left {
+	display: flex;
+}
+
+.image {
+	height: 100%;
+	width: 100%;
+	background-image: url("/assets/images/ticket.png");
+	background-size: cover;
+	opacity: 1;
+}
+
+.admit-one {
+	position: absolute;
+	color: darkgray;
+	height: 250px;
+	padding: 0 10px;
+	letter-spacing: 0.15em;
+	display: flex;
+	text-align: center;
+	justify-content: space-around;
+	writing-mode: vertical-rl;
+	transform: rotate(-180deg);
+}
+
+.admit-one span:nth-child(2) {
+	color: white;
+	font-weight: 700;
+}
+
+.left .ticket-number {
+	height: 250px;
+	width: 250px;
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+	padding: 5px;
+}
+
+.ticket-info {
+	padding: 10px 30px;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.date {
+	border-top: 1px solid gray;
+	border-bottom: 1px solid gray;
+	padding: 5px 0;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.date span {
+	width: 100px;
+}
+
+.date span:first-child {
+	text-align: left;
+}
+
+.date span:last-child {
+	text-align: right;
+}
+
+.date .june-29 {
+	color: #ff751a;
+	font-size: 20px;
+}
+
+.show-name {
+	font-size: 32px;
+	font-family: "Nanum Pen Script", cursive;
+	color: #ff751a;
+}
+
+.show-name h1 {
+	font-size: 48px;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	color: #4a437e;
+}
+
+.time {
+	padding: 10px 0;
+	color: #4a437e;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	font-weight: 700;
+}
+
+.time span {
+	font-weight: 400;
+	color: gray;
+}
+
+.left .time {
+	font-size: 16px;
+}
+
+
+.location {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 100%;
+	padding-top: 8px;
+	border-top: 1px solid gray;
+}
+
+.location .separator {
+	font-size: 20px;
+}
+
+.right {
+	width: 180px;
+	border-left: 1px dashed #404040;
+}
+
+.right .admit-one {
+	color: darkgray;
+}
+
+.right .admit-one span:nth-child(2) {
+	color: gray;
+}
+
+.right .right-info-container {
+	height: 250px;
+	padding: 10px 10px 10px 35px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.right .show-name h1 {
+	font-size: 18px;
+}
+
+.barcode {
+	height: 100px;
+}
+
+.barcode img {
+	height: 100%;
+}
+
+.right .ticket-number {
+	color: gray;
+}
+.btn{
+    background-color:#ff751a;
+    border-color: #ff751a;
+
+}
+
+.ticket-info-section h2,
+.ticket-info-section h3 {
+  color: #ff751a;
+
+  font-size: 1.5rem;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-weight:bold;
+}
+
+.ticket-info-section ol,
+.ticket-info-section ul {
+  list-style-type: none; 
+}
+
+.line-with-text {
+  display: flex;
+  align-items: center;
+}
+
+.line {
+  flex-grow: 1;
+  height: 1px;
+  background-color:#ff751a;
+  margin: 0 10px;
+}
+
+.text {
+  white-space: nowrap; 
+}

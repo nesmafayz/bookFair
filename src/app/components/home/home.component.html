@@ -1,0 +1,191 @@
+<!-- Hero section -->
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner hero">
+    <div class="carousel-item active">
+      <div class="overlay"></div>
+      <img src="assets/images/poster1.jpeg" class="d-block w-100" alt="Poster 1">
+      <div class="carousel-caption d-none d-md-block">
+        <h1>منذ 1969</h1>
+        <p>من أكبر معارض الكتاب في الشرق الأوسط يزور المعرض حوالي مليوني شخص سنوياً</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="overlay"></div>
+      <img src="assets/images/poster2.jpeg" class="d-block w-100" alt="Poster 2">
+      <div class="carousel-caption d-none d-md-block">
+        <h1>عروضنا</h1>
+        <p>تعرف علي خصوماتنا علي جميع الكتب طوال فترة المعرض</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="overlay"></div>
+      <img src="assets/images/poster3.jpeg" class="d-block w-100" alt="Poster 3">
+      <div class="carousel-caption d-none d-md-block">
+        <h1>أقرأ لي</h1>
+        <p>ميزة الاستماع الي الكتاب قبل الشراء</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Explanation of Book Fair -->
+<div class="container-fluid description">
+  <div class="row m-5 p-5">
+    <img src="assets/images/banarTop.jpeg" alt="banarTop" class="mb-5 animate-banar"  >
+    <div class="col-md-8 col-l-6 d-flex justify-content-end align-items-center animate-text">
+      <div class="row">
+       
+        <h4>
+          مرحبًا بكم في معرض الكتاب! يُسعدنا أن نرحب بكم في معرض الكتاب السنوي، الوجهة المثالية لعشاق القراءة والثقافة. يهدف معرض الكتاب إلى جمع محبي الأدب والفنون من جميع الأعمار والاهتمامات تحت سقف واحد، لتبادل الأفكار واكتشاف عوالم جديدة من خلال الكتب والمطبوعات المتنوعة.
+          في معرض الكتاب، ستجدون تشكيلة واسعة من الكتب التي تناسب جميع الأذواق، بدءًا من الروايات العالمية الأكثر مبيعًا. يُمكنكم الاستمتاع بفعاليات ثقافية وورش عمل تفاعلية مع نخبة من الكُتّاب والناشرين من مختلف أنحاء العالم.
+          نحن نؤمن بأن الكتاب هو نافذة على العالم، ومن خلال معرض الكتاب، نسعى لتوفير بيئة تحتفي بالثقافة والمعرفة، وتتيح لكم فرصة استكشاف الجديد والمثير في عالم الأدب. انضموا إلينا في هذه الرحلة الأدبية المميزة واستمتعوا بلقاءات ملهمة وكتب فريدة من نوعها.
+          نحن بانتظاركم لاكتشاف السحر الكامن بين صفحات الكتب!
+        </h4>
+      </div>
+    </div>
+    <div class="col-md-4 col-l-6  animate-img">
+      <img src="assets/images/logo.png" alt="explain" width="100%">
+    </div>
+  </div>
+</div>
+
+ <section class="py-5">
+  <div class="position-relative px-5 py-3 mb-5">
+    <div class="flexed-slider rounded-slider mx-auto col-10 h-100">
+      <owl-carousel-o [options]="customOptions">
+        <ng-container class="p-3" *ngFor="let book of books">
+          <ng-template carouselSlide>
+            <div class="text-center h-100 w-100">
+              <img [src]="book.imgUrl" class="card-img-top img-fluid p-2 g-2" alt="{{book.bookName}}">
+              </div>
+              <div class="text-center h-100 w-100" >
+                <h5 class="card-title">{{book.bookName}}</h5>
+                <p class="card-text">{{book.authorName}}</p>
+              </div>
+           
+          </ng-template>
+        </ng-container>
+      </owl-carousel-o>
+    </div>
+  </div>
+</section> 
+
+
+<div class="line-with-text m-5 p-5">
+  <div class="line"></div>
+  <div class="fw-bold text">نوصي بحجز تذكرتك عبر الإنترنت قبل زيارتك</div>
+</div>
+
+
+<!-- Ticket Information Section -->
+<section class="ticket-info-section m-5" dir="rtl">
+  <div class="container-fluid m-5">
+    <div class="row">
+      <div class="col-md-12 col-l-6 m-0 ">
+        <h2>سعر تذكرة معرض الكتاب</h2>
+        <p>يبلغ سعر تذكرة معرض الكتاب 5 جنيهات فقط مع العلم أن دخول المعرض والخروج منه يكلف تذكرة واحدة، مثل عملية ركوب المترو تمامًا.</p>
+        <h3>طرق حجز التذاكر</h3>
+        <p>يتم حجز تذاكر معرض الكتاب بطريقتين:</p>
+        <ul>
+          <li>من خلال المنصة الرقمية للمعرض.</li>
+          <li>من خلال شباك التذاكر، المجاور لباب دخول المعرض.</li>
+        </ul>
+        <h3>طرق الدفع</h3>
+        <p>يمكن دفع قيمة التذكرة عن طريق:</p>
+        <ul>
+          <li>مصاري</li>
+          <li>أمان</li>
+        </ul>
+        <h3>خطوات حجز التذاكر</h3>
+        <ul>
+          <li>الدخول على الرابط الخاص بحجز التذاكر.</li>
+          <li>تسجيل بعض البيانات المطلوبة والخاصة بالزائر مثل رقم الهاتف.</li>
+          <li>بعد إتمام البيانات سيقوم الرابط بإرسال نسخة من تذكرة معرض الكتاب في رسالة نصية، ونسخة على البريد الإلكتروني، تشمل تفاصيل يوم الدخول والوقت المحدد للزيارة.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Ticket Booking Section -->
+<div class="container-fluid description">
+  <div class="row m-5 p-5" >
+    <div class="col-md-4 col-l-1 d-flex justify-content-end align-items-center animate-text">
+      <div class="row m-5 justify-content-end" >
+        <h1 class="d-flex justify-content-end">أحجز تذكرتك الآن</h1>
+        <button class="btn btn-warning rounded-pill mt-5 p-2 w-75">أحجز الان</button>
+      </div>
+      
+      
+    </div>
+    <div class="col-md-8 col-l-9  animate-img">
+      <div class="ticket created-by-anniedotexe">
+        <div class="left">
+          <div class="image">
+            <p class="admit-one">
+              <span>أحجز الان</span>
+              <span>أحجز الان</span>
+              <span>أحجز الان</span>
+            </p>
+            <div class="ticket-number">
+              
+            </div>
+          </div>
+          <div class="ticket-info">
+            <p class="date">
+              <span>25</span>
+              <span class="june-29">يناير</span>
+              <span>2025</span>
+            </p>
+            <div class="show-name">
+              <h1>معرض القاهرة الدولي للكتاب</h1>
+              <h2>5</h2>
+              <h2>جنيهات</h2>
+            </div>
+            <div class="time">
+              <p>10:00 AM <span>TO</span> 11:00 PM</p>
+              <p>DOORS <span></span> 11:00 AM</p>
+            </div>
+            <p class="location">
+             
+             
+              <span>  القاهرة , أرض المعارض الدولية ..  التجمع الخامس</span>
+              
+            
+            </p>
+          </div>
+        </div>
+        <div class="right">
+          <p class="admit-one">
+            <span>أحجز الان</span>
+            <span>أحجز الان</span>
+            
+           
+          </p>
+          <div class="right-info-container m-2">
+            <div class="show-name">
+              <h1>معرض القاهرة الدولي للكتاب</h1>
+            </div>
+            <div class="time">
+              <p>10:00 AM <span>TO</span> 11:00 PM</p>
+              <p>DOORS <span></span> 11:00 AM</p>
+              
+            </div>
+            <div class="barcode m-3">
+              <img src="https://external-preview.redd.it/cg8k976AV52mDvDb5jDVJABPrSZ3tpi1aXhPjgcDTbw.png?auto=webp&s=1c205ba303c1fa0370b813ea83b9e1bddb7215eb" alt="QR code">
+            </div>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
