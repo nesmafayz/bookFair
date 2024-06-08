@@ -69,3 +69,16 @@ img{
     border-radius: 10px;
 }
 
+.text-white {
+    color: white;
+    background-color:#ff751a;
+    opacity:0.9;
+}
+
+  .counter{
+    font-size:50px;
+  }
+
+  .container-fluid, .container {
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}

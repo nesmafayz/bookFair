@@ -377,3 +377,8 @@ html {
   position: relative; 
   z-index: 2;
 }
+
+
+.container-fluid, .container {
+  overflow-x: hidden; 
+}

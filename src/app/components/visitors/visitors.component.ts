@@ -2,12 +2,13 @@ import { Component, OnInit  } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MapMarker } from '@angular/google-maps';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { NgxCountAnimationModule } from 'ngx-count-animation';
 
 
 @Component({
   selector: 'app-visitors',
   standalone: true,
-  imports: [RouterLink,MapMarker,GoogleMapsModule],
+  imports: [RouterLink,MapMarker,GoogleMapsModule,NgxCountAnimationModule ],
   templateUrl: './visitors.component.html',
   styleUrl: './visitors.component.css'
 })

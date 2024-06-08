@@ -7,6 +7,7 @@ import { PublisherComponent } from './components/publisher/publisher.component';
 import { CommonModule } from '@angular/common';
 import { GoogleMapsModule } from '@angular/google-maps';
 
+
 @Component({
   selector: 'app-root',
   standalone: true,
