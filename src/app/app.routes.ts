@@ -9,6 +9,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { VisitorsComponent } from './components/visitors/visitors.component';
 import { TransportsComponent } from './components/transports/transports.component';
+import { BookingComponent } from './components/booking/booking.component';
+
 
 export const routes: Routes = [
     {path:'', redirectTo:'Home' , pathMatch:'full'},
@@ -21,6 +23,10 @@ export const routes: Routes = [
     {path:'Register', component:RegisterComponent},
     {path:'Visitors', component:VisitorsComponent},
     {path:'Transports',component:TransportsComponent},
+    {path:'bookingTicket', component:BookingComponent},
     {path:'**', component:NotFoundComponent}
+   
+
+   
 
 ];
