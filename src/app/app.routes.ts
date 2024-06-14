@@ -15,6 +15,7 @@ import { BookingComponent } from './components/booking/booking.component';
 export const routes: Routes = [
     {path:'', redirectTo:'Home' , pathMatch:'full'},
     {path:'Home', component:HomeComponent},
+    {path:'Publisher', component:PublisherComponent},
     {path:'Bookstore', component: BookstoreComponent},
     {path:'Publisher', component: PublisherComponent},
     {path:'Donation', component: DonationComponent},
@@ -25,8 +26,5 @@ export const routes: Routes = [
     {path:'Transports',component:TransportsComponent},
     {path:'bookingTicket', component:BookingComponent},
     {path:'**', component:NotFoundComponent}
-   
-
-   
 
 ];
