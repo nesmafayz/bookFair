@@ -1,27 +1,27 @@
 <div class="container">
   <div class="row d-flex justify-content-center align-items-center mb-5">
-    <form class="form" dir="rtl">
+    <form (ngSubmit) = 'handleRegister(registerForm)' [formGroup] = 'registerForm' class="form" dir="rtl">
       <h1 class="d-flex justify-content-center">انشاء حساب</h1>
       
       <div class="flex-column">
         <label>الاسم</label>
       </div>
       <div class="inputForm">
-        <input placeholder="أدخل اسمك " class="input" type="text" />
+        <input formControlName = 'name' placeholder="أدخل اسمك " class="input" type="text" />
       </div>
       
       <div class="flex-column">
         <label>البريد الالكتروني</label>
       </div>
       <div class="inputForm">
-        <input placeholder="أدخل بريدك الالكتروني" class="input" type="text" />
+        <input formControlName = 'email' placeholder="أدخل بريدك الالكتروني" class="input" type="text" />
       </div>
       
       <div class="flex-column">
         <label>كلمة السر</label>
       </div>
       <div class="inputForm">
-        <input placeholder="أدخل كلمة السر" class="input" type="password" />
+        <input formControlName = 'password' placeholder="أدخل كلمة السر" class="input" type="password" />
       </div>
       
       <div class="flex-row">
