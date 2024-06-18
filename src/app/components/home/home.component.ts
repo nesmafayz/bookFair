@@ -2,6 +2,7 @@ import { AfterViewInit, Component } from '@angular/core';
 import { IBook } from '../../../models/ibook';
 import { CommonModule } from '@angular/common';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
+import { Router } from '@angular/router';
 
 
 
@@ -16,7 +17,7 @@ export class HomeComponent implements AfterViewInit {
   books: IBook[];
   customOptions: OwlOptions = {};
 
-  constructor() {
+  constructor(private router :Router) {
 
     this.books= [
       {
@@ -310,6 +311,9 @@ export class HomeComponent implements AfterViewInit {
       },
       nav: true,
     };
+    
   }
-
+  navigateToBooking(){
+    this.router.navigate(['/bookingTicket']);
+  }
 }
