@@ -1,1 +1,35 @@
-<p>publisher works!</p>
+<div class="container dark-mode">
+  <div class="title"></div>
+
+  <div class="filter d-flex mb-2 dark-mode-filter">
+    <div class="dropdown me-3 d-none d-md-inline-block">
+        <button type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" class="btn px-3 border rounded-4 dropdown-toggle dark-mode-dropdown"> إختر القاعة <!----></button>
+        <form novalidate class="dropdown-menu px-3 py-0 ng-untouched ng-pristine ng-valid dark-mode-dropdown-menu">
+            <div class="form-check py-2 my-1 border-top ng-star-inserted">
+                <input type="checkbox" class="form-check-input" id="52">
+                <label class="form-check-label text-secondary dark-mode-text" for="52"> صاله 1 </label>
+            </div>
+        </form>
+    </div>
+    <div class="dropdown me-3 d-none d-md-inline-block">
+        <button type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" class="btn px-3 border rounded-4 dropdown-toggle dark-mode-dropdown"> إختر التصنيفات <!----></button>
+        <form novalidate class="dropdown-menu px-3 py-0 ng-untouched ng-pristine ng-valid dark-mode-dropdown-menu" style="width: 300px;">
+            <div class="form-check py-2 my-1 ng-star-inserted">
+                <input type="checkbox" class="form-check-input" id="1">
+                <label class="form-check-label text-secondary dark-mode-text" for="1"> نشر عام </label>
+            </div>
+        </form>
+    </div>
+</div>
+
+  <div *ngFor="let publisher of publishers" class="publisher" (click)="onSelect(publisher)">
+    <h2>{{ publisher.name }}</h2>
+    <img [src]="publisher.logo" alt="{{ publisher.name }} Logo" class="publisher-logo">
+
+    <div *ngIf="selectedPublisher === publisher">
+      <div *ngFor="let book of publisher.books">
+        <p>{{ book.title }}: {{ book.pages }}</p>
+      </div>
+    </div>
+  </div>
+</div>

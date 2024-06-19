@@ -1,12 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { PublishersService } from '../../services/publishers.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-publisher',
+  selector: 'app-publishers',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './publisher.component.html',
   styleUrl: './publisher.component.css'
 })
-export class PublisherComponent {
+export class PublishersComponent implements OnInit {
+  publishers: any[] = [];
+  selectedPublisher: any = null;
 
+  constructor(private _publishersService: PublishersService) {}
+
+  ngOnInit(): void {
+    this.publishers = this._publishersService.getPublishers();
+  }
+  onSelect(publisher: any): void {
+    this.selectedPublisher = this.selectedPublisher === publisher ? null : publisher;
+  }
 }
