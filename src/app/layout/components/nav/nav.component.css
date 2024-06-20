@@ -16,8 +16,7 @@
   position: relative;
   display: inline-block;
   padding-bottom: 5px; 
-  color: inherit;
-
+  color: white !important;
 }
 
 .navbar-nav .nav-link::after {

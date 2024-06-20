@@ -9,7 +9,8 @@ export class TransportsService {
     "lines": [
       {
         "name": "الخط الأول",
-        "route": [
+        "route": 
+        [
           "عبد المنعم رياض",
           "رمسيس",
           "عباسية",

@@ -1,0 +1,87 @@
+.container {
+  font-family: Arial, sans-serif;
+  direction: rtl;
+  text-align: right;
+  padding: 20px;
+  color: #ff751a;
+  
+}
+.title{
+  margin: 70px;
+
+}
+.publisher {
+  border: 1px solid #ddd;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #3b3737;
+}
+.publisher h2 {
+  margin: 0;
+  font-size: 1.5em;
+  color: #ff751a;
+}
+.publisher p {
+  margin: 5px 0;
+  color: #ff751a;
+}
+.publisher-logo{
+border-radius: 50%;
+height: 100px;
+width: 100px;
+}
+.dark-mode-filter {
+  background-color: #333; /* Dark background color */
+  color: #fff; /* Light text color */
+}
+
+.dark-mode-search {
+  background-color: #555; /* Darker background color for search */
+  border-color: #555; /* Darker border color for search */
+}
+
+.dark-mode-search input {
+  background-color: #666; /* Darker input background color */
+  border-color: #666; /* Darker input border color */
+  color: #fff; /* Light input text color */
+}
+
+.dark-mode-search input::placeholder {
+  color: #ccc; /* Placeholder text color */
+}
+
+.dark-mode-dropdown {
+  background-color: #444; /* Darker background color for dropdown buttons */
+  border-color: #444; /* Darker border color for dropdown buttons */
+  color: #fff; /* Light text color for dropdown buttons */
+}
+
+.dark-mode-dropdown-menu {
+  background-color: #333; /* Dark background color for dropdown menus */
+  color: #fff; /* Light text color for dropdown menus */
+}
+
+.dark-mode-text {
+  color: #fff; /* Light text color for labels and checkboxes */
+}
+
+.dark-mode-offcanvas {
+  background-color: #222; /* Dark background color for offcanvas */
+  color: #fff; /* Light text color for offcanvas */
+}
+
+.dark-mode-accordion-button {
+  color: #fff; /* Light text color for accordion buttons */
+}
+
+.dark-mode-button {
+  background-color: #555; /* Darker background color for buttons */
+  border-color: #555; /* Darker border color for buttons */
+  color: #fff; /* Light text color for buttons */
+}
+
+.dark-mode-button:hover {
+  background-color: #777; /* Darker background color on button hover */
+  border-color: #777; /* Darker border color on button hover */
+}
