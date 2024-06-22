@@ -6,7 +6,6 @@
   gap: 10px;
   background: linear-gradient(45deg, #ff751a, darkorange); 
   padding: 30px;
-  width: 40%;
   border-radius: 20px;
   transition: background 0.3s ease;
 }
@@ -153,35 +152,4 @@ input[type="radio"] {
 .btn.google:hover {
 
   display: flex;
-}
-
-/* Media Queries for responsiveness */
-@media (min-width: 576px) {
-  .form {
-    width: 80%;
-  }
-}
-
-
-@media (min-width: 300px) {
-  .form {
-    width: 50%;
-  }
-}
-@media (min-width: 768px) {
-  .form {
-    width: 60%;
-  }
-}
-
-@media (min-width: 992px) {
-  .form {
-    width: 60%;
-  }
-}
-
-@media (min-width: 1200px) {
-  .form {
-    width: 60%;
-  }
 }
