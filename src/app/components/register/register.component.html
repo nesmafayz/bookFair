@@ -13,6 +13,15 @@
         <div class="inputForm">
           <input formControlName = 'name' placeholder="أدخل اسمك " class="input" type="text" />
         </div>
+        @if(registerForm.get('name')?.errors?.['required'] && registerForm.get('name')?.touched)
+        {
+          <span class="text-danger">⚠️ الاسم مطلوب</span>
+        }
+        @if(registerForm.get('name')?.errors?.['minLength'] && registerForm.get('name')?.touched)
+        {
+          <span class="text-danger">⚠️ يجب ألا يقل الاسم عن 3 أحرف</span>
+        }
+        
         
         <div class="flex-column">
           <label>البريد الالكتروني</label>
@@ -20,6 +29,11 @@
         <div class="inputForm">
           <input formControlName = 'email' placeholder="أدخل بريدك الالكتروني" class="input" type="text" />
         </div>
+
+        @if(registerForm.get('email')?.errors?.['required'] && registerForm.get('email')?.touched)
+          {
+            <span class="text-danger">⚠️ البريد الالكتروني مطلوب</span>
+          }
         
         <div class="flex-column">
           <label>كلمة السر</label>
@@ -27,13 +41,29 @@
         <div class="inputForm">
           <input formControlName = 'password' placeholder="أدخل كلمة السر" class="input" type="password" />
         </div>
+        @if(registerForm.get('password')?.errors?.['required'] && registerForm.get('password')?.touched)
+          {
+            <span class="text-danger">⚠️ كلمة السر مطلوبة</span>
+          }
+          @if(registerForm.get('password')?.errors?.['pattern'] && registerForm.get('password')?.touched)
+          {
+            <span class="text-danger">⚠️ يجب أن تكون كلمة السر على الأقل 8 أحرف، تحتوي على حرف كبير، حرف صغير ورمز خاص</span>
+          }
 
         <div class="flex-column">
           <label> تأكيد كلمة السر</label>
         </div>
         <div class="inputForm">
-          <input formControlName = 'password' placeholder="أدخل كلمة السر مرة أخرى" class="input" type="password" />
+          <input formControlName = 'repassword' placeholder="أدخل كلمة السر مرة أخرى" class="input" type="password" /> 
         </div>
+        @if(registerForm.get('repassword')?.errors?.['required'] && registerForm.get('repassword')?.touched)
+        {
+          <span class="text-danger">⚠️ الحقل مطلوب</span>
+        }
+        @if(registerForm.get('repassword')?.errors?.['repasswordMatch'] && registerForm.get('repassword')?.touched)
+        {
+       <span class="text-danger">⚠️ كلمتان السر غير متطابقتين</span>
+        }
         
         <div class="flex-row">
           <div>
@@ -42,7 +72,7 @@
           </div>
         </div>
         
-        <button class="button-submit">سجل دخول</button>
+        <button class="button-submit" [disabled]="registerForm.invalid">سجل دخول</button>
         <p class="p">لدي حساب بالفعل <span class="span"><a [routerLink]="['/Login']">تسجيل دخول</a></span></p>
         <p class="p line">سجل بواسطة</p>
         
