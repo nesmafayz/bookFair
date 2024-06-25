@@ -11,21 +11,21 @@ import { TransportsComponent } from './components/transports/transports.componen
 import { BookingComponent } from './components/booking/booking.component';
 import { PublishersComponent } from './components/publisher/publisher.component';
 import { LogoutComponent } from './logout/logout.component';
-
+import { BookDetailsComponent } from './components/bookstore/book-details/book-details.component';
 
 export const routes: Routes = [
-    {path:'', redirectTo:'Home' , pathMatch:'full'},
-    {path:'Home', component:HomeComponent},
-    {path:'Bookstore', component: BookstoreComponent},
-    {path:'Publisher', component: PublishersComponent},
-    {path:'Donation', component: DonationComponent},
-    {path:'MapGuide', component: MapGuideComponent},
-    {path:'Login', component: LoginComponent},
-    {path:'Logout', component:LogoutComponent },
-    {path:'Register', component:RegisterComponent},
-    {path:'Visitors', component:VisitorsComponent},
-    {path:'Transports',component:TransportsComponent},
-    {path:'bookingTicket', component:BookingComponent},
-    {path:'**', component:NotFoundComponent}
+    { path: '', redirectTo: 'Home', pathMatch: 'full' },
+    { path: 'Home', component: HomeComponent },
+    { path: 'Bookstore', component: BookstoreComponent },
+    { path: 'book-details/:id', component: BookDetailsComponent },
+    { path: 'Publisher', component: PublishersComponent },
+    { path: 'Donation', component: DonationComponent },
+    { path: 'MapGuide', component: MapGuideComponent },
+    { path: 'Login', component: LoginComponent },
+    { path: 'Register', component: RegisterComponent },
+    { path: 'Visitors', component: VisitorsComponent },
+    { path: 'Transports', component: TransportsComponent },
+    { path: 'bookingTicket', component: BookingComponent },
+    { path: '**', component: NotFoundComponent }
 
 ];
