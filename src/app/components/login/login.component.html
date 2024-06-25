@@ -1,40 +1,49 @@
-
 <div class="container">
-  <div class="row d-flex justify-content-end align-items-center mb-5" >
+  <div class="row d-flex justify-content-end align-items-center mb-5">
     <div class="col-lg-6">
       <img src="assets/images/login.png" alt="" class="w-100 mt-5">
     </div>
-<div class="col-lg-6">
-  <form class="form col-md-12" dir="rtl">
-    <div class="flex-column">
-      <h1 class=" d-flex justify-content-center">تسجيل الدخول</h1>
-      <label>البريد الالكتروني </label>
-    </div>
-    <div class="inputForm">
-     
-      <input placeholder="أدخل بريدك الالكتروني" class="input" type="text" />
-    </div>
-  
-    <div class="flex-column">
-      <label>كلمة السر </label>
-    </div>
-    <div class="inputForm">
-      
-       
-       
-      <input placeholder="أدخل كلمة السر " class="input" type="password" />
-    </div>
-  
-    <div class="flex-row">
-      
-      <span class="span">نسيت كلمة المرور؟</span>
-    </div>
-    <button class="button-submit">سجل دخول</button>
-    <p class="p">  ليس لدي حساب <span class="span"> <a [routerLink] ="['/Register']">انشاء حساب</a></span></p>
-  </form>
-  
-</div>
-</div>
+    <div class="col-lg-6">
+      <form class="form col-md-12" dir="rtl" [formGroup]="loginForm" (ngSubmit)="login()">
+        <h1 class="d-flex justify-content-center">تسجيل الدخول</h1>
 
+        <div class="flex-column">
+          <label>البريد الإلكتروني</label>
+        </div>
+        <div class="inputForm">
+          <input formControlName="email" placeholder="أدخل بريدك الإلكتروني" class="input" type="email" />
+        </div>
+        <div *ngIf="formControls['email']?.errors && formControls['email']?.touched" class="text-danger">
+          <span *ngIf="formControls['email']?.hasError('required')">
+            ⚠️ البريد الإلكتروني مطلوب
+          </span>
+          <span *ngIf="formControls['email']?.hasError('email')">
+            ⚠️ يجب أن يكون البريد الإلكتروني بتنسيق صحيح
+          </span>
+        </div>
+
+        <div class="flex-column">
+          <label>كلمة السر</label>
+        </div>
+        <div class="inputForm">
+          <input formControlName="password" placeholder="أدخل كلمة السر" class="input" type="password" />
+        </div>
+        <div *ngIf="formControls['password']?.errors && formControls['password']?.touched" class="text-danger">
+          <span *ngIf="formControls['password']?.hasError('required')">
+            ⚠️ كلمة السر مطلوبة
+          </span>
+        </div>
+
+        <button type="submit" class="button-submit" [disabled]="loginForm.invalid">تسجيل الدخول</button>
+
+        <p class="p">
+          ليس لديك حساب؟
+          <span class="span"><a routerLink="/Register">انشاء حساب</a></span>
+        </p>
+      </form>
+      <div *ngIf="errorMessage" class="alert alert-danger mt-2">
+        {{ errorMessage }}
+      </div>
+    </div>
+  </div>
 </div>
-   

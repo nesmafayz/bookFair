@@ -10,6 +10,7 @@ import { VisitorsComponent } from './components/visitors/visitors.component';
 import { TransportsComponent } from './components/transports/transports.component';
 import { BookingComponent } from './components/booking/booking.component';
 import { PublishersComponent } from './components/publisher/publisher.component';
+import { LogoutComponent } from './logout/logout.component';
 
 
 export const routes: Routes = [
@@ -20,6 +21,7 @@ export const routes: Routes = [
     {path:'Donation', component: DonationComponent},
     {path:'MapGuide', component: MapGuideComponent},
     {path:'Login', component: LoginComponent},
+    {path:'Logout', component:LogoutComponent },
     {path:'Register', component:RegisterComponent},
     {path:'Visitors', component:VisitorsComponent},
     {path:'Transports',component:TransportsComponent},
