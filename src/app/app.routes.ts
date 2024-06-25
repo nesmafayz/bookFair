@@ -22,6 +22,7 @@ export const routes: Routes = [
     { path: 'Donation', component: DonationComponent },
     { path: 'MapGuide', component: MapGuideComponent },
     { path: 'Login', component: LoginComponent },
+     { path: 'Logout', component: LogoutComponent },
     { path: 'Register', component: RegisterComponent },
     { path: 'Visitors', component: VisitorsComponent },
     { path: 'Transports', component: TransportsComponent },
