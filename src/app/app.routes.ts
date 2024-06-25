@@ -10,6 +10,7 @@ import { VisitorsComponent } from './components/visitors/visitors.component';
 import { TransportsComponent } from './components/transports/transports.component';
 import { BookingComponent } from './components/booking/booking.component';
 import { PublishersComponent } from './components/publisher/publisher.component';
+import { LogoutComponent } from './logout/logout.component';
 import { BookDetailsComponent } from './components/bookstore/book-details/book-details.component';
 
 export const routes: Routes = [
@@ -26,4 +27,5 @@ export const routes: Routes = [
     { path: 'Transports', component: TransportsComponent },
     { path: 'bookingTicket', component: BookingComponent },
     { path: '**', component: NotFoundComponent }
+
 ];
