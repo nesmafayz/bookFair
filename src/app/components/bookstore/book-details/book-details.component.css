@@ -1,0 +1,31 @@
+.image
+{
+    margin-top:130px;
+    margin-bottom:50px;
+ 
+
+}
+.content{
+    margin-top:150px;
+    margin-right:100px;
+}
+
+/* book-details.component.css */
+.sound-book-link {
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Display as block element */
+    padding: 10px 20px; /* Padding around text */
+    background-color: #ff751a; /* Button background color */
+    color: #fff; /* Button text color */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition */
+  }
+  
+  .sound-book-link:hover {
+    background-color: #ff8230; /* Darker background color on hover */
+  }
+  
+  .sound-book-link i {
+    margin-right: 5px; /* Adjust icon margin */
+  }
+  

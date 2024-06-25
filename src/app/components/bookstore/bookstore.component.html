@@ -1,1 +1,22 @@
-<p>bookstore works!</p>
+<div class="container" dir="rtl">
+  <div class="row">
+      <div class="col-lg-3 col-md-6 col-sm-12 mb-5" *ngFor="let book of books">
+          <div class="nft" (click)="redirectToBookDetails(book.id)" >
+              <div class='main'>
+                  <img class='tokenImage' [src]='book.imgUrl' alt="NFT" />
+                  <h2 class="mt-2">{{book.bookName}}</h2>
+                  <p class='description'>{{book.authorName}}</p>
+                  <div class='tokenInfo'>
+                      <div class="price">
+                          <p>صالة {{book.hall}}</p>
+                      </div>
+                      <div class="duration">
+                          <p>بلوك {{book.block}}</p>
+                      </div>
+                  </div>
+              </div>
+              <hr />
+          </div>
+      </div>
+  </div>
+</div>
