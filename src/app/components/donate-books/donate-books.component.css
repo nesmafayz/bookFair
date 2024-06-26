@@ -144,16 +144,22 @@
   }
   
   .modal-content{
-    height:100px ;
-    width:300px ;
+    position: absolute;
+    height:2px ;
+    width:200px ;
     margin-top: 100px;
   }
   .modal-body img {
-    display: block;
-    margin: 100px auto 15px;
-    max-width: 150px;
+    padding: 0;
+   position: relative;
+    max-width: 200px;
     height:150px;
-    text-align: center;
+ 
+  }
+
+  .modal-dialog{
+    height:100px ;
+    width: 100px;
   }
 
   
