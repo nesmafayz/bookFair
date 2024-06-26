@@ -1,0 +1,72 @@
+
+ 
+<div class="container">
+    <div class="row d-flex justify-content-end align-items-center mb-5">
+      <div class="col-lg-6">
+      
+        <img src="assets/images/donatee.png"  alt="" class="w-100 g-5">
+      </div>
+      <div class="col-lg-6">
+        <form (ngSubmit) = 'onSubmit(donateForm)' [formGroup] = 'donateForm' class="form" dir="rtl">
+          <h1 class="d-flex justify-content-center">تبرع بكتابك</h1>
+          
+          <div class="flex-column">
+            <label>الاسم</label>
+          </div>
+          <div class="inputForm">
+            <input formControlName = 'name' placeholder="أدخل اسمك " class="input" type="text" />
+          </div>
+          
+          <div class="flex-column">
+            <label>البريد الالكتروني</label>
+          </div>
+          <div class="inputForm">
+            <input formControlName = 'email' placeholder="أدخل بريدك الالكتروني" class="input" type="text" />
+          </div>
+          
+          <div class="flex-column">
+            <label>عنوان الكتاب</label>
+          </div>
+          <div class="inputForm">
+            <input formControlName = 'bookAddress' placeholder="أدخل عنوان" class="input" type="text" />
+        </div>
+  
+          <div class="flex-column">
+            <label>مؤلف الكتاب</label>
+          </div>
+          <div class="inputForm">
+            <input formControlName = 'authorName' placeholder="أدخل الاسم" class="input" type="text" />
+        </div>
+          <div class="flex-column">
+            <label >حالة الكتاب</label>
+        </div>
+        <div class="inputForm">
+            <input formControlName = 'bookCondition' placeholder="أدخل حالة الكتاب" class="input" type="textarea" />
+        </div>
+        <button class="button-submit">تبرع الآن</button>
+    </form>
+
+      </div>
+    </div>
+    
+      </div>
+      
+
+      <!-- Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Success</h5>
+               </div>
+        <div class="modal-body">
+            <img src="assets/images/done.jpg">
+          تم إرسال تبرعك بنجاح. شكرًا لتبرعك!
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

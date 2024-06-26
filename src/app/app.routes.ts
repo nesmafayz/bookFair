@@ -10,10 +10,25 @@ import { VisitorsComponent } from './components/visitors/visitors.component';
 import { TransportsComponent } from './components/transports/transports.component';
 import { BookingComponent } from './components/booking/booking.component';
 import { PublishersComponent } from './components/publisher/publisher.component';
+import { DonateBooksComponent } from './components/donate-books/donate-books.component';
+
 import { LogoutComponent } from './layout/components/logout/logout.component';
 import { BookDetailsComponent } from './components/bookstore/book-details/book-details.component';
 
 export const routes: Routes = [
+    {path:'', redirectTo:'Home' , pathMatch:'full'},
+    {path:'Home', component:HomeComponent},
+    {path:'Bookstore', component: BookstoreComponent},
+    {path:'Publisher', component: PublishersComponent},
+    {path:'Donation', component: DonationComponent},
+    {path:'MapGuide', component: MapGuideComponent},
+    {path:'Login', component: LoginComponent},
+    {path:'Register', component:RegisterComponent},
+    {path:'Visitors', component:VisitorsComponent},
+    {path:'Transports',component:TransportsComponent},
+    {path:'bookingTicket', component:BookingComponent},
+    {path:'donate-books',component:DonateBooksComponent},
+    {path:'**', component:NotFoundComponent},
     { path: '', redirectTo: 'Home', pathMatch: 'full' },
     { path: 'Home', component: HomeComponent },
     { path: 'Bookstore', component: BookstoreComponent },
