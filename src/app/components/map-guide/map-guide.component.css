@@ -1,0 +1,110 @@
+.map-container {
+    padding: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #000;
+    margin: 5px;
+    padding: 5px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.cell1 { background-color: yellow; height: 100px; width: 30px; }
+.cell2 { background-color: yellow; height: 30px; width: 100px; }
+.cell3 { background-color: lightskyblue; height: 30px; width: 100px; }
+.cell4 { background-color: lightskyblue; height: 50px; width: 100px; }
+.cell5 { background-color: lightslategray; height: 50px; width: 50px; }
+.cell6 { background-color: lightsalmon; height: 50px; width: 50px; }
+.cell7 { background-color: lightgreen; height: 60px; width: 50px; }
+.cell8 { background-color: lightskyblue; height: 60px; width: 50px; }
+.cell9 { background-color: lightgoldenrodyellow; height: 60px; width: 70px; }
+.cell10 { background-color: lightseagreen; height: 60px; width: 70px; }
+.cell11 { background-color: lightyellow; height: 60px; width: 70px; }
+.cell12 { background-color: lightcoral; height: 30px; width: 100px; }
+.cell13 { background-color: lightblue; height: 30px; width: 100px; }
+.cell14 { background-color: lightpink; height: 30px; width: 100px; }
+.cell15 { background-color: lightgray; height: 30px; width: 100px; }
+.cell16 { background-color: lightcyan; height: 30px; width: 100px; }
+.cell17 { background-color: lightsteelblue; height: 30px; width: 100px; }
+.cell18 { background-color: lightgoldenrodyellow; height: 30px; width: 100px; }
+.cell19 { background-color: lightgreen; height: 30px; width: 100px; }
+.cell20 { background-color: lightcoral; height: 30px; width: 100px; }
+.cell21 { background-color: lightpink; height: 30px; width: 100px; }
+.cell22 { background-color: lightcyan; height: 30px; width: 100px; }
+.cell23 { background-color: lightblue; height: 30px; width: 100px; }
+.cell24 { background-color: lightgray; height: 30px; width: 100px; }
+.cell25 { background-color: lightsalmon; height: 30px; width: 100px; }
+.cell26 { background-color: lightsteelblue; height: 30px; width: 100px; }
+.cell27 { background-color: lightgoldenrodyellow; height: 30px; width: 100px; }
+.cell28 { background-color: lightgreen; height: 30px; width: 100px; }
+.cell29 { background-color: lightcoral; height: 30px; width: 100px; }
+.cell30 { background-color: lightpink; height: 30px; width: 100px; }
+.cell31 { background-color: lightcyan; height: 30px; width: 100px; }
+.cell32 { background-color: lightblue; height: 30px; width: 100px; }
+.cell33 { background-color: lightgray; height: 30px; width: 100px; }
+.cell34 { background-color: lightsalmon; height: 30px; width: 100px; }
+.cell35 { background-color: lightsteelblue; height: 30px; width: 100px; }
+.cell36 { background-color: lightgoldenrodyellow; height: 30px; width: 100px; }
+.cell37 { background-color: lightgreen; height: 30px; width: 100px; }
+.cell38 { background-color: lightcoral; height: 30px; width: 100px; }
+.cell39 { background-color: lightpink; height: 30px; width: 100px; }
+.cell40 { background-color: lightcyan; height: 30px; width: 100px; }
+.cell41 { background-color: lightblue; height: 30px; width: 100px; }
+.cell42 { background-color: lightgray; height: 30px; width: 100px; }
+.cell43 { background-color: lightsalmon; height: 30px; width: 100px; }
+.cell44 { background-color: lightsteelblue; height: 30px; width: 100px; }
+.cell45 { background-color: lightgoldenrodyellow; height: 30px; width: 100px; }
+.cell46 { background-color: lightgreen; height: 30px; width: 100px; }
+.cell47 { background-color: lightcoral; height: 30px; width: 100px; }
+.cell48 { background-color: lightpink; height: 30px; width: 100px; }
+.cell49 { background-color: lightcyan; height: 30px; width: 100px; }
+.cell50 { background-color: lightblue; height: 30px; width: 100px; }
+.cell51 { background-color: lightgray; height: 30px; width: 100px; }
+.cell52 { background-color: lightsalmon; height: 30px; width: 100px; }
+.cell53 { background-color: lightsteelblue; height: 30px; width: 100px; }
+.cell54 { background-color: lightgoldenrodyellow; height: 30px; width: 100px; }
+.cell55 { background-color: lightgreen; height: 30px; width: 100px; }
+.cell56 { background-color: lightcoral; height: 30px; width: 100px; }
+.cell57 { background-color: lightpink; height: 30px; width: 100px; }
+.cell58 { background-color: lightcyan; height: 30px; width: 100px; }
+.cell59 { background-color: lightblue; height: 30px; width: 100px; }
+.cell60 { background-color: lightgray; height: 30px; width: 100px; }
+.cell61 { background-color: lightsalmon; height: 30px; width: 100px; }
+.cell62 { background-color: lightsteelblue; height: 30px; width: 100px; }
+.cell63 { background-color: lightgoldenrodyellow; height: 30px; width: 100px; }
+.cell64 { background-color: lightgreen; height: 30px; width: 100px; }
+.cell65 { background-color: lightcoral; height: 30px; width: 100px; }
+.cell66 { background-color: lightpink; height: 30px; width: 100px; }
+.cell67 { background-color: lightcyan; height: 30px; width: 100px; }
+.cell68 { background-color: lightblue; height: 30px; width: 100px; }
+.cell69 { background-color: lightgray; height: 30px; width: 100px; }
+.cell70 { background-color: lightsalmon; height: 30px; width: 100px; }
+.cell71 { background-color: lightsteelblue; height: 30px; width: 100px; }
+.cell72 { background-color: lightgoldenrodyellow; height: 30px; width: 100px; }
+.cell73 { background-color: lightgreen; height: 30px; width: 100px; }
+.cell74 { background-color: lightcoral; height: 30px; width: 100px; }
+.cell75 { background-color: lightpink; height: 30px; width: 100px; }
+.cell76 { background-color: lightcyan; height: 30px; width: 100px; }
+.cell77 { background-color: lightblue; height: 30px; width: 100px; }
+.cell78 { background-color: lightgray; height: 30px; width: 100px; }
+.cell79 { background-color: lightsalmon; height: 30px; width: 100px; }
+.cell80 { background-color: lightsteelblue; height: 30px; width: 100px; }
+.cell81 { background-color: lightgoldenrodyellow; height: 30px; width: 100px; }
+.cell82 { background-color: lightgreen; height: 30px; width: 100px; }
+.cell83 { background-color: lightcoral; height: 30px; width: 100px; }
+.cell84 { background-color: lightpink; height: 30px; width: 100px; }
+.cell85 { background-color: lightcyan; }
