@@ -1,23 +1,25 @@
 
-
 .page_404
 {
     
-    padding:40px 0; background:#fff; font-family: 'Arvo', serif;
+    background:#fff; font-family: 'Arvo', serif;
 }
 
 .page_404  img
 { 
     width:100%;
+
 }
 
 .four_zero_four_bg{
  
- background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
- background-size: cover; /* Ensures the image covers the entire container */
-    height: 100vh;
-    margin-left:200px;
-    background-position: center;
+ background-image: url('https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif');
+ background-repeat: no-repeat; /* Prevent background image from repeating */
+    height: 90vh;
+  
+ 
+   
+    
  }
  
  .four_zero_four_bg h1{
@@ -37,6 +39,9 @@
   .contant_box_404{ margin-top:-50px;}
 
   .btn{
-    background-color:#ff751a; 
-    border-color:#ff751a; 
+    background-color:var(--main-color);
+    border-color:var(--main-color); 
   }
+  h1, h2 {
+    text-shadow: 1px 1px 3px black; 
+}

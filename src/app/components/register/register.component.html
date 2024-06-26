@@ -1,51 +1,108 @@
 <div class="container">
   <div class="row d-flex justify-content-end align-items-center mb-5">
     <div class="col-lg-6">
-      <img src="assets/images/register.png"  alt="" class="w-100 g-5">
+      <img src="assets/images/register.png" alt="" class="w-100 g-5">
     </div>
     <div class="col-lg-6">
-      <form (ngSubmit) = 'handleRegister(registerForm)' [formGroup] = 'registerForm' class="form" dir="rtl">
+      <form (ngSubmit)="handleRegister(registerForm)" [formGroup]="registerForm" class="form" dir="rtl">
         <h1 class="d-flex justify-content-center">انشاء حساب</h1>
-        
+
+
+        <div class="flex-column">
+          <label> الاسم بالكامل</label>
+        </div>
+        <div class="inputForm">
+          <input formControlName="Fullname" placeholder="أدخل اسمك" class="input" type="text" />
+        </div>
+        <div *ngIf="registerForm.get('Fullname')?.errors && registerForm.get('Fullname')?.touched" class="text-danger">
+          <span *ngIf="registerForm.get('Fullname')?.getError('minlength')">
+            ⚠️ يجب ألا يقل الاسم بالكامل عن 3 أحرف
+          </span>
+          <span *ngIf="registerForm.get('Fullname')?.getError('required')">
+            ⚠️ الاسم بالكامل مطلوب
+          </span>
+        </div>
+
+
+
+        <!-- Name Field -->
         <div class="flex-column">
           <label>الاسم</label>
         </div>
         <div class="inputForm">
-          <input formControlName = 'name' placeholder="أدخل اسمك " class="input" type="text" />
+          <input formControlName="username" placeholder="أدخل اسمك" class="input" type="text" />
         </div>
-        
+        <div *ngIf="registerForm.get('username')?.errors && registerForm.get('username')?.touched" class="text-danger">
+          <span *ngIf="registerForm.get('username')?.getError('minlength')">
+            ⚠️ يجب ألا يقل الاسم عن 3 أحرف
+          </span>
+          <span *ngIf="registerForm.get('username')?.getError('required')">
+            ⚠️ الاسم مطلوب
+          </span>
+        </div>
+
+        <!-- Email Field -->
         <div class="flex-column">
           <label>البريد الالكتروني</label>
         </div>
         <div class="inputForm">
-          <input formControlName = 'email' placeholder="أدخل بريدك الالكتروني" class="input" type="text" />
+          <input formControlName="email" placeholder="أدخل بريدك الالكتروني" class="input" type="text" />
         </div>
-        
+        <div *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched" class="text-danger">
+          <span *ngIf="registerForm.get('email')?.getError('required')">
+            ⚠️ البريد الالكتروني مطلوب
+          </span>
+          <span *ngIf="registerForm.get('email')?.getError('email')">
+            ⚠️ البريد الالكتروني غير صحيح
+          </span>
+        </div>
+
+        <!-- Password Field -->
         <div class="flex-column">
           <label>كلمة السر</label>
         </div>
         <div class="inputForm">
-          <input formControlName = 'password' placeholder="أدخل كلمة السر" class="input" type="password" />
+          <input formControlName="password" placeholder="أدخل كلمة السر" class="input" type="password" />
+        </div>
+        <div *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched" class="text-danger">
+          <span *ngIf="registerForm.get('password')?.getError('pattern')">
+            ⚠️ يجب أن تكون كلمة السر على الأقل 8 أحرف، تحتوي على حرف كبير، حرف صغير ورمز خاص
+          </span>
+          <span *ngIf="registerForm.get('password')?.getError('required')">
+            ⚠️ كلمة السر مطلوبة
+          </span>
         </div>
 
+        <!-- Repassword Field -->
         <div class="flex-column">
-          <label> تأكيد كلمة السر</label>
+          <label>تأكيد كلمة السر</label>
         </div>
         <div class="inputForm">
-          <input formControlName = 'password' placeholder="أدخل كلمة السر مرة أخرى" class="input" type="password" />
+          <input formControlName="confirmPassword" placeholder="أدخل كلمة السر مرة أخرى" class="input" type="password" />
         </div>
-        
-        <div class="flex-row">
-          <div>
-            <input type="radio" />
-            <label>تذكرني</label>
-          </div>
+        <div *ngIf="registerForm.get('confirmPassword')?.errors && registerForm.get('confirmPassword')?.touched" class="text-danger">
+          <span *ngIf="registerForm.get('confirmPassword')?.getError('repasswordMatch')">
+            ⚠️ كلمتان السر غير متطابقتين
+          </span>
+          <span *ngIf="registerForm.get('confirmPassword')?.getError('required')">
+            ⚠️ الحقل مطلوب
+          </span>
         </div>
-        
-        <button class="button-submit">سجل دخول</button>
-        <p class="p">لدي حساب بالفعل <span class="span"><a [routerLink]="['/Login']">تسجيل دخول</a></span></p>
+
+
+        <!-- Submit Button -->
+        <button class="button-submit" [disabled]="registerForm.invalid">سجل دخول</button>
+
+        <!-- Already Have an Account -->
+        <p class="p">
+          لدي حساب بالفعل
+          <span class="span"><a [routerLink]="['/Login']">تسجيل دخول</a></span>
+        </p>
+
+        <!-- Register with -->
         <p class="p line">سجل بواسطة</p>
-        
+
+        <!-- Google Button -->
         <div class="flex-row">
           <button class="btn google">
             <svg
@@ -76,7 +133,7 @@
                 d="M416.253,455.624l0.014,0.014C372.396,490.901,316.666,512,256,512
                 c-97.491,0-182.252-54.491-225.491-134.681l82.961-67.91c21.619,57.698,77.278,98.771,142.53,98.771
                 c28.047,0,54.323-7.582,76.87-20.818L416.253,455.624z"
-                style="fill:#2844b4;"
+                style="fill:#28B446;"
               ></path>
               <path
                 d="M419.404,58.936l-82.933,67.896c-23.335-14.586-50.919-23.012-80.471-23.012
@@ -91,6 +148,4 @@
       </form>
     </div>
   </div>
-  
-    </div>
-    
+</div>

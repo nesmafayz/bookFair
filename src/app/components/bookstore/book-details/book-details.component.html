@@ -1,0 +1,21 @@
+<div class="container d-flex justify-content-center align-items-center" dir="rtl">
+    <div class="row">
+      <div class="col-lg-4 image d-flex align-items-center">
+        <img class="w-100 h-100 rounded-2" [src]="book?.imgUrl" alt="Book Image">
+      </div>
+      <div class="col-lg-6 content">
+        <h1>{{ book?.bookName }}</h1>
+        <p><strong>اسم المؤلف:</strong> {{ book?.authorName }}</p>
+        <p><strong>صالة:</strong> {{ book?.hall }}</p>
+        <p><strong>بلوك:</strong> {{ book?.block }}</p>
+        <p><strong> سنة النشر:</strong> {{ book?.publishingYear }}</p>
+        <p><strong>عدد الصفحات:</strong> {{ book?.pages }}</p>
+        <p><strong>التصنيف:</strong> {{ book?.category }}</p>
+  
+        <a *ngIf="book?.soundBook" [href]="book.soundBook" target="_blank" class="sound-book-link">
+            <i class="fas fa-headphones"></i> يمكنك الان الاستماع الي الكتاب الصوتي من هنا
+        </a>
+      </div>
+    </div>
+  </div>
+  
