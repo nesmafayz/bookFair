@@ -62,6 +62,14 @@ img{
     margin-bottom: 20px;
 }
 
+
+.map
+{
+    width: 100vw;
+    height: 500px; 
+    border: none;
+    
+}
 .virtual-tour-iframe {
     width: 70vw;
     height: 500px; 
@@ -82,3 +90,39 @@ img{
   .container-fluid, .container {
     overflow-x: hidden; /* Prevent horizontal scroll */
 }
+
+a {
+    color: rgba(255, 255, 255, 0.692);
+    padding: 10px 15px;
+    display: flex;
+    justify-content:flex-end ;
+    align-items: center;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.397);
+    background: rgba(255, 255, 255, 0.068);
+    overflow: hidden;
+    font-size: 0.9rem;
+    font-weight: 600;
+   width:22%;
+    border-radius: 5px;
+    text-decoration:none;
+    transition: 0.2s;
+    border: 1px solid transparent;
+  }
+  
+  a:hover {
+    border-color: rgba(255, 255, 255, 0.623);
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.144),
+      rgba(255, 255, 255, 0.247),
+      rgba(255, 255, 255, 0.39)
+    );
+    box-shadow: 0 6px rgba(255, 255, 255, 0.623);
+    transform: translateY(-6px);
+  }
+  
+  a:active {
+    transform: translateY(2px);
+    box-shadow: none;
+  }
+  
