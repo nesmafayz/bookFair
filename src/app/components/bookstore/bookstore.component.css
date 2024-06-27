@@ -1,5 +1,5 @@
 .col-lg-3{
-margin-top:100px;
+margin-top:60px;
 }
 .nft{
     user-select:none;
@@ -125,3 +125,56 @@ margin-top:100px;
       filter: opacity(0.5);
     }
   }
+
+
+  .head{
+    margin-top:70px;
+  }
+
+  .searchBox {
+    display: flex;
+    max-width: 500px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    background: #2f3640;
+    border-radius: 50px;
+    position: relative;
+  }
+  
+  .searchButton {
+    color: white;
+    position: absolute;
+    left: 8px; /* Changed from right to left */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--gradient-2, linear-gradient(90deg, #ffd699 0%, #ff751a 100%));
+    border: 0;
+    display: inline-block;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  }
+  
+  /* Hover effect */
+  button:hover {
+    color: #fff;
+    background-color: #1a1a1a;
+    box-shadow: rgba(0, 0, 0, 0.5) 0 10px 20px;
+    transform: translateY(-3px);
+  }
+  
+  /* Button pressing effect */
+  button:active {
+    box-shadow: none;
+    transform: translateY(0);
+  }
+  
+  .searchInput {
+    border: none;
+    background: none;
+    outline: none;
+    color: white;
+    font-size: 15px;
+    padding: 24px 26px 24px 46px; /* Adjust padding to make room for the icon */
+  }
+  

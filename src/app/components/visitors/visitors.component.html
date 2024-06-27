@@ -15,7 +15,7 @@
                             <div class="col-md-12 col-l-6 m-0">
                                 <h1>دليل الزوار</h1>
                                 <h2>نوصي بحجز تذكرتك عبر الإنترنت قبل زيارتك ، وبهذه الطريقة ستتخطى أي قوائم انتظار عند الدخول للمعرض</h2>
-                                <a routerLink="/" class="btn btn-primary rounded-pill w-25 mt-3">احجز الآن</a>
+                                <a routerLink="/bookingTicket" class="btn btn-primary rounded-pill w-25 mt-3">احجز الآن</a>
                             </div>
                         </div>
                     </div>
@@ -24,15 +24,30 @@
         </div>
     </div>
 </div>
-
+<div class="container mx-auto">
+    <div class="row d-flex justify-content-center">
+        <a href="assets/files/map.pdf" download
+        ><svg
+          viewBox="0 0 256 256"
+          height="32"
+          width="38"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M74.34 85.66a8 8 0 0 1 11.32-11.32L120 108.69V24a8 8 0 0 1 16 0v84.69l34.34-34.35a8 8 0 0 1 11.32 11.32l-48 48a8 8 0 0 1-11.32 0ZM240 136v64a16 16 0 0 1-16 16H32a16 16 0 0 1-16-16v-64a16 16 0 0 1 16-16h52.4a4 4 0 0 1 2.83 1.17L111 145a24 24 0 0 0 34 0l23.8-23.8a4 4 0 0 1 2.8-1.2H224a16 16 0 0 1 16 16m-40 32a12 12 0 1 0-12 12a12 12 0 0 0 12-12"
+            fill="currentColor"
+          ></path></svg
+      >يمكنك تحميل خريطة المعرض من هنا</a>
+          </div>
+</div>
   
 <div class="container text-center text-white pt-5 pb-3 mt-5 mx-auto rounded-pill">
     <div class="row mb-5">
       <!-- First section -->
       <div class="col-md-4">
        
-        <div class="counter" ngxCountAnimation="3808624" duration="3000" highPerformance="true"></div>
-        <h2> زائر</h2>
+        <div class="counter" ngxCountAnimation="56" duration="3000" highPerformance="true"></div>
+        <h2> الدورة</h2>
       </div>
       <!-- Second section -->
       <div class="col-md-4">
@@ -67,13 +82,13 @@
 
 
 <!-- Virtual Tour Section -->
-<div class="container-fluid virtual-tour-section" id="section3">
+<div class="container-fluid " id="section3">
     <div class="row m-3 p-3">
         <div class="col-md-12 d-flex justify-content-center align-items-center">
             <section class="virtual-tour m-5">
                 <h1 class="text-center">الموقع</h1>
                 <iframe 
-                    class="virtual-tour-iframe mt-3" 
+                    class="map mt-3" 
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.901295755831!2d31.38403141511211!3d30.01451718188366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583c5d56f22421%3A0x492fa96d046d8955!2z2KfZhNiv2KfYqiDZhdmF2YrZhtmK2Kkg2KfZhNin2YbYp9iv!5e0!3m2!1sen!2seg!4v1683556964563!5m2!1sen!2seg" 
                     frameborder="0" 
                     allowfullscreen 

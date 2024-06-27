@@ -20,6 +20,9 @@ export class RegisterComponent {
       username: new FormControl(null, [Validators.required, Validators.minLength(3)]),
       Fullname: new FormControl(null, [Validators.required, Validators.minLength(3)]),
       email: new FormControl(null, [Validators.required, Validators.email]),
+      location: new FormControl(null, [Validators.required]),
+      bio: new FormControl(null, [Validators.required]),
+      profileImage: new FormControl(null, [Validators.required]),
       password: new FormControl(null, [
         Validators.required,
         Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}$/)
