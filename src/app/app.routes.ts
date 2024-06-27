@@ -14,40 +14,31 @@ import { DonateBooksComponent } from './components/donate-books/donate-books.com
 
 import { LogoutComponent } from './layout/components/logout/logout.component';
 import { BookDetailsComponent } from './components/bookstore/book-details/book-details.component';
+import { AuthorComponent } from './components/author/author.component';
+import { AuthorDetailsComponent } from './components/author/author-details/author-details.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
 import { CartComponent } from './components/cart/cart.component';
 import { PaymentComponent } from './components/payment/payment.component';
 
 export const routes: Routes = [
-    {path:'', redirectTo:'Home' , pathMatch:'full'},
-    {path:'Home', component:HomeComponent},
-    {path:'Bookstore', component: BookstoreComponent},
-    {path:'Publisher', component: PublishersComponent},
-    {path:'Donation', component: DonationComponent},
-    {path:'MapGuide', component: MapGuideComponent},
-    {path:'Login', component: LoginComponent},
-    {path:'Register', component:RegisterComponent},
-    {path:'Visitors', component:VisitorsComponent},
-    {path:'Transports',component:TransportsComponent},
-    {path:'bookingTicket', component:BookingComponent},
-    {path:'donate-books',component:DonateBooksComponent},
-    {path:'**', component:NotFoundComponent},
     { path: '', redirectTo: 'Home', pathMatch: 'full' },
     { path: 'Home', component: HomeComponent },
     { path: 'Bookstore', component: BookstoreComponent },
     { path: 'book-details/:id', component: BookDetailsComponent },
-    {path:'favorites',component:FavoritesComponent},
-    {path:'cart',component:CartComponent},
-    {path:'payment',component:PaymentComponent},
+    { path: 'Author', component: AuthorComponent },
+    { path: 'author-details/:id', component: AuthorDetailsComponent },
     { path: 'Publisher', component: PublishersComponent },
     { path: 'Donation', component: DonationComponent },
     { path: 'MapGuide', component: MapGuideComponent },
     { path: 'Login', component: LoginComponent },
-     { path: 'Logout', component: LogoutComponent },
+    { path: 'Logout', component: LogoutComponent },
     { path: 'Register', component: RegisterComponent },
     { path: 'Visitors', component: VisitorsComponent },
     { path: 'Transports', component: TransportsComponent },
     { path: 'bookingTicket', component: BookingComponent },
+    { path: 'donate-books', component: DonateBooksComponent },
+    { path: 'favorites', component: FavoritesComponent },
+    { path: 'cart', component: CartComponent },
+    { path: 'payment', component: PaymentComponent },
     { path: '**', component: NotFoundComponent }
-
 ];
