@@ -14,6 +14,9 @@ import { DonateBooksComponent } from './components/donate-books/donate-books.com
 
 import { LogoutComponent } from './layout/components/logout/logout.component';
 import { BookDetailsComponent } from './components/bookstore/book-details/book-details.component';
+import { FavoritesComponent } from './components/favorites/favorites.component';
+import { CartComponent } from './components/cart/cart.component';
+import { PaymentComponent } from './components/payment/payment.component';
 
 export const routes: Routes = [
     {path:'', redirectTo:'Home' , pathMatch:'full'},
@@ -33,6 +36,9 @@ export const routes: Routes = [
     { path: 'Home', component: HomeComponent },
     { path: 'Bookstore', component: BookstoreComponent },
     { path: 'book-details/:id', component: BookDetailsComponent },
+    {path:'favorites',component:FavoritesComponent},
+    {path:'cart',component:CartComponent},
+    {path:'payment',component:PaymentComponent},
     { path: 'Publisher', component: PublishersComponent },
     { path: 'Donation', component: DonationComponent },
     { path: 'MapGuide', component: MapGuideComponent },
