@@ -1,22 +1,24 @@
-// auth.service.ts
-
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { environment } from '../../environments/environment'; 
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService 
-{
-  private apiUrl = environment.baseUrl; 
+export class AuthService {
+  private apiUrl = environment.baseUrl;
+  private loggedIn = new BehaviorSubject<boolean>(this.isUserLoggedIn());
 
   constructor(private http: HttpClient) {}
 
   isUserLoggedIn(): boolean {
     return localStorage.getItem('userToken') !== null;
+  }
+
+  get isLoggedIn(): Observable<boolean> {
+    return this.loggedIn.asObservable();
   }
 
   login(email: string, password: string): Observable<boolean> {
@@ -25,7 +27,8 @@ export class AuthService
         map(response => {
           if (response && response.token) {
             localStorage.setItem('userToken', response.token);
-            return true;
+            this.loggedIn.next(true);
+            return false;
           }
           return false;
         })
@@ -34,5 +37,14 @@ export class AuthService
 
   logout(): void {
     localStorage.removeItem('userToken');
+    this.loggedIn.next(false);
+  }
+
+  checkTokenAndRedirect(): boolean {
+    if (this.isUserLoggedIn()) {
+      this.loggedIn.next(false);
+      return false;
+    }
+    return false;
   }
 }

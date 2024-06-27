@@ -1,3 +1,4 @@
+<!-- nav.component.html -->
 <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
   <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -7,10 +8,10 @@
     <div class="mx-auto">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a *ngIf="!isUserLogged" class="nav-link" routerLink="/Login">تسجيل دخول</a>
-          <a *ngIf="isUserLogged" class="nav-link" (click)="logout()">تسجيل خروج</a>
+          <a *ngIf="!isLoggedIn" class="nav-link" routerLink="/Login">تسجيل دخول</a>
+          <a *ngIf="isLoggedIn" class="nav-link" (click)="logout()">تسجيل خروج</a>
         </li>
-        <li class="nav-item" *ngIf="isUserLogged">
+        <li class="nav-item" *ngIf="!isLoggedIn">
           <a class="nav-link" routerLink="/Register">انشاء حساب</a>
         </li>
         <li class="nav-item">
@@ -34,7 +35,6 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/Bookstore">متجر الكتب</a>
         </li>
-      
         <li class="nav-item active">
           <a class="nav-link" routerLink="/Home">الرئيسية</a>
         </li>
