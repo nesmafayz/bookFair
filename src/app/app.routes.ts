@@ -12,12 +12,16 @@ import { BookingComponent } from './components/booking/booking.component';
 import { PublishersComponent } from './components/publisher/publisher.component';
 import { LogoutComponent } from './logout/logout.component';
 import { BookDetailsComponent } from './components/bookstore/book-details/book-details.component';
+import { AuthorComponent } from './components/author/author.component';
+import { AuthorDetailsComponent } from './components/author/author-details/author-details.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'Home', pathMatch: 'full' },
     { path: 'Home', component: HomeComponent },
     { path: 'Bookstore', component: BookstoreComponent },
     { path: 'book-details/:id', component: BookDetailsComponent },
+    { path: 'Author', component: AuthorComponent},
+    { path: 'author-details/:id', component:AuthorDetailsComponent },
     { path: 'Publisher', component: PublishersComponent },
     { path: 'Donation', component: DonationComponent },
     { path: 'MapGuide', component: MapGuideComponent },
