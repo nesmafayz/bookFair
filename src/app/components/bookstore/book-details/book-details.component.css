@@ -1,31 +1,71 @@
-.image
-{
-    margin-top:130px;
-    margin-bottom:50px;
- 
-
+.image {
+  margin-top: 130px;
+  margin-bottom: 50px;
 }
-.content{
-    margin-top:150px;
-    margin-right:100px;
+
+.content {
+  margin-top: 150px;
+  margin-right: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 /* book-details.component.css */
 .sound-book-link {
-    text-decoration: none; /* Remove underline */
-    display: inline-block; /* Display as block element */
-    padding: 10px 20px; /* Padding around text */
-    background-color: #ff751a; /* Button background color */
-    color: #fff; /* Button text color */
-    border-radius: 5px; /* Rounded corners */
-    transition: background-color 0.3s ease; /* Smooth transition */
-  }
-  
-  .sound-book-link:hover {
-    background-color: #ff8230; /* Darker background color on hover */
-  }
-  
-  .sound-book-link i {
-    margin-right: 5px; /* Adjust icon margin */
-  }
-  
+  text-decoration: none; /* Remove underline */
+  display: inline-block; /* Display as block element */
+  padding: 10px 20px; /* Padding around text */
+  background-color: #ff751a; /* Button background color */
+  color: #fff; /* Button text color */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.sound-book-link:hover {
+  background-color: #ff8230; /* Darker background color on hover */
+}
+
+.sound-book-link i {
+  margin-right: 5px; /* Adjust icon margin */
+}
+
+.button-group {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-top: auto; /* Align buttons to the bottom of content */
+}
+
+.button-group .btn {
+  flex: 1;
+  padding: 9px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-radius: 5px;
+}
+
+.button-group .btn i {
+  margin-left: 5px;
+}
+
+.button-group .favorite-btn {
+  background-color: red;
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.button-group .cart-btn {
+  background-color: #ff751a;
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.button-group .favorite-btn:hover {
+  background-color: #ff3333; /* Lighter red color on hover */
+}
+
+.button-group .cart-btn:hover {
+  background-color: #ff8533; /* Lighter orange color on hover */
+}
+
