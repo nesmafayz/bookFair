@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule  } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import * as bootstrap from 'bootstrap';
 import { Modal } from 'bootstrap';
 
 @Component({
@@ -14,19 +13,26 @@ import { Modal } from 'bootstrap';
   styleUrl: './donate-books.component.css'
 })
 export class DonateBooksComponent {
-  donateForm:FormGroup = new FormGroup({
-    name:new FormControl(null, [Validators.required, Validators.minLength(3)]),
-    email:new FormControl(null, [Validators.required, Validators.email]),
-    bookAddress:new FormControl(null, [Validators.required]),
-    authorName :new FormControl(null, [Validators.required]),
-    bookCondition:new FormControl(null, [Validators.required])
-  })
-  onSubmit(donateForm:FormGroup) {
-    debugger;
-    console.log(donateForm);
-    
+  donateForm: FormGroup = new FormGroup({
+    name: new FormControl(null, [Validators.required, Validators.minLength(3)]),
+    quantity: new FormControl(null, [Validators.required,Validators. pattern("^[1-9]\\d*$") ]),
+    bookAddress: new FormControl(null, [Validators.required]),
+    authorName: new FormControl(null, [Validators.required]),
+  });
+
+  onSubmit() {
+ debugger;
+    if (this.donateForm.invalid) {
+      this.donateForm.markAllAsTouched();  // Mark all fields as touched to show validation errors
+      alert("الرجاء ملء جميع الحقول المطلوبة بشكل صحيح.");
+      
+      return;
+    }
+   
+    console.log(this.donateForm.value);
     this.showSuccessMessage();
   }
+
   showSuccessMessage() {
     const modalElement = document.getElementById('successModal');
     if (modalElement) {
@@ -34,5 +40,4 @@ export class DonateBooksComponent {
       modal.show();
     }
   }
-
 }

@@ -1,71 +1,78 @@
-
- 
 <div class="container">
-    <div class="row d-flex justify-content-end align-items-center mb-5">
-      <div class="col-lg-6">
-      
-        <img src="assets/images/donatee.png"  alt="" class="w-100 g-5">
-      </div>
-      <div class="col-lg-6">
-        <form (ngSubmit) = 'onSubmit(donateForm)' [formGroup] = 'donateForm' class="form" dir="rtl">
-          <h1 class="d-flex justify-content-center">تبرع بكتابك</h1>
-          
-          <div class="flex-column">
-            <label>الاسم</label>
-          </div>
-          <div class="inputForm">
-            <input formControlName = 'name' placeholder="أدخل اسمك " class="input" type="text" />
-          </div>
-          
-          <div class="flex-column">
-            <label>البريد الالكتروني</label>
-          </div>
-          <div class="inputForm">
-            <input formControlName = 'email' placeholder="أدخل بريدك الالكتروني" class="input" type="text" />
-          </div>
-          
-          <div class="flex-column">
-            <label>عنوان الكتاب</label>
-          </div>
-          <div class="inputForm">
-            <input formControlName = 'bookAddress' placeholder="أدخل عنوان" class="input" type="text" />
-        </div>
-  
-          <div class="flex-column">
-            <label>مؤلف الكتاب</label>
-          </div>
-          <div class="inputForm">
-            <input formControlName = 'authorName' placeholder="أدخل الاسم" class="input" type="text" />
-        </div>
-          <div class="flex-column">
-            <label >حالة الكتاب</label>
-        </div>
-        <div class="inputForm">
-            <input formControlName = 'bookCondition' placeholder="أدخل حالة الكتاب" class="input" type="textarea" />
-        </div>
-        <button class="button-submit">تبرع الآن</button>
-    </form>
-
-      </div>
+  <div class="row d-flex justify-content-end align-items-center mb-5">
+    <div class="col-lg-6">
+      <img src="assets/images/donatee.png" alt="" class="w-100 g-5">
     </div>
-    
-      </div>
-      
+    <div class="col-lg-6">
+      <form [formGroup]="donateForm" (ngSubmit)="onSubmit()" class="form" dir="rtl">
+        <h1 class="d-flex justify-content-center">تبرع بكتابك</h1>
 
-      <!-- Modal -->
-<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Success</h5>
-               </div>
-        <div class="modal-body">
-            <img src="assets/images/done.jpg">
-          تم إرسال تبرعك بنجاح. شكرًا لتبرعك!
-        
-        <div class="modal-footer">
-          <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+        <div class="flex-column">
+          <label>الاسم</label>
+          <div class="inputForm">
+            <input formControlName="name" placeholder="أدخل اسمك" class="input" type="text" required />
+            <div *ngIf="donateForm.controls['name'].invalid && (donateForm.controls['name'].dirty || donateForm.controls['name'].touched)">
+              <div *ngIf="donateForm.controls['name'].errors?.['required']">
+                الاسم مطلوب.
+              </div>
+              <div *ngIf="donateForm.controls['name'].errors?.['minlength']">
+                الاسم يجب أن يكون على الأقل 3 أحرف.
+              </div>
+            </div>
+          </div>
         </div>
+
+        <div class="flex-column">
+          <label>اختر الكتاب</label>
+          <div class="inputForm">
+            <input formControlName="bookAddress" placeholder="اختر صورة الكتاب" class="input" type="file" />
+            <div *ngIf="donateForm.controls['bookAddress'].invalid && (donateForm.controls['bookAddress'].dirty || donateForm.controls['bookAddress'].touched)">
+              <small *ngIf="donateForm.controls['bookAddress'].errors?.['required']" class="text-danger">صورة الكتاب مطلوبة.</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-column">
+          <label>الكمية</label>
+          <div class="inputForm">
+            <input formControlName="quantity" placeholder="اختر كمية الكتاب" class="input" type="number" />
+            <div *ngIf="donateForm.controls['quantity'].invalid && (donateForm.controls['quantity'].dirty || donateForm.controls['quantity'].touched)">
+              <small *ngIf="donateForm.controls['quantity'].errors?.['required']" class="text-danger">الكمية مطلوبة.</small>
+              <small *ngIf="donateForm.controls['quantity'].hasError('pattern')" class="text-danger">الكمية يجب أن تكون عددًا موجبًا.</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-column">
+          <label>اسم المؤلف</label>
+          <div class="inputForm">
+            <input formControlName="authorName" placeholder="أدخل اسم المؤلف" class="input" type="text" />
+            <div *ngIf="donateForm.controls['authorName'].invalid && (donateForm.controls['authorName'].dirty || donateForm.controls['authorName'].touched)">
+              <small *ngIf="donateForm.controls['authorName'].errors?.['required']" class="text-danger">اسم المؤلف مطلوب.</small>
+              
+            </div>
+          </div>
+        </div>
+
+        <button class="button-submit"  type="submit">تبرع الآن</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">نجاح</h5>
+      </div>
+      <div class="modal-body">
+        <img src="assets/images/done.jpg">
+        تم إرسال تبرعك بنجاح. شكرًا لتبرعك!
+      </div>
+      <div class="modal-footer">
+        <button type="button"  class="btn btn-warning" data-bs-dismiss="modal">إغلاق</button>
       </div>
     </div>
   </div>
