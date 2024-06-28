@@ -18,6 +18,7 @@ export class DonateBooksComponent {
     quantity: new FormControl(null, [Validators.required,Validators. pattern("^[1-9]\\d*$") ]),
     bookAddress: new FormControl(null, [Validators.required]),
     authorName: new FormControl(null, [Validators.required]),
+    donationDate:new FormControl(null,[Validators.required])
   });
 
   onSubmit() {

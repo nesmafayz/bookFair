@@ -54,6 +54,16 @@
           </div>
         </div>
 
+        <div class="flex-column">
+          <label>تاريخ التبرع</label>
+          <div class="inputForm">
+            <input formControlName="donationDate" placeholder="أدخل تاريخ التبرع" class="input" type="date" />
+            <div *ngIf="donateForm.controls['donationDate'].invalid && (donateForm.controls['donationDate'].dirty || donateForm.controls['donationDate'].touched)">
+              <small *ngIf="donateForm.controls['donationDate'].errors?.['required']" class="text-danger">تاريخ التبرع مطلوب.</small>
+            </div>
+          </div>
+        </div>
+
         <button class="button-submit"  type="submit">تبرع الآن</button>
       </form>
     </div>
