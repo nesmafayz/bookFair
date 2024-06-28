@@ -1,8 +1,36 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+.content {
+  min-height: calc(60vh ); 
+  padding-bottom: 120px; 
+}
+.footer {
+  background-color: black;
+  color: white;
+  text-align: center;
+  width: 100%;
+  position: relative; 
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 10px 0;
+}
+.social-link {
+  color: white;
+  text-decoration: none;
+  margin: 0 5px;
+}
 .social-link:hover {
-    color:#ff751a !important;
-  }
-  
-  .text-body:hover {
-    color:#ff751a !important;
-  }
-  
+  color: #ff751a;
+}
+.footer .container {
+  padding-top: 20px;
+}
+.footer .text-white {
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.05);
+}
