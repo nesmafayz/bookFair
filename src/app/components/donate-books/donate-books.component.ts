@@ -4,7 +4,7 @@ import { FormControl, FormGroup, Validators, ReactiveFormsModule  } from '@angul
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import * as bootstrap from 'bootstrap';
-import { Modal } from 'bootstrap';
+ import { Modal } from 'bootstrap';
 
 @Component({
   selector: 'app-donate-books',
@@ -29,10 +29,12 @@ export class DonateBooksComponent {
   }
   showSuccessMessage() {
     const modalElement = document.getElementById('successModal');
-    if (modalElement) {
+   if (modalElement) {
       const modal = new Modal(modalElement);
-      modal.show();
-    }
+     modal.show();
+   }
+   
+   }
   }
 
-}
+
