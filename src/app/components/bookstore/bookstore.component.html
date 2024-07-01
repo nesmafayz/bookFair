@@ -7,8 +7,8 @@
 <div class="container">
     <div class="row d-flex justify-content-center align-items-center mt-5">
       <div class="searchBox">
-        <input dir="rtl" class="searchInput w-100" type="text" name="" placeholder="أبحث عن كتاب" />
-        <button class="searchButton" href="#">
+        <input dir="rtl" class="searchInput w-100" type="text" name="" placeholder="أبحث عن كتاب" [(ngModel)]="searchTerm" (keyup.enter)="searchBooks()" />
+        <button class="searchButton" (click)="searchBooks()">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="29"

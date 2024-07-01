@@ -4,10 +4,7 @@ body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
 }
-.content {
-  min-height: calc(60vh ); 
-  padding-bottom: 120px; 
-}
+
 .footer {
   background-color: black;
   color: white;

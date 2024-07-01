@@ -1,32 +1,3 @@
-import { Component, OnInit } from '@angular/core';
-import { BooksService } from '../../services/books.service';
-import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
-
-
-@Component({
-  selector: 'app-bookstore',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './bookstore.component.html',
-  styleUrl: './bookstore.component.css'
-})
-export class BookstoreComponent implements OnInit {
- books: any[] = [];
-
-  constructor(private _bookService: BooksService, private router: Router) { }
-
-  ngOnInit(): void {
-    this.books = this._bookService.getBooks();
-  }
-
-  redirectToBookDetails(id: number): void {
-    this.router.navigate(['/book-details', id]);
-  }
-}
-
-
-
 // import { Component, OnInit } from '@angular/core';
 // import { BooksService } from '../../services/books.service';
 // import { CommonModule } from '@angular/common';
@@ -41,46 +12,101 @@ export class BookstoreComponent implements OnInit {
 //   styleUrl: './bookstore.component.css'
 // })
 // export class BookstoreComponent implements OnInit {
-//   books: any[] = [];
-//   pageNo: number = 1;
-//   pageSize: number = 8;
-//   totalPages:number = 1;
-//   errorMessage: string = '';
-
+//  books: any[] = [];
 
 //   constructor(private _bookService: BooksService, private router: Router) { }
 
-//   ngOnInit() {
-//     this.loadBooks();
-    
+//   ngOnInit(): void {
+//     this.books = this._bookService.getBooks();
 //   }
 
-//   loadBooks()
-//   {
-//     return this._bookService.getBooksList(this.pageNo, this.pageSize).subscribe({
-//       next: (res) => {
-//         if (res.succeeded) {
-//           this.books = res.data;
-//           this.totalPages = res.paginationInfo.totalPages;
-//           console.log(res.data);
-//         } else {
-//           this.errorMessage = res.message;
-//         }
-//       },
-//       error: (err) => {
-//         this.errorMessage = 'Error fetching data';
-//         console.error(err);
-//       }
-//     });
-//   }
-
-
-//   onPageChange(page: number): void {
-//     this.pageNo = page;
-//     this.loadBooks();
-//   }
-  
 //   redirectToBookDetails(id: number): void {
 //     this.router.navigate(['/book-details', id]);
 //   }
 // }
+
+
+
+import { Component, OnInit } from '@angular/core';
+import { BooksService } from '../../services/books.service';
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+
+
+@Component({
+  selector: 'app-bookstore',
+  standalone: true,
+  imports: [CommonModule,FormsModule],
+  templateUrl: './bookstore.component.html',
+  styleUrl: './bookstore.component.css'
+})
+export class BookstoreComponent implements OnInit {
+  books: any[] = [];
+  pageNo: number = 1;
+  pageSize: number = 8;
+  totalPages:number = 1;
+  errorMessage: string = '';
+  searchTerm: string = '';
+
+
+  constructor(private _bookService: BooksService, private router: Router) { }
+
+  ngOnInit() {
+    this.loadBooks();
+    
+  }
+
+  loadBooks()
+  {
+    return this._bookService.getBooksList(this.pageNo, this.pageSize).subscribe({
+      next: (res) => {
+        if (res.succeeded) {
+          this.books = res.data;
+          this.totalPages = res.paginationInfo.totalPages;
+          console.log(res.data);
+        } else {
+          this.errorMessage = res.message;
+        }
+      },
+      error: (err) => {
+        this.errorMessage = 'Error fetching data';
+        console.error(err);
+      }
+    });
+  }
+
+
+
+  searchBooks() {
+    if (this.searchTerm.trim()) {
+      this._bookService.searchBooks(this.searchTerm).subscribe({
+        next: (res) => {
+          if (res.succeeded) {
+            this.books = res.data;
+            console.log(res.data);
+          } else {
+            this.errorMessage = res.message;
+          }
+        },
+        error: (err) => {
+          this.errorMessage = 'Error fetching data';
+          console.error(err);
+        }
+      });
+    } else {
+      this.loadBooks(); // Load all books if search term is empty
+    }
+  }
+
+
+
+  onPageChange(page: number): void {
+    this.pageNo = page;
+    this.loadBooks();
+  }
+  
+  redirectToBookDetails(id: number): void {
+    this.router.navigate(['/book-details', id]);
+  }
+}
