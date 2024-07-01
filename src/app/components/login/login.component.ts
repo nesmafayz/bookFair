@@ -18,17 +18,22 @@ export class LoginComponent {
 
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]], 
+      email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     });
   }
 
   login() {
     if (this.loginForm.valid) {
-      const { email, password } = this.loginForm.value; 
+      const { email, password } = this.loginForm.value;
+      
+      // Log form data to console
+      console.log('Login form data:', { email, password });
+      
       this.authService.login(email, password).subscribe(
         success => {
           if (success) {
+            // Navigate to Home upon successful login
             this.router.navigate(['/Home']);
           } else {
             this.errorMessage = 'Login failed. Please try again.';
@@ -46,4 +51,3 @@ export class LoginComponent {
     return this.loginForm.controls;
   }
 }
-
