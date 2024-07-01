@@ -1,43 +1,93 @@
 <div class="container">
-  <div class="row d-flex justify-content-end align-items-center mb-5">
-    <div class="col-lg-6">
-      <img src="assets/images/register.png" alt="" class="w-100 g-5">
+  <div class="row d-flex justify-content-end  mb-5">
+    <div class="col-lg-6 mt-5">
+      <img src="assets/images/register.png" alt="" class="w-100 g-5 mt-5">
     </div>
     <div class="col-lg-6">
       <form (ngSubmit)="handleRegister(registerForm)" [formGroup]="registerForm" class="form" dir="rtl">
         <h1 class="d-flex justify-content-center">انشاء حساب</h1>
 
 
+
+
+        
+<!-- Profile Image Field -->
+
+<div class="avatar-upload">
+  <div class="avatar-edit inputForm">
+    <input type="file" id="imageUpload" formControlName="profileImage" class="btn-file" />
+    <label for="imageUpload"></label>
+  </div>
+  <div class="avatar-preview">
+    <div id="imagePreview" style="background-image: url(https://media.istockphoto.com/id/1341346982/photo/happy-child-with-goggles-holding-a-blue-book.jpg?s=612x612&w=0&k=20&c=K_noVHLsHBSuLd84rLMGrWabFOBjDbUm0_CH7BfARPs=);">
+    </div>
+  </div>
+</div>
+<div *ngIf="registerForm.get('profileImage')?.errors && registerForm.get('profileImage')?.touched" class="text-danger">
+  <span *ngIf="registerForm.get('profileImage')?.getError('required')">
+    ⚠️  ضع صورة
+  </span>
+</div>
+
+
+
         <div class="flex-column">
-          <label> الاسم بالكامل</label>
+          <label> الاسم الاول</label>
         </div>
         <div class="inputForm">
           <input formControlName="Fullname" placeholder="أدخل اسمك" class="input" type="text" />
         </div>
         <div *ngIf="registerForm.get('Fullname')?.errors && registerForm.get('Fullname')?.touched" class="text-danger">
           <span *ngIf="registerForm.get('Fullname')?.getError('minlength')">
-            ⚠️ يجب ألا يقل الاسم بالكامل عن 3 أحرف
+            ⚠️ يجب ألا يقل الاسم الاول عن 3 أحرف
           </span>
           <span *ngIf="registerForm.get('Fullname')?.getError('required')">
-            ⚠️ الاسم بالكامل مطلوب
+            ⚠️ الاسم الاول مطلوب
           </span>
         </div>
 
-
-
         <!-- Name Field -->
         <div class="flex-column">
-          <label>الاسم</label>
+          <label>الاسم الثاني</label>
         </div>
         <div class="inputForm">
           <input formControlName="username" placeholder="أدخل اسمك" class="input" type="text" />
         </div>
         <div *ngIf="registerForm.get('username')?.errors && registerForm.get('username')?.touched" class="text-danger">
           <span *ngIf="registerForm.get('username')?.getError('minlength')">
-            ⚠️ يجب ألا يقل الاسم عن 3 أحرف
+            ⚠️ يجب ألا يقل الاسم الثاتي عن 3 أحرف
           </span>
           <span *ngIf="registerForm.get('username')?.getError('required')">
-            ⚠️ الاسم مطلوب
+            ⚠️ الاسم الثاني مطلوب
+          </span>
+        </div>
+
+        <div class="flex-column">
+          <label>موقعك</label>
+        </div>
+        <div class="inputForm">
+          <input formControlName="location" placeholder="أدخل موقعك" class="input" type="text" />
+        </div>
+        <div *ngIf="registerForm.get('location')?.errors && registerForm.get('location')?.touched" class="text-danger">
+          
+          <span *ngIf="registerForm.get('location')?.getError('required')">
+            ⚠️  الموقع مطلوب
+          </span>
+        </div>
+
+
+
+          <!-- bio Field -->
+        <div class="flex-column">
+          <label>نبذة عنك</label>
+        </div>
+        <div class="inputForm">
+          <input formControlName="bio" placeholder="أدخل اسمك" class="input" type="text" />
+        </div>
+        <div *ngIf="registerForm.get('bio')?.errors && registerForm.get('bio')?.touched" class="text-danger">
+          
+          <span *ngIf="registerForm.get('bio')?.getError('required')">
+            ⚠️   اضف معلومات عنك
           </span>
         </div>
 
@@ -88,6 +138,9 @@
             ⚠️ الحقل مطلوب
           </span>
         </div>
+
+       
+        
 
 
         <!-- Submit Button -->

@@ -1,15 +1,15 @@
 .custom-navbar {
   backdrop-filter: blur(10px); 
-  background-color: rgba(0, 0, 0, 0.5);
-  position:fixed;
-  z-index:11111;
-  width:100%;
-  color:white;
+  background-color: black;
+  position: fixed; /* Fix the navbar at the top */
+  top: 0; /* Align the navbar at the top */
+  z-index: 1000;
+  width: 100%;
+  color: white;
 }
 
 .navbar-nav .nav-item {
   margin: 0 10px; 
-  
 }
 
 .navbar-nav .nav-link {
@@ -46,4 +46,8 @@
   display: flex;
   justify-content: center;
   width: 100%;
+}
+
+body {
+  padding-top: 70px; /* Adjust based on navbar height */
 }
