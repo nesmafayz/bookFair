@@ -1,0 +1,14 @@
+/* styles.css */
+
+/* Styling for the buttons */
+.nav-link {
+    color: #FFA500; /* Orange text color */
+    background-color: transparent; /* Transparent background initially */
+    border: none; /* Remove default button border */
+}
+
+/* Active state for the buttons */
+.nav-link.active, .nav-link:focus {
+    background-color: #FFA500; /* Orange background on click */
+    color: #fff; /* White text color on click */
+}
