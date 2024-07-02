@@ -57,37 +57,29 @@ export class BookstoreComponent implements OnInit {
     
   }
 
-  loadBooks()
-  {
+  loadBooks() {
     return this._bookService.getBooksList(this.pageNo, this.pageSize).subscribe({
-      next: (res) => {
-        if (res.succeeded) {
-          this.books = res.data;
-          this.totalPages = res.paginationInfo.totalPages;
-          console.log(res.data);
-        } else {
-          this.errorMessage = res.message;
-        }
+      next: (res:any) => {
+        console.log(res.items);
+          this.books = res.items;
+        
       },
       error: (err) => {
         this.errorMessage = 'Error fetching data';
-        console.error(err);
+        console.error('Error:', err);
       }
     });
   }
-
+  
 
 
   searchBooks() {
     if (this.searchTerm.trim()) {
       this._bookService.searchBooks(this.searchTerm).subscribe({
         next: (res) => {
-          if (res.succeeded) {
+         
             this.books = res.data;
             console.log(res.data);
-          } else {
-            this.errorMessage = res.message;
-          }
         },
         error: (err) => {
           this.errorMessage = 'Error fetching data';
@@ -107,6 +99,10 @@ export class BookstoreComponent implements OnInit {
   }
   
   redirectToBookDetails(id: number): void {
-    this.router.navigate(['/book-details', id]);
-  }
+    if (id !== undefined && id !== null) {
+      this.router.navigate(['/book-details', id]);
+    } else {
+      console.error('Invalid book id:', id);
+    }
+}
 }
