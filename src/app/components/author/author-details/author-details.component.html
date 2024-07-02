@@ -1,12 +1,13 @@
 <div class="container d-flex justify-content-center align-items-center" dir="rtl">
     <div class="row">
       <div class="col-lg-4 image d-flex align-items-center">
-        <img class="w-100 h-100 rounded-2" [src]="author?.imgUrl" alt="Author Image">
+        <img class="w-100 h-100 rounded-2" [src]="author?.image" alt="Author Image">
       </div>
       <div class="col-lg-6 content">
         <h1>{{ author?.name }}</h1>
         <p><strong>الوصف:</strong> {{ author?.description }}</p>
-        <p><strong>عدد الكتب:</strong> {{ author?.bookCount }}</p>
+        <p><strong>عدد الكتب:</strong> {{ author?.numberOfBooks }}</p>
+        
       </div>
     </div>
   </div>
