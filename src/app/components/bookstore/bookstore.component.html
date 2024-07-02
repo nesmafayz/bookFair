@@ -85,15 +85,15 @@
     <div class="col-lg-3 col-md-6 col-sm-12 mb-5" *ngFor="let book of books">
       <div class="nft" (click)="redirectToBookDetails(book.id)">
         <div class="main">
-          <img class="tokenImage" [src]="book.imgUrl" alt="NFT" />
+          <img class="tokenImage" [src]="book.imageUrl" alt="NFT" />
           <h2 class="mt-2">{{ book.bookName }}</h2>
           <p class="description">{{ book.authorName }}</p>
           <div class="tokenInfo">
             <div class="price">
-              <p>صالة {{ book.hall }}</p>
+              <p>صالة {{ book.hallNumber }}</p>
             </div>
             <div class="duration">
-              <p>بلوك {{ book.block }}</p>
+              <p>بلوك {{ book.blockName }}</p>
             </div>
           </div>
         </div>

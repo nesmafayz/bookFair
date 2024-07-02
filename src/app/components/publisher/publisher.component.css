@@ -1,3 +1,6 @@
+/*
+
+
 .container {
   font-family: Arial, sans-serif;
   direction: rtl;
@@ -32,56 +35,151 @@ height: 100px;
 width: 100px;
 }
 .dark-mode-filter {
-  background-color: #333; /* Dark background color */
-  color: #fff; /* Light text color */
+  background-color: #333;
+  color: #fff; 
 }
 
 .dark-mode-search {
-  background-color: #555; /* Darker background color for search */
-  border-color: #555; /* Darker border color for search */
+  background-color: #555; 
+  border-color: #555; 
 }
 
 .dark-mode-search input {
-  background-color: #666; /* Darker input background color */
-  border-color: #666; /* Darker input border color */
-  color: #fff; /* Light input text color */
+  background-color: #666; 
+  border-color: #666; 
+  color: #fff;
 }
 
 .dark-mode-search input::placeholder {
-  color: #ccc; /* Placeholder text color */
+  color: #ccc;
 }
 
 .dark-mode-dropdown {
-  background-color: #444; /* Darker background color for dropdown buttons */
-  border-color: #444; /* Darker border color for dropdown buttons */
-  color: #fff; /* Light text color for dropdown buttons */
+  background-color: #444; 
+  border-color: #444; 
+  color: #fff; 
 }
 
 .dark-mode-dropdown-menu {
-  background-color: #333; /* Dark background color for dropdown menus */
-  color: #fff; /* Light text color for dropdown menus */
+  background-color: #333; 
+  color: #fff;
 }
 
 .dark-mode-text {
-  color: #fff; /* Light text color for labels and checkboxes */
+  color: #fff; 
 }
 
 .dark-mode-offcanvas {
-  background-color: #222; /* Dark background color for offcanvas */
-  color: #fff; /* Light text color for offcanvas */
+  background-color: #222; 
+  color: #fff;
 }
 
 .dark-mode-accordion-button {
-  color: #fff; /* Light text color for accordion buttons */
+  color: #fff;
 }
 
 .dark-mode-button {
-  background-color: #555; /* Darker background color for buttons */
-  border-color: #555; /* Darker border color for buttons */
-  color: #fff; /* Light text color for buttons */
+  background-color: #555;
+  border-color: #555; 
+  color: #fff;
 }
 
 .dark-mode-button:hover {
-  background-color: #777; /* Darker background color on button hover */
-  border-color: #777; /* Darker border color on button hover */
+  background-color: #777;
+  border-color: #777; 
+}
+
+
+*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: monospace;
+  background: #eee;
+}
+
+html {
+  font-size: 15px;
+}
+
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cards_item {
+  display: flex;
+  padding: 1rem;
+}
+
+.card {
+  background-color: white;
+  border-radius: 0.25rem;
+  display: flex;
+  flex-direction: row-reverse;
+  overflow: hidden;
+  padding: 0;
+  background: repeating-linear-gradient(#0000 0 calc(1.2rem - 1px), #66afe1 0 1.2rem) right bottom / 100% 100%, linear-gradient(red 0 0) 30px 0/2px 100% #fff;
+  background-repeat: no-repeat;
+  line-height: 1.2rem;
+  -webkit-mask: radial-gradient(circle .8rem at 2px 50%, #0000 98%, #000) 0 0/100% 2.4rem;
+  direction: rtl;
+}
+
+.card_image {
+  height: calc(13 * 1.2rem);
+  padding: 1.2rem 1.2rem 0;
+  position: relative;
+}
+
+.card_image:before,
+.card_image:after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  left: 60%;
+  top: 0;
+  height: 45px;
+  background: #e6e6e6b8;
+  transform: rotate(45deg);
+}
+
+.card_image:after {
+  transform: rotate(-45deg);
+  top: auto;
+  bottom: -22px;
+  left: 40%;
+}
+
+.card_image img {
+  width: 200px; /* Fixed width */
+  height: 200px; /* Fixed height */
+  object-fit: cover;
+}
+
+.card_content {
+  padding: 1.2rem;
+  direction: rtl;
+  text-align: right;
+}
+
+h2.card_title, p {
+  margin: 1.2rem 0;
+}
+
+h2.card_title {
+  font-size: 1.3em;
 }
