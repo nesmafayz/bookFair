@@ -7,6 +7,29 @@
       <form [formGroup]="donateForm" (ngSubmit)="onSubmit()" class="form" dir="rtl">
         <h1 class="d-flex justify-content-center">تبرع بكتابك</h1>
 
+       
+      
+        <div class="flex-column">
+          <label>اختر الكتاب</label>
+          <div class="inputForm">
+            <input formControlName="bookAddress" placeholder="اختر صورة الكتاب" class="input" type="file" />
+            <div *ngIf="donateForm.controls['bookAddress'].invalid && (donateForm.controls['bookAddress'].dirty || donateForm.controls['bookAddress'].touched)">
+              <small *ngIf="donateForm.controls['bookAddress'].errors?.['required']" class="text-danger">صورة الكتاب مطلوبة.</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-column">
+          <label>اسم الكتاب</label>
+          <div class="inputForm">
+            <input formControlName="bookName" placeholder="أدخل اسم الكتاب" class="input" type="text" />
+            <div *ngIf="donateForm.controls['bookName'].invalid && (donateForm.controls['bookName'].dirty || donateForm.controls['bookName'].touched)">
+              <small *ngIf="donateForm.controls['bookName'].errors?.['required']" class="text-danger">اسم الكتاب مطلوب.</small>
+              
+            </div>
+          </div>
+        </div>
+  
         <div class="flex-column">
           <label>الاسم</label>
           <div class="inputForm">
@@ -23,27 +46,6 @@
         </div>
 
         <div class="flex-column">
-          <label>اختر الكتاب</label>
-          <div class="inputForm">
-            <input formControlName="bookAddress" placeholder="اختر صورة الكتاب" class="input" type="file" />
-            <div *ngIf="donateForm.controls['bookAddress'].invalid && (donateForm.controls['bookAddress'].dirty || donateForm.controls['bookAddress'].touched)">
-              <small *ngIf="donateForm.controls['bookAddress'].errors?.['required']" class="text-danger">صورة الكتاب مطلوبة.</small>
-            </div>
-          </div>
-        </div>
-
-        <div class="flex-column">
-          <label>الكمية</label>
-          <div class="inputForm">
-            <input formControlName="quantity" placeholder="اختر كمية الكتاب" class="input" type="number" />
-            <div *ngIf="donateForm.controls['quantity'].invalid && (donateForm.controls['quantity'].dirty || donateForm.controls['quantity'].touched)">
-              <small *ngIf="donateForm.controls['quantity'].errors?.['required']" class="text-danger">الكمية مطلوبة.</small>
-              <small *ngIf="donateForm.controls['quantity'].hasError('pattern')" class="text-danger">الكمية يجب أن تكون عددًا موجبًا.</small>
-            </div>
-          </div>
-        </div>
-
-        <div class="flex-column">
           <label>اسم المؤلف</label>
           <div class="inputForm">
             <input formControlName="authorName" placeholder="أدخل اسم المؤلف" class="input" type="text" />
@@ -54,15 +56,7 @@
           </div>
         </div>
 
-        <div class="flex-column">
-          <label>تاريخ التبرع</label>
-          <div class="inputForm">
-            <input formControlName="donationDate" placeholder="أدخل تاريخ التبرع" class="input" type="date" />
-            <div *ngIf="donateForm.controls['donationDate'].invalid && (donateForm.controls['donationDate'].dirty || donateForm.controls['donationDate'].touched)">
-              <small *ngIf="donateForm.controls['donationDate'].errors?.['required']" class="text-danger">تاريخ التبرع مطلوب.</small>
-            </div>
-          </div>
-        </div>
+       
 
         <button class="button-submit"  type="submit">تبرع الآن</button>
       </form>
