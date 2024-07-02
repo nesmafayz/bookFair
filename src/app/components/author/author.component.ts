@@ -16,10 +16,12 @@ export class AuthorComponent implements OnInit {
   constructor(private _authorService: AuthorsService, private router: Router) { }
 
   ngOnInit(): void {
-    this.authors = this._authorService.getAuthors();
+    this._authorService.getAuthors().subscribe(authors => {
+      this.authors = authors;
+    });
   }
 
   redirectToAuthorDetails(id: number): void {
-    this.router.navigate(['/author-details', id]);
+    this.router.navigate(['author-details', id]);
   }
 }
