@@ -1,9 +1,6 @@
-import { formatCurrency } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule  } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import * as bootstrap from 'bootstrap';
 import { Modal } from 'bootstrap';
 
 
@@ -17,10 +14,9 @@ import { Modal } from 'bootstrap';
 export class DonateBooksComponent {
   donateForm: FormGroup = new FormGroup({
     name: new FormControl(null, [Validators.required, Validators.minLength(3)]),
-    quantity: new FormControl(null, [Validators.required,Validators. pattern("^[1-9]\\d*$") ]),
     bookAddress: new FormControl(null, [Validators.required]),
     authorName: new FormControl(null, [Validators.required]),
-    donationDate:new FormControl(null,[Validators.required])
+    bookName: new FormControl(null, [Validators.required])
   });
 
   onSubmit() {
