@@ -1,0 +1,23 @@
+
+.nav-link {
+    color: #FFA500; 
+    background-color: transparent; 
+    border: none; 
+}
+
+.nav-link.active, .nav-link:focus {
+    background-color: #FFA500; 
+    color: #fff; 
+}
+.nav-tabs {
+    justify-content: flex-end; 
+}
+
+.table-responsive {
+    display: flex;
+    justify-content: flex-end; 
+}
+.map-p {
+    display: flex;
+    justify-content: flex-end;
+}
