@@ -3,19 +3,21 @@ import { FormControl, FormGroup, Validators, ReactiveFormsModule, ValidatorFn, A
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { RegisterServiceService } from '../../services/register-service.service';
+import { GoogleSigninButtonModule } from '@abacritt/angularx-social-login';
+import { SocialAuthService } from "@abacritt/angularx-social-login";
 
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [RouterLink, ReactiveFormsModule, CommonModule],
+  imports: [RouterLink, ReactiveFormsModule, CommonModule,GoogleSigninButtonModule],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']  
 })
-export class RegisterComponent {
+export class RegisterComponent{
   registerForm: FormGroup;
 
-  constructor(private _registerService:RegisterServiceService,private Router:Router) {
+  constructor(private _registerService:RegisterServiceService,private Router:Router,private authService: SocialAuthService) {
     this.registerForm = new FormGroup({
       username: new FormControl(null, [Validators.required, Validators.minLength(3)]),
       Fullname: new FormControl(null, [Validators.required, Validators.minLength(3)]),
@@ -30,6 +32,9 @@ export class RegisterComponent {
       confirmPassword: new FormControl(null, Validators.required)
     }, { validators: this.repasswordMatchValidator });
   }
+
+
+  
 
   // Custom Validator Function
   repasswordMatchValidator: ValidatorFn = (control: AbstractControl): { [key: string]: any } | null => {
