@@ -3,6 +3,11 @@ import { FormControl, FormGroup, Validators, ReactiveFormsModule, ValidatorFn, A
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { RegisterServiceService } from '../../services/register-service.service';
+import { GoogleSigninButtonModule } from '@abacritt/angularx-social-login';
+import { SocialAuthService } from "@abacritt/angularx-social-login";
+import Swal from 'sweetalert2'
+
+
 
 
 
@@ -16,8 +21,9 @@ import { RegisterServiceService } from '../../services/register-service.service'
 export class RegisterComponent{
   registerForm: FormGroup;
 
-  constructor(private _registerService:RegisterServiceService,
-    private Router:Router) {
+
+  constructor(private _registerService:RegisterServiceService, private Router:Router) {
+
     this.registerForm = new FormGroup({
       username: new FormControl(null, [Validators.required, Validators.minLength(3)]),
       Fullname: new FormControl(null, [Validators.required, Validators.minLength(3)]),
@@ -62,14 +68,25 @@ export class RegisterComponent{
       this._registerService.register(registerForm.value).subscribe({
         next:(res)=>
          {
+          Swal.fire({
+                title: "تم بنجاح",
+                text: "لقد تم انشاء حسابك بنجاح",
+                icon: "success"
+              });
           if(res.message === 'success')
             {
+
               this.Router.navigate(['/login']);
             }
          },
          error: (err) => {
           console.error('Registration error:', err);
           if (err.status ===400) {
+            Swal.fire({
+              title: "فشل",
+              text: "فشل في انشاء الحساب",
+              icon: "error"
+            });
             console.error('Error details:', err.error);
           }
         }
