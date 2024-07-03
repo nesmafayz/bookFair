@@ -8,17 +8,22 @@ import { SocialAuthService } from "@abacritt/angularx-social-login";
 import Swal from 'sweetalert2'
 
 
+
+
+
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [RouterLink, ReactiveFormsModule, CommonModule,GoogleSigninButtonModule],
+  imports: [RouterLink, ReactiveFormsModule, CommonModule],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']  
 })
 export class RegisterComponent{
   registerForm: FormGroup;
 
-  constructor(private _registerService:RegisterServiceService,private Router:Router,private authService: SocialAuthService ) {
+
+  constructor(private _registerService:RegisterServiceService, private Router:Router) {
+
     this.registerForm = new FormGroup({
       username: new FormControl(null, [Validators.required, Validators.minLength(3)]),
       Fullname: new FormControl(null, [Validators.required, Validators.minLength(3)]),

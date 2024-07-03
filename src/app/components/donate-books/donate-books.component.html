@@ -1,15 +1,13 @@
 <div class="container">
   <div class="row d-flex justify-content-end align-items-center mb-5">
     <div class="col-lg-6">
-      <img src="assets/images/donatee.png" alt="" class="w-100 g-5">
+      <img src="assets/images/donatee.png" alt="" class="w-70 ">
+      <a href="/donate-books-list" type="button" class="btn btn-outline-danger  rounded-pill fw-bold w-50 p-3 m-5 "> اذهب الي قائمه التبرعات </a>
     </div>
     <div class="col-lg-6">
       <form [formGroup]="donateForm" (ngSubmit)="onSubmit()" class="form" dir="rtl">
         <h1 class="d-flex justify-content-center">تبرع بكتابك</h1>
-
-       
-      
-        <div class="flex-column">
+    <div class="flex-column">
           <label>اختر الكتاب</label>
           <div class="inputForm">
             <input formControlName="bookAddress" placeholder="اختر صورة الكتاب" class="input" type="file" />
