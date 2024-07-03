@@ -7,8 +7,8 @@
 <div class="container">
   <div class="row d-flex justify-content-center align-items-center mt-5">
     <div class="searchBox">
-      <input dir="rtl" class="searchInput w-100" type="text" name="" placeholder="أبحث عن مؤلف" />
-      <button class="searchButton" href="#">
+      <input dir="rtl" class="searchInput w-100" type="text" [(ngModel)]="searchTerm" placeholder="أبحث عن مؤلف" />
+      <button class="searchButton" (click)="search()">
         <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29" fill="none">
           <g clip-path="url(#clip0_2_17)">
             <g filter="url(#filter0_d_2_17)">
@@ -18,7 +18,7 @@
           <defs>
             <filter id="filter0_d_2_17" x="-0.418549" y="3.70435" width="29.7139" height="29.7139" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
               <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
-              <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"></feColorMatrix>
+              <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"></feColorMatrix>
               <feOffset dy="4"></feOffset>
               <feGaussianBlur stdDeviation="2"></feGaussianBlur>
               <feComposite in2="hardAlpha" operator="out"></feComposite>
@@ -32,6 +32,14 @@
           </defs>
         </svg>
       </button>
+    </div>
+  </div>
+</div>
+<!-- Show not found message -->
+<div class="container" dir="rtl" *ngIf="notFoundMessage">
+  <div class="row mt-3">
+    <div class="col">
+      <p class="message">{{ notFoundMessage }}</p>
     </div>
   </div>
 </div>
