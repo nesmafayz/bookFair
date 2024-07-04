@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule  } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Modal } from 'bootstrap';
+import { DonationService } from '../../services/donation.service';
+import { UsedBookDto } from '../../../models/used-book-dto';
 
 
 @Component({
@@ -12,15 +14,22 @@ import { Modal } from 'bootstrap';
   styleUrl: './donate-books.component.css'
 })
 export class DonateBooksComponent {
+
+
+constructor(
+  private service:DonationService,
+) {}
+
+
+
   donateForm: FormGroup = new FormGroup({
-    name: new FormControl(null, [Validators.required, Validators.minLength(3)]),
     bookAddress: new FormControl(null, [Validators.required]),
     authorName: new FormControl(null, [Validators.required]),
     bookName: new FormControl(null, [Validators.required])
   });
 
   onSubmit() {
- debugger;
+    debugger;
     if (this.donateForm.invalid) {
       this.donateForm.markAllAsTouched();  // Mark all fields as touched to show validation errors
       alert("الرجاء ملء جميع الحقول المطلوبة بشكل صحيح.");
@@ -33,11 +42,20 @@ export class DonateBooksComponent {
   }
 
   showSuccessMessage() {
-    const modalElement = document.getElementById('successModal');
-   if (modalElement) {
-      const modal = new Modal(modalElement);
-     modal.show();
-   }
+    debugger;
+    const usedBookDto:UsedBookDto ={
+      bookName : this.donateForm.value.bookName,
+      authorName:this.donateForm.value.authorName,
+      imageURL:this.donateForm.value.bookAddress
+    };
+this.service.donateBook(usedBookDto).subscribe(res=>{
+  const modalElement = document.getElementById('successModal');
+  if (modalElement) {
+     const modal = new Modal(modalElement);
+    modal.show();
+  }
+});
+   
    
    }
   }
