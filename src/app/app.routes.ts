@@ -11,7 +11,6 @@ import { TransportsComponent } from './components/transports/transports.componen
 import { BookingComponent } from './components/booking/booking.component';
 import { PublishersComponent } from './components/publisher/publisher.component';
 import { DonateBooksComponent } from './components/donate-books/donate-books.component';
-
 import { LogoutComponent } from './layout/components/logout/logout.component';
 import { BookDetailsComponent } from './components/bookstore/book-details/book-details.component';
 import { AuthorComponent } from './components/author/author.component';
@@ -21,6 +20,8 @@ import { CartComponent } from './components/cart/cart.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { ReviewComponent } from './components/review/review.component';
 import { BooksRelatedToPublisherComponent } from './components/books-related-to-publisher/books-related-to-publisher.component';
+import { DonateBooksListComponent } from './components/donate-books-list/donate-books-list.component';
+
 
 export const routes: Routes = [
     { path: '', redirectTo: 'Home', pathMatch: 'full' },
@@ -44,5 +45,6 @@ export const routes: Routes = [
     { path: 'favorites', component: FavoritesComponent },
     { path: 'cart', component: CartComponent },
     { path: 'payment', component: PaymentComponent },
+    {path:'donate-books-list',component:DonateBooksListComponent},
     { path: '**', component: NotFoundComponent }
 ];

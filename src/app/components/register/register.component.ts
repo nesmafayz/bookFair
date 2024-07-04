@@ -7,10 +7,11 @@ import { GoogleSigninButtonModule } from '@abacritt/angularx-social-login';
 import { SocialAuthService } from "@abacritt/angularx-social-login";
 import Swal from 'sweetalert2';
 
+
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [RouterLink, ReactiveFormsModule, CommonModule, GoogleSigninButtonModule],
+  imports: [RouterLink, ReactiveFormsModule, CommonModule],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']  
 })
@@ -18,7 +19,10 @@ export class RegisterComponent {
   registerForm: FormGroup;
   imagePreviewUrl: string = 'https://media.istockphoto.com/id/1341346982/photo/happy-child-with-goggles-holding-a-blue-book.jpg?s=612x612&w=0&k=20&c=K_noVHLsHBSuLd84rLMGrWabFOBjDbUm0_CH7BfARPs=';
 
+
   constructor(private _registerService: RegisterServiceService, private Router: Router, private authService: SocialAuthService) {
+
+
     this.registerForm = new FormGroup({
       username: new FormControl(null, [Validators.required, Validators.minLength(3)]),
       Fullname: new FormControl(null, [Validators.required, Validators.minLength(3)]),
