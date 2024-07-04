@@ -3,8 +3,6 @@ import { FormControl, FormGroup, Validators, ReactiveFormsModule, ValidatorFn, A
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { RegisterServiceService } from '../../services/register-service.service';
-import { GoogleSigninButtonModule } from '@abacritt/angularx-social-login';
-import { SocialAuthService } from "@abacritt/angularx-social-login";
 import Swal from 'sweetalert2';
 
 
@@ -20,7 +18,7 @@ export class RegisterComponent {
   imagePreviewUrl: string = 'https://media.istockphoto.com/id/1341346982/photo/happy-child-with-goggles-holding-a-blue-book.jpg?s=612x612&w=0&k=20&c=K_noVHLsHBSuLd84rLMGrWabFOBjDbUm0_CH7BfARPs=';
 
 
-  constructor(private _registerService: RegisterServiceService, private Router: Router, private authService: SocialAuthService) {
+  constructor(private _registerService: RegisterServiceService, private Router: Router) {
 
 
     this.registerForm = new FormGroup({
