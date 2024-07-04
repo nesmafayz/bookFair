@@ -172,12 +172,8 @@ export class BookDetailsComponent implements OnInit {
 
   loadBookDetails(bookId: number) {
     this.bookService.getBookById(bookId).subscribe({
-      next: (res) => {
-        if (res) {
+      next: (res:any) => {
           this.book = res;
-        } else {
-          this.errorMessage = 'Book not found';
-        }
       },
       error: (err) => {
         this.errorMessage = 'Error fetching book details';
