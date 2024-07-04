@@ -18,16 +18,21 @@ import { AuthorDetailsComponent } from './components/author/author-details/autho
 import { FavoritesComponent } from './components/favorites/favorites.component';
 import { CartComponent } from './components/cart/cart.component';
 import { PaymentComponent } from './components/payment/payment.component';
+import { ReviewComponent } from './components/review/review.component';
+import { BooksRelatedToPublisherComponent } from './components/books-related-to-publisher/books-related-to-publisher.component';
 import { DonateBooksListComponent } from './components/donate-books-list/donate-books-list.component';
+
 
 export const routes: Routes = [
     { path: '', redirectTo: 'Home', pathMatch: 'full' },
     { path: 'Home', component: HomeComponent },
     { path: 'Bookstore', component: BookstoreComponent },
     { path: 'book-details/:id', component: BookDetailsComponent },
+    {path:'books-related-to-publisher/:id',component:BooksRelatedToPublisherComponent},
     { path: 'Author', component: AuthorComponent },
     { path: 'author-details/:id', component: AuthorDetailsComponent },
     { path: 'Publisher', component: PublishersComponent },
+    {path:'review',component:ReviewComponent},
     { path: 'Donation', component: DonationComponent },
     { path: 'MapGuide', component: MapGuideComponent },
     { path: 'Login', component: LoginComponent },

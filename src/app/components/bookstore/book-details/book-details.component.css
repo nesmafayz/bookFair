@@ -34,7 +34,8 @@
   display: flex;
   justify-content: flex-start;
   gap: 10px;
-  margin-top: auto; /* Align buttons to the bottom of content */
+  margin-top: auto; 
+  
 }
 
 .button-group .btn {
@@ -45,6 +46,7 @@
   justify-content: center;
   color: white;
   border-radius: 5px;
+  width:20vw;
 }
 
 .button-group .btn i {
