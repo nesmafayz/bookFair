@@ -37,6 +37,7 @@ margin-top:60px;
       .description{
         margin: .5rem 0;
         color: #a89ec9;
+        font-size:20px;
       }
       .tokenInfo{
         display: flex;
@@ -177,4 +178,37 @@ margin-top:60px;
     font-size: 15px;
     padding: 24px 26px 24px 46px; /* Adjust padding to make room for the icon */
   }
+  
+
+
+
+ 
+  .container .pagination {
+    position: relative;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(3px);
+    border-radius: 2px;
+  }
+  .container .pagination li {
+    list-style-type: none;
+    display: inline-block;
+  }
+  .container .pagination li a {
+    position: relative;
+    padding: 20px 25px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+  }
+  .container .pagination li a:hover,
+  .container .pagination li.active a {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+
   
