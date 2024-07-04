@@ -1,48 +1,112 @@
-<section class="h-100">
-  <div class="container h-100 py-5">
+<section class="h-100 h-custom">
+  <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-10">
-        <div class="d-flex justify-content-between align-items-center mb-4">
-          <h3 class="fw-normal mb-0">Shopping Cart</h3>
-          <div>
-            <p class="mb-0">
-              <span class="text-muted">Sort by:</span>
-              <a href="#!" class="text-body">price <i class="fas fa-angle-down mt-1"></i></a>
-            </p>
-          </div>
-        </div>
-        <div *ngFor="let item of cartItems; let i = index" class="card rounded-3 mb-4">
+      <div class="col-12">
+        <div class="card">
           <div class="card-body p-4">
-            <div class="row d-flex justify-content-between align-items-center">
-              <div class="col-md-2 col-lg-2 col-xl-2">
-                <img [src]="item.image" class="img-fluid rounded-3" alt="Cotton T-shirt">
+            <div class="row">
+              <div class="col-lg-7">
+                <h5 class="mb-3">
+                  <a href="/Bookstore" class="text-body">
+                    <i class="fas fa-long-arrow-alt-left me-2"></i> متابعة التسوق
+                  </a>
+                </h5>
+                <hr>
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                  <div>
+                    <p class="mb-1">عربة التسوق</p>
+                    <p class="mb-0">لديك {{ cartItems.length }} عناصر في عربة التسوق الخاصة بك</p>
+                  </div>
+                </div>
+                <div *ngFor="let item of cartItems" class="card mb-3">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <div class="d-flex flex-row align-items-center">
+                        <div>
+                          <img [src]="item.image" class="img-fluid rounded-3" alt="عنصر تسوق">
+                        </div>
+                        <div class="ms-3">
+                          <h5>{{ item.name }}</h5>
+                          <p class="small mb-0">{{ item.description }}</p>
+                        </div>
+                      </div>
+                      <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                        <button class="btn btn-link px-2" (click)="decreaseQuantity(item)">
+                          <i class="fas fa-minus"></i>
+                        </button>
+                        <input [value]="item.quantity" type="number" class="form-control form-control-sm" readonly />
+                        <button class="btn btn-link px-2" (click)="increaseQuantity(item)">
+                          <i class="fas fa-plus"></i>
+                        </button>
+                      </div>
+                      <div class="d-flex flex-row align-items-center">
+                        <a href="#!" style="color: #cecece;" (click)="deleteItem(item)">
+                          <i class="fas fa-trash-alt"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="col-md-3 col-lg-3 col-xl-3">
-                <p class="lead fw-normal mb-2">{{ item.name }}</p>
-                <p>
-                  <span class="text-muted">Size: </span>{{ item.size }}
-                  <span class="text-muted">Color: </span>{{ item.color }}
-                </p>
-              </div>
-              <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                <button class="btn btn-link px-2" (click)="decreaseQuantity(i)">
-                  <i class="fas fa-minus"></i>
-                </button>
-                <input [value]="item.quantity" min="0" name="quantity" type="number" class="form-control form-control-sm" readonly />
-                <button class="btn btn-link px-2" (click)="increaseQuantity(i)">
-                  <i class="fas fa-plus"></i>
-                </button>
-              </div>
-              <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                <a href="#!" class="text-danger" (click)="removeItem(i)"><i class="fas fa-trash fa-lg"></i></a>
+              <div class="col-lg-5">
+                <div class="card text-white rounded-3" style="background-color: #f89a5b;">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                      <h5 class="mb-0">تفاصيل البطاقة</h5>
+                    </div>
+                    <i class="fab fa-cc-mastercard fa-2x me-2"></i>
+                    <i class="fab fa-cc-visa fa-2x me-2"></i>
+                    <i class="fab fa-cc-amex fa-2x me-2"></i>
+                    <i class="fab fa-cc-paypal fa-2x"></i>
+                    <form [formGroup]="paymentForm" class="mt-4">
+                      <div class="form-outline form-white mb-4">
+                        <input formControlName="cardHolderName" type="text" id="typeName" class="form-control form-control-lg" placeholder="اسم حامل البطاقة" />
+                        <label class="form-label" for="typeName">اسم حامل البطاقة</label>
+                        <div *ngIf="cardHolderName?.invalid && (cardHolderName?.dirty || cardHolderName?.touched)" class="text-danger">
+                          <div *ngIf="cardHolderName?.errors?.['required']">اسم حامل البطاقة مطلوب</div>
+                          <div *ngIf="cardHolderName?.errors?.['pattern']">اسم حامل البطاقة يجب أن يحتوي فقط على حروف عربية ومسافات</div>
+                        </div>
+                      </div>
+                      <div class="form-outline form-white mb-4">
+                        <input formControlName="cardNumber" type="text" id="typeText" class="form-control form-control-lg" placeholder="1234 5678 9012 3457" minlength="19" maxlength="19" />
+                        <label class="form-label" for="typeText">رقم البطاقة</label>
+                        <div *ngIf="cardNumber?.invalid && (cardNumber?.dirty || cardNumber?.touched)" class="text-danger">
+                          <div *ngIf="cardNumber?.errors?.['required']">رقم البطاقة مطلوب</div>
+                          <div *ngIf="cardNumber?.errors?.['pattern']">رقم البطاقة يجب أن يكون بالتنسيق الصحيح 1234 5678 9012 3457</div>
+                        </div>
+                      </div>
+                    </form>
+                    <hr class="my-4">
+                    <button type="button" class="btn btn-info btn-block btn-lg button-submit" (click)="handlePayment()">
+                      <div class="d-flex justify-content-between">
+                        <span>الدفع <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
+                      </div>
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="d-flex justify-content-end">
-          <button class="btn btn-warning" routerLink="/payment">Proceed to Payment</button>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" style="float: right;">نجاح</h5>
+      </div>
+      <div class="modal-body">
+        <img src="assets/images/done.jpg">
+        تم الدفع بنجاح. شكرًا!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">إغلاق</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -28,20 +28,7 @@
           </div>
         </div>
   
-        <div class="flex-column">
-          <label>الاسم</label>
-          <div class="inputForm">
-            <input formControlName="name" placeholder="أدخل اسمك" class="input" type="text" required />
-            <div *ngIf="donateForm.controls['name'].invalid && (donateForm.controls['name'].dirty || donateForm.controls['name'].touched)">
-              <div *ngIf="donateForm.controls['name'].errors?.['required']">
-                الاسم مطلوب.
-              </div>
-              <div *ngIf="donateForm.controls['name'].errors?.['minlength']">
-                الاسم يجب أن يكون على الأقل 3 أحرف.
-              </div>
-            </div>
-          </div>
-        </div>
+       
 
         <div class="flex-column">
           <label>اسم المؤلف</label>
