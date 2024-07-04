@@ -25,6 +25,7 @@ export class AuthorComponent implements OnInit {
   loadAuthors(): void {
     this._authorService.getAuthors().subscribe(authors => {
       this.authors = authors;
+      this.notFoundMessage = ''; // Clear notFoundMessage when loading all authors
     });
   }
 

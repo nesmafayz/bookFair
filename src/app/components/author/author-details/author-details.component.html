@@ -9,7 +9,9 @@
       <p><strong>عدد الكتب:</strong> {{ author?.numberOfBooks }}</p>
       <div class="book"><strong>الكتب:</strong>
         <ul *ngIf="author?.books?.length; else noBooks">
-          <li *ngFor="let book of author?.books">{{ book.name }}</li>
+          <li *ngFor="let book of author?.books">
+            <a class="book-link" [routerLink]="['/book-details', book.id]">{{ book.name }}</a>
+          </li>
         </ul>
         <ng-template #noBooks>
           <p>هذا المؤلف لا يوجد كتب له تم رفعها علي الموقع حتي الان</p>

@@ -50,11 +50,17 @@ p, .book {
 
 h1:hover,
 p:hover,
-.book:hover
+.book:hover,
+a:hover
+
  {
   animation: changeColor 0.3s forwards; 
 }
 
+.book-link {
+  color: white;
+  text-decoration: none;
+}
 
 @keyframes changeColor {
   to {
