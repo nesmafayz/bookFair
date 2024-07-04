@@ -17,7 +17,6 @@ import { AuthorComponent } from './components/author/author.component';
 import { AuthorDetailsComponent } from './components/author/author-details/author-details.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
 import { CartComponent } from './components/cart/cart.component';
-import { PaymentComponent } from './components/payment/payment.component';
 import { DonateBooksListComponent } from './components/donate-books-list/donate-books-list.component';
 
 export const routes: Routes = [
@@ -39,7 +38,6 @@ export const routes: Routes = [
     { path: 'donate-books', component: DonateBooksComponent },
     { path: 'favorites', component: FavoritesComponent },
     { path: 'cart', component: CartComponent },
-    { path: 'payment', component: PaymentComponent },
     {path:'donate-books-list',component:DonateBooksListComponent},
     { path: '**', component: NotFoundComponent }
 ];
