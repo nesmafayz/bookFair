@@ -17,7 +17,6 @@ import { AuthorComponent } from './components/author/author.component';
 import { AuthorDetailsComponent } from './components/author/author-details/author-details.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
 import { CartComponent } from './components/cart/cart.component';
-import { PaymentComponent } from './components/payment/payment.component';
 import { ReviewComponent } from './components/review/review.component';
 import { BooksRelatedToPublisherComponent } from './components/books-related-to-publisher/books-related-to-publisher.component';
 import { DonateBooksListComponent } from './components/donate-books-list/donate-books-list.component';
