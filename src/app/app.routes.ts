@@ -28,7 +28,7 @@ export const routes: Routes = [
     { path: 'Home', component: HomeComponent },
     { path: 'Bookstore', component: BookstoreComponent },
     { path: 'book-details/:id', component: BookDetailsComponent },
-    {path:'books-related-to-publisher/:id',component:BooksRelatedToPublisherComponent},
+    {path:'books-related/:id',component:BooksRelatedToPublisherComponent},
     { path: 'Author', component: AuthorComponent },
     { path: 'author-details/:id', component: AuthorDetailsComponent },
     { path: 'Publisher', component: PublishersComponent },

@@ -13,29 +13,26 @@ import { FormsModule } from '@angular/forms';
 })
 export class BooksRelatedToPublisherComponent implements OnInit{
 
-  
- 
   books: any[] = [];
+  filteredBooks: any[] = [];
   pageNo: number = 1;
   pageSize: number = 8;
-  totalPages:number = 1;
+  totalPages: number = 1;
   errorMessage: string = '';
   searchTerm: string = '';
-
 
   constructor(private _bookService: BooksService, private router: Router) { }
 
   ngOnInit() {
     this.loadBooks();
-    
   }
 
   loadBooks() {
-    return this._bookService.getBooksList(this.pageNo, this.pageSize).subscribe({
-      next: (res:any) => {
-        console.log(res.items);
-          this.books = res.items;
-        
+    this._bookService.getBooksList(this.pageNo, this.pageSize).subscribe({
+      next: (res: any) => {
+        this.books = res.items;
+        this.totalPages = res.totalPages;
+        this.filteredBooks = this.books; // Initialize filteredBooks
       },
       error: (err) => {
         this.errorMessage = 'Error fetching data';
@@ -43,40 +40,28 @@ export class BooksRelatedToPublisherComponent implements OnInit{
       }
     });
   }
-  
 
-
-  searchBooks() {
-    if (this.searchTerm.trim()) {
-      this._bookService.searchBooks(this.searchTerm).subscribe({
-        next: (res) => {
-         
-            this.books = res.data;
-            console.log(res.data);
-        },
-        error: (err) => {
-          this.errorMessage = 'Error fetching data';
-          console.error(err);
-        }
-      });
-    } else {
-      this.loadBooks(); // Load all books if search term is empty
+  filterResults(text: string) {
+    if (!text) {
+      this.filteredBooks = this.books;
+      return;
     }
+
+    this.filteredBooks = this.books.filter(book =>
+      book.bookName.toLowerCase().includes(text.toLowerCase())
+    );
   }
-
-
 
   onPageChange(page: number): void {
     this.pageNo = page;
     this.loadBooks();
   }
-  
+
   redirectToBookDetails(id: number): void {
     if (id !== undefined && id !== null) {
       this.router.navigate(['/book-details', id]);
     } else {
       console.error('Invalid book id:', id);
     }
+  }
 }
-}
-

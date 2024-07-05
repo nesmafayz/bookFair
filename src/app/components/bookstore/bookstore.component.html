@@ -7,7 +7,7 @@
 <div class="container">
   <div class="row d-flex justify-content-center align-items-center mt-5">
     <div class="searchBox">
-      <input dir="rtl" class="searchInput w-100" type="text" name="" placeholder="أبحث عن كتاب" #filter>
+      <input dir="rtl" class="searchInput w-100" type="text" name="" placeholder="أبحث عن كتاب" #filter (input)="filterResults(filter.value)">
       <button class="searchButton" (click)="filterResults(filter.value)">
         <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29" fill="none">
           <g clip-path="url(#clip0_2_17)">
@@ -48,7 +48,7 @@
       <div class="nft" (click)="redirectToBookDetails(book.id)">
         <div class="main">
           <img class="tokenImage" [src]="book.imageUrl" alt="NFT" />
-          <h4 class="mt-2">{{ book.bookName }}</h4>
+          <h5 class="mt-2">{{ book.bookName }}</h5>
           <p class="description">{{ book.authorName }}</p>
           <p class="description text-light">السعر: {{ book.price }} جنيه </p>
           <div class="tokenInfo">
@@ -61,6 +61,7 @@
           </div>
         </div>
         <hr />
+        <button class="btn add-to-cart m-3"> 🛒 أضف للسلة</button>
       </div>
     </div>
   </div>
@@ -69,13 +70,13 @@
 <div class="container w-50 d-flex justify-content-center mt-5">
   <ul class="pagination">
     <li *ngIf="pageNo > 1">
-      <a (click)="onPageChange(pageNo - 1)">Prev</a>
+      <a (click)="onPageChange(pageNo - 1)">السابق</a>
     </li>
     <li *ngFor="let page of [].constructor(totalPages); let i = index" [class.active]="pageNo === i + 1">
       <a (click)="onPageChange(i + 1)">{{ i + 1 }}</a>
     </li>
     <li *ngIf="pageNo < totalPages">
-      <a (click)="onPageChange(pageNo + 1)">Next</a>
+      <a (click)="onPageChange(pageNo + 1)">التالي</a>
     </li>
   </ul>
 </div>

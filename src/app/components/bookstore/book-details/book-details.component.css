@@ -75,3 +75,19 @@
   margin-right:0;
 }
 
+.line-with-text {
+  display: flex;
+  align-items: center;
+}
+
+.line {
+  flex-grow: 1;
+  height: 4px;
+  background-color: #ff751a;
+  margin: 0 10px;
+}
+
+.text {
+  white-space: nowrap; 
+  font-size: 30px;
+}
