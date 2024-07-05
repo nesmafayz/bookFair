@@ -149,11 +149,12 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { BooksService } from '../../../services/books.service';
+import { ReviewSectionComponent } from '../../review-section/review-section.component';
 
 @Component({
   selector: 'app-book-details',
   standalone: true,
-  imports: [CommonModule,RouterLink],
+  imports: [CommonModule,RouterLink,ReviewSectionComponent],
   templateUrl: './book-details.component.html',
   styleUrl: './book-details.component.css'
 })

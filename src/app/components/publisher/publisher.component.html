@@ -1,59 +1,36 @@
-
-
-<!-- 
-<div class="container dark-mode">
-  <div class="title"></div>
-
-  <div class="filter d-flex mb-2 dark-mode-filter">
-    <div class="dropdown me-3 d-none d-md-inline-block">
-        <button type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" class="btn px-3 border rounded-4 dropdown-toggle dark-mode-dropdown"> إختر القاعة </button>
-        <form novalidate class="dropdown-menu px-3 py-0 ng-untouched ng-pristine ng-valid dark-mode-dropdown-menu">
-            <div class="form-check py-2 my-1 border-top ng-star-inserted">
-                <input type="checkbox" class="form-check-input" id="52">
-                <label class="form-check-label text-secondary dark-mode-text" for="52"> صاله 1 </label>
+<div class="container w-100" dir="rtl">
+  <div class="row">
+    <div class="col-lg-12 mb-4" *ngFor="let publisher of filteredPublishers">
+      <div class="card" [routerLink]="['/books-related', publisher.id]">
+        <div class="container-card bg-green-box p-3">
+          <div class="row align-items-center">
+            <div class="col-2 h-100">
+              <img [src]="publisher.imageUrl" alt="{{ publisher.name }}" class="img-fluid rounded-5">
             </div>
-        </form>
-    </div>
-    <div class="dropdown me-3 d-none d-md-inline-block">
-        <button type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" class="btn px-3 border rounded-4 dropdown-toggle dark-mode-dropdown"> إختر التصنيفات </button>
-        <form novalidate class="dropdown-menu px-3 py-0 ng-untouched ng-pristine ng-valid dark-mode-dropdown-menu" style="width: 300px;">
-            <div class="form-check py-2 my-1 ng-star-inserted">
-                <input type="checkbox" class="form-check-input" id="1">
-                <label class="form-check-label text-secondary dark-mode-text" for="1"> نشر عام </label>
+            <div class="col-8">
+              <p class="card-title">{{ publisher.name }}</p>
+              <p class="card-description" >يتواجدون في صالة : {{ publisher.blockName }}</p>
+              <p class="card-description" >صدر عن الدار : {{ publisher.numberOfBooks }} كتاب </p>
             </div>
-        </form>
-    </div>
-</div>
-
-  <div *ngFor="let publisher of publishers" class="publisher" (click)="onSelect(publisher)">
-    <h2>{{ publisher.name }}</h2>
-    <img [src]="publisher.logo" alt="{{ publisher.name }} Logo" class="publisher-logo">
-
-    <div *ngIf="selectedPublisher === publisher">
-      <div *ngFor="let book of publisher.books">
-        <p>{{ book.title }}: {{ book.pages }}</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-
-
- -->
- <div class="main mt-5">
-  <ul class="cards">
-    <li class="cards_item " *ngFor="let publisher of publishers" (click)="onSelect(publisher)">
-      <div class="card">
-        <div class="card_image">
-          <img [src]="publisher.logo" alt="{{ publisher.name }} Logo" class="publisher-logo">
-        </div>
-        <div class="card_content">
-          <h2 class="card_title">{{ publisher.name }}</h2>
-          <div class="card_text">
-            <p *ngFor="let book of publisher.books">{{ book.title }}: {{ book.pages }}</p>
-          </div>
-        </div>
-      </div>
+<div class="container w-50 d-flex justify-content-center mt-5">
+  <ul class="pagination">
+    <li *ngIf="pageNo > 1">
+      <a (click)="onPageChange(pageNo - 1)">السابق</a>
+    </li>
+    <li *ngFor="let page of [].constructor(totalPages); let i = index" [class.active]="pageNo === i + 1">
+      <a (click)="onPageChange(i + 1)">{{ i + 1 }}</a>
+    </li>
+    <li *ngIf="pageNo < totalPages">
+      <a (click)="onPageChange(pageNo + 1)">التالي</a>
     </li>
   </ul>
 </div>
+
+

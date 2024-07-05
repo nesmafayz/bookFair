@@ -106,7 +106,6 @@ margin-top:60px;
     &:hover{
       border: 1px solid #ffffff44;
       box-shadow: 0 7px 50px 10px #000000aa;
-      transform: scale(1.015);
       filter: brightness(1.3);
       ::before{
         filter: brightness(.5);
@@ -176,7 +175,7 @@ margin-top:60px;
     outline: none;
     color: white;
     font-size: 15px;
-    padding: 24px 26px 24px 46px; /* Adjust padding to make room for the icon */
+    padding: 24px 26px 24px 46px; 
   }
   
 
@@ -211,4 +210,17 @@ margin-top:60px;
   }
   
 
+  .btn.add-to-cart {
+    background: #ff771a;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
   
+  .btn.add-to-cart:hover {
+    background: #ff6600;
+  }
