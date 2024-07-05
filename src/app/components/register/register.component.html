@@ -10,36 +10,17 @@
 
 
 
-<!-- Profile Image Field -->
-<div class="avatar-upload">
-  <div class="avatar-edit inputForm">
-    <input type="file" id="imageUpload" (change)="onFileChange($event)" class="btn-file" />
-    <label for="imageUpload"></label>
-  </div>
-  <div class="avatar-preview">
-    <div id="imagePreview" [ngStyle]="{'background-image': 'url(' + imagePreviewUrl + ')'}">
-    </div>
-  </div>
-</div>
-<div *ngIf="registerForm.get('profileImage')?.errors && registerForm.get('profileImage')?.touched" class="text-danger">
-  <span *ngIf="registerForm.get('profileImage')?.getError('required')">
-    ⚠️  ضع صورة
-  </span>
-</div>
-
-
-
         <div class="flex-column">
           <label> الاسم الاول</label>
         </div>
         <div class="inputForm">
-          <input formControlName="Fullname" placeholder="أدخل اسمك" class="input" type="text" />
+          <input formControlName="fullname" placeholder="أدخل اسمك" class="input" type="text" />
         </div>
-        <div *ngIf="registerForm.get('Fullname')?.errors && registerForm.get('Fullname')?.touched" class="text-danger">
-          <span *ngIf="registerForm.get('Fullname')?.getError('minlength')">
+        <div *ngIf="registerForm.get('fullname')?.errors && registerForm.get('fullname')?.touched" class="text-danger">
+          <span *ngIf="registerForm.get('fullname')?.getError('minlength')">
             ⚠️ يجب ألا يقل الاسم الاول عن 3 أحرف
           </span>
-          <span *ngIf="registerForm.get('Fullname')?.getError('required')">
+          <span *ngIf="registerForm.get('fullname')?.getError('required')">
             ⚠️ الاسم الاول مطلوب
           </span>
         </div>

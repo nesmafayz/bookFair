@@ -23,11 +23,11 @@ export class RegisterComponent {
 
     this.registerForm = new FormGroup({
       username: new FormControl(null, [Validators.required, Validators.minLength(3)]),
-      Fullname: new FormControl(null, [Validators.required, Validators.minLength(3)]),
+      fullname: new FormControl(null, [Validators.required, Validators.minLength(3)]),
       email: new FormControl(null, [Validators.required, Validators.email]),
       location: new FormControl(null, [Validators.required]),
       bio: new FormControl(null, [Validators.required]),
-      profileImage: new FormControl(null, [Validators.required]),
+      // profileImage: new FormControl(null, [Validators.required]),
       password: new FormControl(null, [
         Validators.required,
         Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}$/)
@@ -63,7 +63,7 @@ export class RegisterComponent {
 
       reader.onload = () => {
         this.imagePreviewUrl = reader.result as string;
-        this.registerForm.patchValue({ profileImage: file });
+        // this.registerForm.patchValue({ profileImage: "bhjghjghjgj" });
         this.registerForm.get('profileImage')?.updateValueAndValidity();
       };
 
