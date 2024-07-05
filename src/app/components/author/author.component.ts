@@ -16,6 +16,9 @@ export class AuthorComponent implements OnInit {
   searchTerm: string = '';
   notFoundMessage: string = '';
 
+  currentPage: number = 1;
+  pageSize: number = 12;
+
   constructor(private _authorService: AuthorsService, private router: Router) { }
 
   ngOnInit(): void {
@@ -23,10 +26,11 @@ export class AuthorComponent implements OnInit {
   }
 
   loadAuthors(): void {
-    this._authorService.getAuthors().subscribe(authors => {
-      this.authors = authors;
-      this.notFoundMessage = ''; // Clear notFoundMessage when loading all authors
-    });
+    this._authorService.getAuthorsWithPagination(this.currentPage, this.pageSize)
+      .subscribe(authors => {
+        this.authors = authors;
+        this.notFoundMessage = ''; // Clear notFoundMessage when loading authors
+      });
   }
 
   redirectToAuthorDetails(id: number): void {
@@ -35,16 +39,22 @@ export class AuthorComponent implements OnInit {
 
   search(): void {
     if (this.searchTerm.trim()) {
-      this._authorService.searchAuthors(this.searchTerm).subscribe(authors => {
-        this.authors = authors;
-        if (authors.length === 0) {
-          this.notFoundMessage = 'هذا المؤلف ليس موجود';
-        } else {
-          this.notFoundMessage = '';
-        }
-      });
+      this._authorService.searchAuthors(this.searchTerm)
+        .subscribe(authors => {
+          this.authors = authors;
+          if (authors.length === 0) {
+            this.notFoundMessage = 'هذا المؤلف ليس موجود';
+          } else {
+            this.notFoundMessage = '';
+          }
+        });
     } else {
-      this.loadAuthors();
+      this.loadAuthors(); // Reload authors when search term is empty
     }
+  }
+
+  onPageChange(page: number): void {
+    this.currentPage = page;
+    this.loadAuthors(); // Reload authors for the new page
   }
 }
