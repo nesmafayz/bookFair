@@ -1,102 +1,24 @@
-// src/app/publishers.service.ts
+
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment.development';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PublishersService {
-  private publishers = [
-    {
-      name: 'مكتبة الأسرة',
-      logo: '../../assets/images/osra.jpeg', // Replace with your actual logo data
-      
-      books: [
-        { title: 'صالة 1 عرض - لوك B1', pages: '1 صالة / 1 لوك - B35' },
-        { title: 'صالة 2 لوك - C47', pages: '4 صالة / A36 - 5 صالة / C47 - 2 صالة' },
-        { title: 'مكتبة الأسرة معروفة بتنوع مجموعتها من الكتب التي تلبي مختلف الاهتمامات والفئات العمرية. تقدم المكتبة مجموعة واسعة من المواد القرائية، بدءًا من الكتب التعليمية إلى تلك الترفيهية، مما يضمن توفير خيارات متنوعة للجمهور.' }
-              ]
-    },
-    {
-      name: 'بوابة الناشرين',
-      logo: '../../assets/images/nasheren.jpeg', 
-      books: [
-        { title: 'صالة 1 عرض - لوك B44', pages: '3 عرض - لوك B44' }
-        ,{title:'بوابة الناشرين هي منصة بارزة تعرض أعمالًا من دور نشر متعددة. تعمل كبوابة للقراء لاستكشاف واكتشاف كتب جديدة في مختلف الأنواع والمواضيع، مما يسهل الوصول إلى مجموعة واسعة من الأعمال الأدبية.'}
-      ]
-    },
-    {
-      name: 'دار الصفوة للطباعة والنشر والتوزيع',
-      logo: '../../assets/images/safwa.jpeg', 
-      books: [
-        { title: 'صالة 1 لوك - A14', pages: 'صالة 4 لوك - A14' }
-        ,{title:'تشتهر دار الصفوة للطباعة والنشر والتوزيع بالجودة العالية في الطباعة وتوزيع الكتب. تتخصص في إنتاج منشورات عالية المستوى في مختلف التخصصات، مما يضمن التميز في المحتوى والعرض.'}
-      ]
-    },
-    {
-      name: 'دار الفاروق',
-      logo: '../../assets/images/farouk.jpeg', // Replace with your actual logo data
-      books: [
-        { title: 'صالة 1 لوك - C31', pages: 'صالة 3 لوك - C31' }
-        ,{title:'تتميز دار الفاروق بمساهمتها في المشهد الثقافي والتعليمي من خلال إصداراتها المتنوعة. تنشر أعمالًا تعزز النمو الفكري والوعي الثقافي، بهدف إثراء معرفة القراء من خلال كتب ذات روح الإلهام والتفكير العميق.'}
-      ]
-    },
-    {
-      name: 'دار الشروق',
-      logo: '../../assets/images/shorouk.png', 
-      books: [
-        { title: 'صالة 2 عرض - لوك A12', pages: '2 صالة / 2 لوك - A12' },
-        { title: 'صالة 1 لوك - B23', pages: '5 صالة / B23' },
-        {title:'تبرز دار الشروق بفهرسها الواسع من الكتب التي تشمل موضوعات تعليمية وأدبية وثقافية. تلتزم بتعزيز حب القراءة من خلال اختيارها المتنوع للكتب التي تناسب مختلف الأذواق والتفضيلات.'}
-      ]
-    },
-    {
-      name: 'المكتبة الوطنية',
-      logo: '../../assets/images/national_library.png', 
-      books: [
-        { title: 'صالة 1 عرض - لوك C11', pages: '1 صالة / C11' },
-        { title: 'صالة 1 لوك - A14', pages: '3 صالة / A14' }
-        ,{title:'تعد المكتبة الوطنية ركيزة أساسية في المعرفة والتعلم، حيث تحافظ على التراث الوطني من خلال مجموعتها الشاملة من الكتب. تلعب دورًا مهمًا في تعزيز القراءة والتعليم من خلال توفير موارد قيمة للجمهور.'}
-      ]
-    },
-    {
-      name: 'دار الحكمة',
-      logo: '../../assets/images/hikma.png', 
-      books: [
-        { title: 'صالة 1 عرض - لوك B21', pages: '2 صالة / B21' }
-        ,{title:'تشتهر دار الحكمة بإسهاماتها في المنظر الأدبي، حيث تركز على نشر كتب تلهم وتثقف. تنشر أعمالًا تعكس الحكمة والتنوير، بهدف تعزيز الفضول الفكري والنمو الشخصي بين القراء.'}
-      ]
-    },
-    {
-      name: 'مكتبة العبيكان',
-      logo: '../../assets/images/obekan.jpeg', 
-      books: [
-        { title: 'صالة 1 عرض - لوك C33', pages: '4 صالة / C33' }
-        ,{title:'تتميز مكتبة العبيكان بجهودها في تعزيز الأدب وتبادل الثقافات. تقدم مجموعة واسعة من الكتب التي تلبي مختلف الاهتمامات، مما يعكس توازنًا بين المنظورات المحلية والدولية من خلال منشوراتها.'}
-      ]
-    },
-    {
-      name: 'دار الياسمين',
-      logo: '../../assets/images/yasmin.png', 
-      books: [
-        { title: 'صالة 1 عرض - لوك A25', pages: '1 صالة / A25' },
-        { title: 'صالة 2 لوك - B37', pages: '2 صالة / B37' }
-        ,{title:'تتميز دار الياسمين بتفانيها في نشر كتب شيقة ومثيرة لجميع الأعمار. تقدم مجموعة تشمل الكلاسيكيات الخالدة والعناوين الحديثة، مما يضمن تجربة قراءة غنية وممتعة للجميع.'}
-      ]
-    },
-    {
-      name: 'دار الثقافة',
-      logo: '../../assets/images/thaqafa.png', 
-      books: [
-        { title: 'صالة 1 عرض - لوك C14', pages: '3 صالة / C14' },
-        { title: 'صالة 4 لوك - A22', pages: '4 صالة / A22' }
-        ,{title: 'تتفرد دار الثقافة بدورها في تعزيز الحوار الفكري والتفاهم الثقافي من خلال مجموعتها المتنوعة من الكتب. تنشر أعمالًا تستكشف جوانب مختلفة من المجتمع والتاريخ والفنون، بهدف إثراء وجهات نظر القراء وتوسيع معرفتهم.'}
-      ]
-    }
-  ];
 
-  constructor() {}
+  constructor(private http:HttpClient) {}
 
-  getPublishers() {
-    return this.publishers;
+  getPublisherList(pageNo:number,pageSize:number):Observable<any>{
+  return  this.http.get<any>(`${environment.baseUrl}/api/Publisher/Paginated?pageNo=${pageNo}&pagesize=${pageSize}`);
+  }
+
+
+
+  getBookById(publisherId: number): Observable<any> {
+    const url = `${environment.baseUrl}/api/Publisher/${publisherId}`;
+    return this.http.get<any>(url);
   }
 }
