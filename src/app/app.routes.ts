@@ -1,3 +1,4 @@
+// app-routing.module.ts or your routing module file
 import { Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { BookstoreComponent } from './components/bookstore/bookstore.component';
@@ -20,27 +21,29 @@ import { CartComponent } from './components/cart/cart.component';
 import { ReviewComponent } from './components/review/review.component';
 import { BooksRelatedToPublisherComponent } from './components/books-related-to-publisher/books-related-to-publisher.component';
 import { DonateBooksListComponent } from './components/donate-books-list/donate-books-list.component';
+import { AuthGuard } from './guards/auth.guard'; 
+
 export const routes: Routes = [
-    { path: '', redirectTo: 'Home', pathMatch: 'full' },
-    { path: 'Home', component: HomeComponent },
-    { path: 'Bookstore', component: BookstoreComponent },
-    { path: 'book-details/:id', component: BookDetailsComponent },
-    {path:'books-related/:id',component:BooksRelatedToPublisherComponent},
-    { path: 'Author', component: AuthorComponent },
-    { path: 'author-details/:id', component: AuthorDetailsComponent },
-    { path: 'Publisher', component: PublishersComponent },
-    {path:'review',component:ReviewComponent},
-    { path: 'Donation', component: DonationComponent },
-    { path: 'MapGuide', component: MapGuideComponent },
-    { path: 'Login', component: LoginComponent },
-    { path: 'Logout', component: LogoutComponent },
-    { path: 'Register', component: RegisterComponent },
-    { path: 'Visitors', component: VisitorsComponent },
-    { path: 'Transports', component: TransportsComponent },
-    { path: 'bookingTicket', component: BookingComponent },
-    { path: 'donate-books', component: DonateBooksComponent },
-    { path: 'favorites', component: FavoritesComponent },
-    { path: 'cart', component: CartComponent },
-    {path:'donate-books-list',component:DonateBooksListComponent},
-    { path: '**', component: NotFoundComponent }
+  { path: '', redirectTo: 'Home', pathMatch: 'full' },
+  { path: 'Home', component: HomeComponent },
+  { path: 'Bookstore', component: BookstoreComponent, canActivate: [AuthGuard] },
+  { path: 'book-details/:id', component: BookDetailsComponent },
+  { path: 'books-related/:id', component: BooksRelatedToPublisherComponent },
+  { path: 'Author', component: AuthorComponent },
+  { path: 'author-details/:id', component: AuthorDetailsComponent },
+  { path: 'Publisher', component: PublishersComponent },
+  { path: 'review', component: ReviewComponent },
+  { path: 'Donation', component: DonationComponent, canActivate: [AuthGuard] },
+  { path: 'MapGuide', component: MapGuideComponent },
+  { path: 'Login', component: LoginComponent },
+  { path: 'Logout', component: LogoutComponent },
+  { path: 'Register', component: RegisterComponent },
+  { path: 'Visitors', component: VisitorsComponent },
+  { path: 'Transports', component: TransportsComponent },
+  { path: 'bookingTicket', component: BookingComponent, canActivate: [AuthGuard] },
+  { path: 'donate-books', component: DonateBooksComponent },
+  { path: 'favorites', component: FavoritesComponent },
+  { path: 'cart', component: CartComponent },
+  { path: 'donate-books-list', component: DonateBooksListComponent },
+  { path: '**', component: NotFoundComponent }
 ];
