@@ -4,6 +4,7 @@
       <img class="w-100 h-100 rounded-2" [src]="book?.imageUrl" alt="Book Image">
     </div>
     <div class="col-lg-6 content">
+      <p style="display: none;">{{book?.id}}</p>
       <h1 class="mb-4">{{ book?.bookName }}</h1>
       <p><strong>اسم المؤلف:</strong> {{ book?.authorName }}</p>
       <p><strong>السعر: </strong> {{ book?.price }} جنيه</p>
@@ -20,10 +21,11 @@
         <button class="btn favorite-btn " routerLink="/favorites">
           <i class="fas fa-heart"></i> إضافة إلى المفضلة
         </button>
-        <button class="btn cart-btn" routerLink="/cart">
+        <button class="btn cart-btn" (click)="addToCart(book)">
           <i class="fas fa-shopping-cart"></i> إضافة إلى السلة
         </button>
       </div>
     </div>
   </div>
 </div>
+
