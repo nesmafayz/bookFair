@@ -1,4 +1,5 @@
 export interface BookItemWithUserID {
     userId : string,
-    bookId : number
+    bookId : number,
+    totalPrice?:number,
 }

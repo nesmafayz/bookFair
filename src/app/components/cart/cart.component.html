@@ -15,10 +15,10 @@
                 <div class="d-flex justify-content-between align-items-center mb-4">
                   <div>
                     <p class="mb-1">عربة التسوق</p>
-                    <p class="mb-0">لديك {{ cartItems.length }} عناصر في عربة التسوق الخاصة بك</p>
+                    <p class="mb-0">لديك {{ book.length }} عناصر في عربة التسوق الخاصة بك</p>
                   </div>
                 </div>
-                <div *ngFor="let item of cartItems" class="card mb-3">
+                <div *ngFor="let item of book" class="card mb-3">
                   <div class="card-body">
                     <div class="d-flex justify-content-between">
                       <div class="d-flex flex-row align-items-center">
@@ -26,7 +26,7 @@
                           <img [src]="item.image" class="img-fluid rounded-3" alt="عنصر تسوق">
                         </div>
                         <div class="ms-3">
-                          <h5>{{ item.name }}</h5>
+                          <h5>{{ item.bookName }}</h5>
                           <p class="small mb-0">{{ item.description }}</p>
                         </div>
                       </div>
@@ -40,7 +40,7 @@
                         </button>
                       </div>
                       <div class="d-flex flex-row align-items-center">
-                        <a href="#!" style="color: #cecece;" (click)="deleteItem(item)">
+                        <a style="color: #cecece;" (click)="deleteItem(item)">
                           <i class="fas fa-trash-alt"></i>
                         </a>
                       </div>

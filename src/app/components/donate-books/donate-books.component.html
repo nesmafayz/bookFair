@@ -9,9 +9,9 @@
     <div class="flex-column">
           <label>اختر الكتاب</label>
           <div class="inputForm">
-            <input formControlName="bookAddress" placeholder="اختر صورة الكتاب" class="input" type="file" />
-            <div *ngIf="donateForm.controls['bookAddress'].invalid && (donateForm.controls['bookAddress'].dirty || donateForm.controls['bookAddress'].touched)">
-              <small *ngIf="donateForm.controls['bookAddress'].errors?.['required']" class="text-danger">صورة الكتاب مطلوبة.</small>
+            <input formControlName="imageUrl" placeholder="اختر صورة الكتاب" class="input" type="file" />
+            <div *ngIf="donateForm.controls['imageUrl'].invalid && (donateForm.controls['imageUrl'].dirty || donateForm.controls['imageUrl'].touched)">
+              <small *ngIf="donateForm.controls['imageUrl'].errors?.['required']" class="text-danger">صورة الكتاب مطلوبة.</small>
             </div>
           </div>
         </div>
@@ -30,11 +30,11 @@
        
 
         <div class="flex-column">
-          <label>اسم المؤلف</label>
+          <label> الوصف </label>
           <div class="inputForm">
-            <input formControlName="authorName" placeholder="أدخل اسم المؤلف" class="input" type="text" />
-            <div *ngIf="donateForm.controls['authorName'].invalid && (donateForm.controls['authorName'].dirty || donateForm.controls['authorName'].touched)">
-              <small *ngIf="donateForm.controls['authorName'].errors?.['required']" class="text-danger">اسم المؤلف مطلوب.</small>
+            <input formControlName="description" placeholder=" أدخل اسم المؤلف و ذكر حاله الكتاب" class="input" type="text" />
+            <div *ngIf="donateForm.controls['description'].invalid && (donateForm.controls['description'].dirty || donateForm.controls['description'].touched)">
+              <small *ngIf="donateForm.controls['description'].errors?.['required']" class="text-danger"> الوصف مطلوب.</small>
               
             </div>
           </div>

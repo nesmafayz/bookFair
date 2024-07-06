@@ -146,9 +146,12 @@
 
 
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { BooksService } from '../../../services/books.service';
+import { CartComponent } from '../../cart/cart.component';
+import { SharedService } from '../../../services/shared.service';
+
 import { ReviewSectionComponent } from '../../review-section/review-section.component';
 
 @Component({
@@ -156,19 +159,25 @@ import { ReviewSectionComponent } from '../../review-section/review-section.comp
   standalone: true,
   imports: [CommonModule,RouterLink,ReviewSectionComponent],
   templateUrl: './book-details.component.html',
-  styleUrl: './book-details.component.css'
+  styleUrl: './book-details.component.css',
+
 })
 export class BookDetailsComponent implements OnInit {
+
+  bookData:any;
   book: any;
   errorMessage: string = '';
 
-  constructor(private bookService: BooksService, private route: ActivatedRoute) {}
+  constructor(private bookService: BooksService, private route: ActivatedRoute,private router: Router,private dataService: SharedService) {}
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       const bookId = Number(params.get('id'));
       this.loadBookDetails(bookId);
     });
+
+    this.dataService.currentData.subscribe(data => this.bookData = data);
+
   }
 
   loadBookDetails(bookId: number) {
@@ -182,4 +191,11 @@ export class BookDetailsComponent implements OnInit {
       }
     });
   }
+
+  addToCart(book:any){
+    this.dataService.changeData(book);
+    this.bookData = book;
+    this.router.navigate(['/cart']);
+
+}
 }

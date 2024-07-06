@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CartService } from '../../services/cart.service';
 import { BookItemWithUserID } from '../../../models/book-item-with-user-id';
@@ -6,6 +6,8 @@ import { Cart } from '../../../models/cart';
 import { ChangeQuantityDTO } from '../../../models/change-quantity-dto';
 import { Modal } from 'bootstrap';
 import { CommonModule } from '@angular/common';
+import { BookDetailsComponent } from '../bookstore/book-details/book-details.component';
+import { SharedService } from '../../services/shared.service';
 
 
 
@@ -14,13 +16,15 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [ReactiveFormsModule,CommonModule],
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css']
+  styleUrls: ['./cart.component.css'],
+
 })
 export class CartComponent implements OnInit {
   cartItems: any[] = [];
   paymentForm: FormGroup;
+  book:any[] = [];
 
-  constructor(private fb: FormBuilder, private cartService: CartService) {
+  constructor(private fb: FormBuilder, private cartService: CartService,private dataService: SharedService) {
     this.paymentForm = this.fb.group({
       cardHolderName: ['', [Validators.required, Validators.pattern(/^[\u0621-\u064A\s]+$/)]],
       cardNumber: ['', [Validators.required, Validators.pattern(/^\d{4}\s\d{4}\s\d{4}\s\d{4}$/)]]
@@ -28,10 +32,13 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.dataService.currentData.subscribe(data => this.book.push(data) );
+      console.log(this.book);
     this.loadCartItems();
   }
 
   loadCartItems(): void {
+   
     const cartId = 1; // Replace with the actual cart ID
     this.cartService.getAllItems(cartId).subscribe(items => {
       this.cartItems = items;
@@ -40,10 +47,8 @@ export class CartComponent implements OnInit {
 
 
   deleteItem(item: any): void {
-    const bookItemWithUserID :BookItemWithUserID  = {userId : "1",bookId : 1 }; // Replace with actual user ID
-    this.cartService.deleteItem(bookItemWithUserID).subscribe(() => {
-      this.cartItems = this.cartItems.filter(cartItem => cartItem.id !== item.id);
-    });
+    let booksList = this.book.filter(i => !item);
+    this.book = booksList;
   }
 
   decreaseQuantity(item: Cart): void {
