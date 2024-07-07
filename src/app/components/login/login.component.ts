@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
+
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -27,15 +28,20 @@ export class LoginComponent {
   login() {
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
-
+  
       this.authService.login(email, password).subscribe(
         success => {
           if (success) {
             // Navigate to Home upon successful login
             this.router.navigate(['/Home']);
-          } 
+          } else {
+            // Handle unauthorized access here if needed
+            console.log('Unauthorized access');
+            this.errorMessage = 'Unauthorized access'; // Display error message
+          }
         },
         error => {
+          console.error('Login error:', error);
           this.errorMessage = 'An error occurred during login.';
         }
       );
@@ -44,7 +50,7 @@ export class LoginComponent {
     }
   }
 
-  // Helper method to easily access form controls
+  // Getter to easily access form controls
   get formControls() {
     return this.loginForm.controls;
   }

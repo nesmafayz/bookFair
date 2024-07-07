@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { BookingService } from '../../services/booking.service';
 
 @Component({
   selector: 'app-booking',
@@ -11,21 +12,33 @@ import { FormsModule } from '@angular/forms';
 })
 export class BookingComponent {
   formData = {
-    name: '',
     phone: '',
-    tickets: 1,
+    numberOfTicket: 1,
     totalPrice: 5
   };
 
   ticketOptions: number[] = Array.from({ length: 20 }, (_, i) => i + 1);
 
+  constructor(private bookingService: BookingService) {}
+
   updateTotalPrice() {
     const ticketPrice = 5;
-    this.formData.totalPrice = this.formData.tickets * ticketPrice;
+    this.formData.totalPrice = this.formData.numberOfTicket * ticketPrice;
   }
 
   onSubmit() {
     console.log('Form Data:', this.formData);
-    // Handle form submission logic here
+    
+    // Call createTicket method from BookingService
+    this.bookingService.createTicket(this.formData).subscribe(
+      response => {
+        console.log('Ticket created:', response);
+        // Handle success response (if needed)
+      },
+      error => {
+        console.error('Error creating ticket:', error);
+        // Handle error response
+      }
+    );
   }
 }
