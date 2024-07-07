@@ -8,12 +8,11 @@
         <div class="content">
           <p align="center">أحجز الان</p>
           <div class="inp">
-            <label class="form-label mt-3 mb-1">الاسم</label>
-            <input placeholder="الاسم" type="text" class="input" [(ngModel)]="formData.name" name="name" required>
+           
             <label class="form-label mt-3 mb-1">رقم الهاتف</label>
             <input placeholder="رقم الهاتف" type="text" class="input" [(ngModel)]="formData.phone" name="phone" required>
             <label class="form-label mt-3 mb-1">عدد التذاكر</label>
-            <select class="input select" [(ngModel)]="formData.tickets" name="tickets" (change)="updateTotalPrice()" required>
+            <select class="input select" [(ngModel)]="formData.numberOfTicket" name="numberOfTicket" (change)="updateTotalPrice()" required>
               <option *ngFor="let option of ticketOptions" [value]="option">{{ option }}</option>
             </select>
             <p class="mt-4">السعر الكلي: {{ formData.totalPrice }}$</p>

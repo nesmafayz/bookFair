@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, BehaviorSubject } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, BehaviorSubject, of } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -27,10 +27,14 @@ export class AuthService {
         map(response => {
           if (response && response.token) {
             localStorage.setItem('userToken', response.token);
-            this.loggedIn.next(true);
-            return false;
+            this.loggedIn.next(true); // Set logged-in state to true
+            return true; // Return true for successful login
           }
-          return false;
+          return false; // Return false for failed login
+        }),
+        catchError(error => {
+          console.error('Login error:', error);
+          return of(false); // Return false for failed login due to error
         })
       );
   }
@@ -40,11 +44,11 @@ export class AuthService {
     this.loggedIn.next(false);
   }
 
-  checkTokenAndRedirect(): boolean {
-    if (this.isUserLoggedIn()) {
-      this.loggedIn.next(false);
-      return false;
-    }
-    return false;
+  getHeaders(): HttpHeaders {
+    const token = localStorage.getItem('userToken');
+    return new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`
+    });
   }
 }
