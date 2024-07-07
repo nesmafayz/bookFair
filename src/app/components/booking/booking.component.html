@@ -9,14 +9,24 @@
           <p align="center">أحجز الان</p>
           <div class="inp">
             <label class="form-label mt-3 mb-1">رقم الهاتف</label>
-            <input placeholder="رقم الهاتف" type="text" class="input" formControlName="phone" required>
+            <input formControlName="phone" placeholder="رقم الهاتف" type="text" class="input" [(ngModel)]="formData.phone" name="phone" required>
+            <div *ngIf="ticketForm.controls['phone'].invalid && (ticketForm.controls['phone'].dirty || ticketForm.controls['phone'].touched)" class="error">
+              <span *ngIf="ticketForm.controls['phone'].errors">Phone number is required.</span>
+              <span *ngIf="ticketForm.controls['phone'].errors">Invalid phone number format.</span>
+            </div>
+            
             <label class="form-label mt-3 mb-1">عدد التذاكر</label>
-            <select class="input select" formControlName="numberOfTicket" (change)="updateTotalPrice()" required>
+            <select formControlName="numberOfTicket" class="input select" [(ngModel)]="formData.numberOfTicket" name="numberOfTicket" (change)="updateTotalPrice()" required>
               <option *ngFor="let option of ticketOptions" [value]="option">{{ option }}</option>
             </select>
-            <p class="mt-4">السعر الكلي: {{ formData.totalPrice }}$</p>
+            <div *ngIf="ticketForm.controls['numberOfTicket'].invalid && (ticketForm.controls['numberOfTicket'].dirty || ticketForm.controls['numberOfTicket'].touched)" class="error">
+              <span *ngIf="ticketForm.controls['numberOfTicket'].errors">Number of tickets is required.</span>
+              <span *ngIf="ticketForm.controls['numberOfTicket'].errors">Must be at least 1 ticket.</span>
+            </div>
+            
+            <p class="mt-4">السعر الكلي: {{ totalPrice }}$</p>
           </div>
-          <button type="submit">أدفع</button>
+          <button type="submit" [disabled]="ticketForm.invalid">أدفع</button>
         </div>
       </form>
     </div>

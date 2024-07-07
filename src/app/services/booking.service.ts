@@ -2,20 +2,21 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service'; // Import AuthService
-import { environment } from '../../environments/environment';  // Import environment variable
+import { environment } from '../../environments/environment';  
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookingService {
-  private apiUrl = environment.baseUrl;  // API base URL from environment
+  private apiUrl = environment.baseUrl;  
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
-  createTicket(newTicketDTO: any): Observable<any> {
-    const headers = this.authService.getHeaders(); // Ensure authService is properly injected and used
-
-    return this.http.post<any>(`${this.apiUrl}/api/Ticket`, newTicketDTO, { headers });
+  createTicket(tiketData: any): Observable<any> {
+    const headers = this.authService.getHeaders(); 
+   const id = localStorage.getItem('id')
+   tiketData.UserId = id;
+    return this.http.post<any>(`${this.apiUrl}/api/Ticket`, tiketData , { headers });
   }
 
   updateTicket(newTicketDTO: any): Observable<any> {

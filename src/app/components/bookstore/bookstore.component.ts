@@ -15,7 +15,7 @@ export class BookstoreComponent implements OnInit {
   books: any[] = [];
   filteredBooks: any[] = [];
   pageNo: number = 1;
-  pageSize: number = 8;
+  pageSize: number = 2;
   totalPages: number = 1;
   errorMessage: string = '';
   searchTerm: string = '';

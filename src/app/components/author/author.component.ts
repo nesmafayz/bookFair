@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms'; // Import FormsModule for ngModel
 })
 export class AuthorComponent implements OnInit {
   authors: any[] = [];
+  filteredAuthors: any[] = [];
   searchTerm: string = '';
   notFoundMessage: string = '';
 
@@ -29,6 +30,7 @@ export class AuthorComponent implements OnInit {
     this._authorService.getAuthorsWithPagination(this.currentPage, this.pageSize)
       .subscribe(authors => {
         this.authors = authors;
+        this.filteredAuthors = authors;
         this.notFoundMessage = ''; // Clear notFoundMessage when loading authors
       });
   }
@@ -37,20 +39,17 @@ export class AuthorComponent implements OnInit {
     this.router.navigate(['author-details', id]);
   }
 
-  search(): void {
-    if (this.searchTerm.trim()) {
-      this._authorService.searchAuthors(this.searchTerm)
-        .subscribe(authors => {
-          this.authors = authors;
-          if (authors.length === 0) {
-            this.notFoundMessage = 'هذا المؤلف ليس موجود';
-          } else {
-            this.notFoundMessage = '';
-          }
-        });
-    } else {
-      this.loadAuthors(); // Reload authors when search term is empty
+  filterResults(text: string) {
+    if (!text) {
+      this.filteredAuthors = this.authors;
+      return;
     }
+
+    this.filteredAuthors = this.authors.filter(author =>
+      author.name.toLowerCase().includes(text.toLowerCase())
+    );
+
+    this.notFoundMessage = this.filteredAuthors.length === 0 ? '' : '';
   }
 
   onPageChange(page: number): void {
