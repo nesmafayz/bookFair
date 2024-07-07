@@ -146,13 +146,14 @@
 
 
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { BooksService } from '../../../services/books.service';
-import { CartComponent } from '../../cart/cart.component';
 import { SharedService } from '../../../services/shared.service';
 
 import { ReviewSectionComponent } from '../../review-section/review-section.component';
+import { CartService } from '../../../services/cart.service';
+import { BookIdDTO } from '../../../../models/book-id-dto';
 
 @Component({
   selector: 'app-book-details',
@@ -168,7 +169,7 @@ export class BookDetailsComponent implements OnInit {
   book: any;
   errorMessage: string = '';
 
-  constructor(private bookService: BooksService, private route: ActivatedRoute,private router: Router,private dataService: SharedService) {}
+  constructor(private bookService: BooksService, private route: ActivatedRoute,private router: Router,private dataService: SharedService,private cartService:CartService) {}
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -193,9 +194,15 @@ export class BookDetailsComponent implements OnInit {
   }
 
   addToCart(book:any){
-    this.dataService.changeData(book);
-    this.bookData = book;
-    this.router.navigate(['/cart']);
-
+    debugger;
+   const bookVM :BookIdDTO = {
+       bookId : book.id
+    };
+    this.cartService.addToCart(bookVM).subscribe(res =>{
+      this.dataService.changeData(book);
+      this.bookData = book;
+      this.router.navigate(['/cart']);
+  
+    });
 }
 }
