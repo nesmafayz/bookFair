@@ -37,6 +37,7 @@ export class LoginComponent {
             if(res.token)
             {
               localStorage.setItem("token" , res.token);
+              localStorage.setItem("id" , res.id);
               this.router.navigate(['/Home']);
             }
            

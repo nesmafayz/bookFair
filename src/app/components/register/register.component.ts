@@ -77,14 +77,17 @@ export class RegisterComponent {
 
       this._registerService.register(registerForm.value).subscribe({
         next: (res) => {
-          Swal.fire({
-            title: "تم بنجاح",
-            text: "لقد تم انشاء حسابك بنجاح",
-            icon: "success"
-          });
-          if (res.message === 'success') {
-            this.Router.navigate(['/login']);
+          if(res.message)
+          {
+            Swal.fire({
+              title: "تم بنجاح",
+              text: "لقد تم انشاء حسابك بنجاح",
+              icon: "success"
+            });
+              this.Router.navigate(['/Login']);
           }
+            // if (res.message === 'success') {
+          // }
         },
         error: (err) => {
           console.error('Registration error:', err);

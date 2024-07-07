@@ -11,10 +11,8 @@ export class RegisterServiceService {
 
   constructor(private http: HttpClient) { }
 
-  register(userData:object):Observable<any>
+  register(userData:any):Observable<any>
   {
-    return this.http.post(`${environment.baseUrl}/api/Account/register`, userData);
-
-
+    return this.http.post<any>(`${environment.baseUrl}/api/Account/register`, userData);
   }
 }
