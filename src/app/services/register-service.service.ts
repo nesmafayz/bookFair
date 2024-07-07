@@ -13,6 +13,7 @@ export class RegisterServiceService {
 
   register(userData:any):Observable<any>
   {
+    console.log(userData)
     return this.http.post<any>(`${environment.baseUrl}/api/Account/register`, userData);
   }
 }
