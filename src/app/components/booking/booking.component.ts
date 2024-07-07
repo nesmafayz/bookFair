@@ -63,22 +63,21 @@ export class BookingComponent implements OnInit {
   
       this.bookingService.createTicket(this.formData).subscribe({
         next : (res : any) => {
-          Swal.fire({
-            icon: 'success',
-            title: 'تم حجز التذكرة بنجاح!',
-            showConfirmButton: false,
-            timer: 1500 // Automatically close after 1.5 seconds
-          });
-          console.log('Ticket created:', res.data);
-
+            Swal.fire({
+              icon: 'success',
+              title: 'تم حجز التذكرة بنجاح',
+              showConfirmButton: false,
+              timer: 1500 // Automatically close after 1.5 seconds
+            });
+            console.log('Ticket created:', res);
         },
 
         error : (err : any) => {
            console.error('Error creating ticket:', err.error);
            // Optionally, show an error message using SweetAlert2
            Swal.fire({
-            icon: 'success',
-            title: 'تم حجز التذكرة بنجاح!',
+            icon: 'warning',
+            title: err.error,
             showConfirmButton: false,
             timer: 3000 // Automatically close after 1.5 seconds
           });
