@@ -21,22 +21,22 @@ export class AuthService {
     return this.loggedIn.asObservable();
   }
 
-  login(email: string, password: string): Observable<boolean> {
-    return this.http.post<{ token: string }>(`${this.apiUrl}/api/Account/Login`, { email, password })
-      .pipe(
-        map(response => {
-          if (response && response.token) {
-            localStorage.setItem('userToken', response.token);
-            this.loggedIn.next(true); // Set logged-in state to true
-            return true; // Return true for successful login
-          }
-          return false; // Return false for failed login
-        }),
-        catchError(error => {
-          console.error('Login error:', error);
-          return of(false); // Return false for failed login due to error
-        })
-      );
+  login(email: string, password: string): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/api/Account/Login`, { email, password });
+      // .pipe(
+      //   map(response => {
+      //     if (response && response.token) {
+      //       localStorage.setItem('userToken', response.token);
+      //       this.loggedIn.next(true); // Set logged-in state to true
+      //       return true; // Return true for successful login
+      //     }
+      //     return false; // Return false for failed login
+      //   }),
+      //   catchError(error => {
+      //     console.error('Login error:', error);
+      //     return of(false); // Return false for failed login due to error
+      //   })
+      // );
   }
 
   logout(): void {

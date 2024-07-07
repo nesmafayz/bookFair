@@ -25,25 +25,41 @@ export class LoginComponent {
     });
   }
 
+
   login() {
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
   
       this.authService.login(email, password).subscribe(
-        success => {
-          if (success) {
-            // Navigate to Home upon successful login
-            this.router.navigate(['/Home']);
-          } else {
-            // Handle unauthorized access here if needed
-            console.log('Unauthorized access');
-            this.errorMessage = 'Unauthorized access'; // Display error message
+        {
+          next : (res) => {
+            console.log(res)
+            if(res.token)
+            {
+              localStorage.setItem("token" , res.token);
+              this.router.navigate(['/Home']);
+            }
+           
+          },
+          error : (err) => {
+            console.log(err)
           }
-        },
-        error => {
-          console.error('Login error:', error);
-          this.errorMessage = 'An error occurred during login.';
         }
+        // success => {
+        //   if (success) {
+
+        //     // Navigate to Home upon successful login
+        //     this.router.navigate(['/Home']);
+        //   } else {
+        //     // Handle unauthorized access here if needed
+        //     console.log('Unauthorized access');
+        //     this.errorMessage = 'Unauthorized access'; // Display error message
+        //   }
+        // },
+        // error => {
+        //   console.error('Login error:', error);
+        //   this.errorMessage = 'An error occurred during login.';
+        // }
       );
       // Log form data to console
       console.log('Login form data:', { email, password });

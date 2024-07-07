@@ -19,10 +19,10 @@ export class BookingService {
   }
 
   updateTicket(newTicketDTO: any): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/Ticket`, newTicketDTO);
+    return this.http.put<any>(`${this.apiUrl}/api/Ticket`, newTicketDTO);
   }
 
   deleteTicket(): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrl}/Ticket`);
+    return this.http.delete<any>(`${this.apiUrl}/api/Ticket`);
   }
 }
