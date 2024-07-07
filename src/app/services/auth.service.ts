@@ -50,4 +50,7 @@ export class AuthService {
       Authorization: `Bearer ${token}`
     });
   }
+  getToken(): string| null {
+    return localStorage.getItem('token')?localStorage.getItem('token') : null;
+  }
 }
