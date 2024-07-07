@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, BehaviorSubject, of } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -14,7 +13,7 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   isUserLoggedIn(): boolean {
-    return localStorage.getItem('userToken') !== null;
+    return localStorage.getItem('token') !== null;
   }
 
   get isLoggedIn(): Observable<boolean> {
@@ -40,12 +39,12 @@ export class AuthService {
   }
 
   logout(): void {
-    localStorage.removeItem('userToken');
+    localStorage.removeItem('token');
     this.loggedIn.next(false);
   }
 
   getHeaders(): HttpHeaders {
-    const token = localStorage.getItem('userToken');
+    const token = localStorage.getItem('token');
     return new HttpHeaders({
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`

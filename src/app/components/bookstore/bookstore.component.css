@@ -192,6 +192,7 @@ margin-top:60px;
     justify-content: center;
     backdrop-filter: blur(3px);
     border-radius: 2px;
+    cursor:pointer;
   }
   .container .pagination li {
     list-style-type: none;

@@ -7,8 +7,8 @@
 <div class="container">
   <div class="row d-flex justify-content-center align-items-center mt-5">
     <div class="searchBox">
-      <input dir="rtl" class="searchInput w-100" type="text" [(ngModel)]="searchTerm" placeholder="أبحث عن مؤلف" />
-      <button class="searchButton" (click)="search()">
+      <input dir="rtl" class="searchInput w-100" type="text" [(ngModel)]="searchTerm" placeholder="أبحث عن مؤلف" #filter (input)="filterResults(filter.value)" />
+      <button class="searchButton" (click)="filterResults(filter.value)">
         <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29" fill="none">
           <g clip-path="url(#clip0_2_17)">
             <g filter="url(#filter0_d_2_17)">
@@ -47,7 +47,7 @@
 
 <div class="container" dir="rtl">
   <div class="row">
-    <div class="col-lg-3 col-md-6 col-sm-12 mb-5" *ngFor="let author of authors">
+    <div class="col-lg-3 col-md-6 col-sm-12 mb-5" *ngFor="let author of filteredAuthors">
       <div class="nft" (click)="redirectToAuthorDetails(author.id)">
         <div class="main">
           <img class="tokenImage" [src]='author.image' alt="Author Image" />
@@ -58,6 +58,8 @@
     </div>
   </div>
 </div>
+
+
 
 <div class="container" dir="rtl">
   <div class="row justify-content-center mt-8">

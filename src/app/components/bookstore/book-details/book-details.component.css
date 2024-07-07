@@ -32,7 +32,6 @@
 
 .button-group {
   display: flex;
-  justify-content: flex-start;
   gap: 10px;
   margin-top: auto; 
   
@@ -46,7 +45,7 @@
   justify-content: center;
   color: white;
   border-radius: 5px;
-  width:20vw;
+  width:37vw;
 }
 
 .button-group .btn i {
