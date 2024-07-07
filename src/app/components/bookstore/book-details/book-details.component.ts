@@ -194,15 +194,17 @@ export class BookDetailsComponent implements OnInit {
   }
 
   addToCart(book:any){
-    debugger;
-   const bookVM :BookIdDTO = {
-       bookId : book.id
-    };
-    this.cartService.addToCart(bookVM).subscribe(res =>{
-      this.dataService.changeData(book);
-      this.bookData = book;
-      this.router.navigate(['/cart']);
+    this.dataService.changeData(book);
+    this.bookData = book;
+    this.router.navigate(['/cart']);
+  //  const bookVM :BookIdDTO = {
+  //      bookId : book.id
+  //   };
+  //   this.cartService.addToCart(bookVM).subscribe(res =>{
+  //     this.dataService.changeData(book);
+  //     this.bookData = book;
+  //     this.router.navigate(['/cart']);
   
-    });
+  //   });
 }
 }

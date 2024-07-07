@@ -6,6 +6,7 @@ import { BookItemWithUserID } from '../../models/book-item-with-user-id';
 import { ChangeQuantityDTO } from '../../models/change-quantity-dto';
 import { environment } from '../../environments/environment.development';
 import { BookIdDTO } from '../../models/book-id-dto';
+import { AuthService } from './auth.service';
 
 
 @Injectable({
@@ -14,14 +15,15 @@ import { BookIdDTO } from '../../models/book-id-dto';
 export class CartService {
 
   private apiUrl = environment.baseUrl;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private authService:AuthService) { }
 
   getAllItems(){
     return this.http.get(`${this.apiUrl}/api/Cart/All`);
   }
-  addToCart(BookId : BookIdDTO): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/api/Cart/Buy-Regular-Book`,BookId);
-
+  addToCart(BookId: BookIdDTO): Observable<any> {
+    const token = this.authService.getToken();  // Assuming you have a method to get the token
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.post<any>(`${this.apiUrl}/api/Cart/Buy-Regular-Book`, BookId, { headers });
   }
 
   deleteItem(bookId: BookIdDTO): Observable<any> {
