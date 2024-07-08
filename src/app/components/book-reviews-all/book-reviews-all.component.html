@@ -1,0 +1,17 @@
+<div class="container" dir="rtl">
+    <div class="row mt-4">
+        <div class="col-lg-12">
+            <div *ngFor="let review of reviews" class="card2">
+                <div class="textBox ">
+                  <div class="textContent">
+                    <p class="h1">{{ review?.title || 'Default Title' }}</p>
+                    <span class="span">{{ review?.timeAgo || 'Time not available' }}</span>
+                  </div>
+                  <p class="p">{{ review?.description || 'Description not available' }}</p>
+                </div>
+              </div> 
+        </div>
+      
+    </div>
+  </div>
+  
