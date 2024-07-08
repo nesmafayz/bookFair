@@ -153,7 +153,6 @@ import { SharedService } from '../../../services/shared.service';
 
 import { ReviewSectionComponent } from '../../review-section/review-section.component';
 import { CartService } from '../../../services/cart.service';
-import { BookIdDTO } from '../../../../models/book-id-dto';
 
 @Component({
   selector: 'app-book-details',
