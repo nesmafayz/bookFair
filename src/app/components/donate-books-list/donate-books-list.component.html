@@ -1,12 +1,13 @@
-<div class="container mt-5">
+<div class="container mt-5" dir="rtl">
     <h1 class="text-center">قائمة التبرعات بالكتب</h1>
     <div class="row">
-      <div *ngFor="let book of donatedBooks" class="col-lg-4 col-md-6 mb-4">
+      <div *ngFor="let book of donatedBooks" class="col-lg-4 col-md-6 mb-4 "  dir="rtl">
         <div class="card h-100">
-          <img [src]="book.imageUrl" alt="Book Image" class="card-img-top">
+          <img [src]="book.imageUrl" alt="Book Image" class="card-img-top w-100 h-75">
           <div class="card-body">
             <h4 class="card-title">{{ book.bookName }}</h4>
-            <p class="card-text"> الوصف: {{ book.authorName }}</p>
+            <p class="card-text"> اسم المؤلف: {{ book.authorName }}</p>
+            <p class="card-text"> الوصف: {{ book.description }}</p>
            </div>
         </div>
       </div>

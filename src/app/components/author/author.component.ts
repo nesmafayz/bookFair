@@ -18,7 +18,7 @@ export class AuthorComponent implements OnInit {
   notFoundMessage: string = '';
 
   currentPage: number = 1;
-  pageSize: number = 12;
+  pageSize: number = 8;
 
   constructor(private _authorService: AuthorsService, private router: Router) { }
 
