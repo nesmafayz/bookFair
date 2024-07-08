@@ -3,6 +3,7 @@ body {
   padding: 0;
   font-family: Arial, sans-serif;
   line-height: 1.6;
+ 
 }
 
 .footer {
@@ -10,11 +11,13 @@ body {
   color: white;
   text-align: center;
   width: 100%;
-  position: relative; 
+  position:relative; 
   bottom: 0;
   left: 0;
   z-index: 1000;
   padding: 10px 0;
+  height: 30vh;
+  
 }
 .social-link {
   color: white;

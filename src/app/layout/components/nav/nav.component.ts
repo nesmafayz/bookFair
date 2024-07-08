@@ -19,12 +19,9 @@ export class NavComponent implements OnInit, OnDestroy {
   constructor(private authService: AuthService) {}
 
   ngOnInit() {
-    this.isLoggedIn = this.authService.isUserLoggedIn();
-    if (!this.isLoggedIn) {
-      this.subscription = this.authService.isLoggedIn.subscribe(isLoggedIn => {
-        this.isLoggedIn = isLoggedIn;
-      });
-    }
+    this.subscription = this.authService.isLoggedIn.subscribe(isLoggedIn => {
+      this.isLoggedIn = isLoggedIn;
+    });
   }
 
   logout() {

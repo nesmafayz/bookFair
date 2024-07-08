@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, BehaviorSubject, of } from 'rxjs';
 import { environment } from '../../environments/environment';
+import { map, catchError } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root',
@@ -21,21 +23,21 @@ export class AuthService {
   }
 
   login(email: string, password: string): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/api/Account/Login`, { email, password });
-      // .pipe(
-      //   map(response => {
-      //     if (response && response.token) {
-      //       localStorage.setItem('userToken', response.token);
-      //       this.loggedIn.next(true); // Set logged-in state to true
-      //       return true; // Return true for successful login
-      //     }
-      //     return false; // Return false for failed login
-      //   }),
-      //   catchError(error => {
-      //     console.error('Login error:', error);
-      //     return of(false); // Return false for failed login due to error
-      //   })
-      // );
+    return this.http.post<any>(`${this.apiUrl}/api/Account/Login`, { email, password })
+      .pipe(
+        map(response => {
+          if (response && response.token) {
+            localStorage.setItem('token', response.token);
+            this.loggedIn.next(true); // Set logged-in state to true
+            return true; // Return true for successful login
+          }
+          return false; // Return false for failed login
+        }),
+        catchError(error => {
+          console.error('Login error:', error);
+          return of(false); // Return false for failed login due to error
+        })
+      );
   }
 
   logout(): void {
@@ -50,7 +52,8 @@ export class AuthService {
       Authorization: `Bearer ${token}`
     });
   }
-  getToken(): string| null {
-    return localStorage.getItem('token')?localStorage.getItem('token') : null;
+
+  getToken(): string | null {
+    return localStorage.getItem('token');
   }
 }
