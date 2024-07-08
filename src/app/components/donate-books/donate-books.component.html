@@ -2,16 +2,18 @@
   <div class="row d-flex justify-content-end align-items-center mb-5">
     <div class="col-lg-6">
       <img src="assets/images/donatee.png" alt="" class="w-70 ">
-        </div>
+    </div>
     <div class="col-lg-6">
       <form [formGroup]="donateForm" (ngSubmit)="onSubmit()" class="form" dir="rtl">
         <h1 class="d-flex justify-content-center">تبرع بكتابك</h1>
-    <div class="flex-column">
+        <div class="flex-column">
           <label>اختر الكتاب</label>
           <div class="inputForm">
             <input formControlName="imageUrl" placeholder="اختر صورة الكتاب" class="input" type="file" />
-            <div *ngIf="donateForm.controls['imageUrl'].invalid && (donateForm.controls['imageUrl'].dirty || donateForm.controls['imageUrl'].touched)">
-              <small *ngIf="donateForm.controls['imageUrl'].errors?.['required']" class="text-danger">صورة الكتاب مطلوبة.</small>
+            <div
+              *ngIf="donateForm.controls['imageUrl'].invalid && (donateForm.controls['imageUrl'].dirty || donateForm.controls['imageUrl'].touched)">
+              <small *ngIf="donateForm.controls['imageUrl'].errors?.['required']" class="text-danger">صورة الكتاب
+                مطلوبة.</small>
             </div>
           </div>
         </div>
@@ -20,30 +22,46 @@
           <label>اسم الكتاب</label>
           <div class="inputForm">
             <input formControlName="bookName" placeholder="أدخل اسم الكتاب" class="input" type="text" />
-            <div *ngIf="donateForm.controls['bookName'].invalid && (donateForm.controls['bookName'].dirty || donateForm.controls['bookName'].touched)">
-              <small *ngIf="donateForm.controls['bookName'].errors?.['required']" class="text-danger">اسم الكتاب مطلوب.</small>
-              
+            <div
+              *ngIf="donateForm.controls['bookName'].invalid && (donateForm.controls['bookName'].dirty || donateForm.controls['bookName'].touched)">
+              <small *ngIf="donateForm.controls['bookName'].errors?.['required']" class="text-danger">اسم الكتاب
+                مطلوب.</small>
+
             </div>
           </div>
         </div>
-  
-       
+
+
 
         <div class="flex-column">
           <label> الوصف </label>
           <div class="inputForm">
-            <input formControlName="description" placeholder=" أدخل اسم المؤلف و ذكر حاله الكتاب" class="input" type="text" />
-            <div *ngIf="donateForm.controls['description'].invalid && (donateForm.controls['description'].dirty || donateForm.controls['description'].touched)">
-              <small *ngIf="donateForm.controls['description'].errors?.['required']" class="text-danger"> الوصف مطلوب.</small>
-              
+            <input formControlName="description" placeholder=" أدخل حاله الكتاب" class="input" type="text" />
+            <div
+              *ngIf="donateForm.controls['description'].invalid && (donateForm.controls['description'].dirty || donateForm.controls['description'].touched)">
+              <small *ngIf="donateForm.controls['description'].errors?.['required']" class="text-danger"> الوصف
+                مطلوب.</small>
+
             </div>
           </div>
         </div>
 
-  
+        <div class="flex-column">
+          <label> اسم المؤلف </label>
+          <div class="inputForm">
+            <input formControlName="authorName" placeholder=" أدخل اسم المؤلف " class="input" type="text" />
+            <div
+              *ngIf="donateForm.controls['authorName'].invalid && (donateForm.controls['authorName'].dirty || donateForm.controls['authorName'].touched)">
+              <small *ngIf="donateForm.controls['authorName'].errors?.['required']" class="text-danger"> اسم المؤلف
+                مطلوب.</small>
 
-        
-        <button class="button-submit"  type="submit">تبرع الآن</button>
+            </div>
+          </div>
+        </div>
+
+
+
+        <button class="button-submit" type="submit">تبرع الآن</button>
       </form>
     </div>
   </div>
@@ -61,7 +79,7 @@
         تم إرسال تبرعك بنجاح. شكرًا لتبرعك!
       </div>
       <div class="modal-footer">
-        <button type="button"  class="btn btn-warning" data-bs-dismiss="modal">إغلاق</button>
+        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">إغلاق</button>
       </div>
     </div>
   </div>

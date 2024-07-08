@@ -25,6 +25,7 @@ constructor(
   donateForm: FormGroup = new FormGroup({
     bookName: new FormControl(null, [Validators.required]),
     imageUrl: new FormControl(null, [Validators.required]),
+    authorName: new FormControl(null, [Validators.required]),
     description: new FormControl(null, [Validators.required]),
   });
 
@@ -32,38 +33,38 @@ constructor(
     if (this.donateForm.invalid) {
       this.donateForm.markAllAsTouched();  // Mark all fields as touched to show validation errors
       alert("الرجاء ملء جميع الحقول المطلوبة بشكل صحيح.");
-      
+
       return;
     }
-   
+
     console.log(this.donateForm.value);
     this.showSuccessMessage();
   }
 
   showSuccessMessage() {
-    debugger
+    
     const usedBookDto:UsedBookDto ={
       bookName : this.donateForm.value.bookName,
       description:this.donateForm.value.description,
+      authorName:this.donateForm.value.authorName,
       imageURL:this.donateForm.value.imageUrl,
     };
-this.service.donateBook(usedBookDto).subscribe(res=>{
-  const modalElement = document.getElementById('successModal');
-  if (modalElement) {
-     const modal = new Modal(modalElement);
-    modal.show();
-  }
-});
-   
-   
+    this.service.donateBook(usedBookDto).subscribe({
+        next : (res) => {
+        
+            const modalElement = document.getElementById('successModal');
+            if (modalElement) {
+            const modal = new Modal(modalElement);
+            modal.show();
+            
+          }
+
+        },
+        error : (err) => {
+          console.log(err)
+        }
+      });
+
    }
 
   }
-
-
-
-
-
-
-
-  

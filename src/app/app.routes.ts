@@ -43,7 +43,7 @@ export const routes: Routes = [
   { path: 'bookingTicket', component: BookingComponent, canActivate: [AuthGuard] },
   { path: 'donate-books', component: DonateBooksComponent },
   { path: 'favorites', component: FavoritesComponent },
-  { path: 'cart', component: CartComponent },
+  { path: 'cart', component: CartComponent , canActivate: [AuthGuard]},
   { path: 'donate-books-list', component: DonateBooksListComponent },
   { path: '**', component: NotFoundComponent }
 ];
