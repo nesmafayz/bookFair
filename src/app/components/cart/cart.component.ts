@@ -8,6 +8,7 @@ import { Modal } from 'bootstrap';
 import { CommonModule } from '@angular/common';
 import { BookDetailsComponent } from '../bookstore/book-details/book-details.component';
 import { SharedService } from '../../services/shared.service';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -21,7 +22,7 @@ export class CartComponent implements OnInit {
   paymentForm: FormGroup;
   book: any[] = [];
 
-  constructor(private fb: FormBuilder, private cartService: CartService, private dataService: SharedService) {
+  constructor(private fb: FormBuilder, private cartService: CartService, private dataService: SharedService, private router:Router) {
     this.paymentForm = this.fb.group({
       cardHolderName: ['', [Validators.required, Validators.pattern(/^[\u0621-\u064A\s]+$/)]],
       cardNumber: ['', [Validators.required, Validators.pattern(/^\d{4}\s\d{4}\s\d{4}\s\d{4}$/)]]
@@ -29,8 +30,11 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    debugger;
-    this.dataService.currentData.subscribe(data => this.book.push(data));
+    this.dataService.currentData.subscribe(data =>{
+      if(data){
+        this.book.push(data);
+      }
+    });
     this.cartService.getAllItems().subscribe(res =>{
        if(res){
        }
@@ -42,11 +46,15 @@ export class CartComponent implements OnInit {
   }
 
   handlePayment(): void {
-    if (this.paymentForm.valid) {
+    if(this.book.length <= 0){
+      alert("السلة فارغه");
+    }
+    if (this.paymentForm.valid &&this.book.length > 0) {
       const modalElement = document.getElementById('successModal');
       if (modalElement) {
         const modal = new Modal(modalElement);
         modal.show();
+        this.book=[];
       } else {
         console.error("Element with ID 'successModal' not found.");
       }
@@ -61,5 +69,8 @@ export class CartComponent implements OnInit {
 
   get cardNumber() {
     return this.paymentForm.get('cardNumber');
+  }
+  closeModel(){
+    this.router.navigate(['/Home']);
   }
 }

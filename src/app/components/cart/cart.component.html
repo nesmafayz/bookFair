@@ -22,12 +22,14 @@
                   <div class="card-body">
                     <div class="d-flex justify-content-between">
                       <div class="d-flex flex-row align-items-center">
-                        <div>
+                        <!-- <div>
                           <img [src]="item.image" class="img-fluid rounded-3" alt="عنصر تسوق">
-                        </div>
+                        </div> -->
+                      
                         <div class="ms-3">
                           <p>{{ item.bookName }}</p>
-                          <p class="small mb-0">{{ item.description }}</p>
+                          <p>{{ item.description }}</p>
+                          <p>{{item.price}}</p>
                         </div>
                       </div>
                       <!-- <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
@@ -105,7 +107,7 @@
         تم الدفع بنجاح. شكرًا!
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">إغلاق</button>
+        <button type="button" class="btn btn-warning" data-bs-dismiss="modal" (click)="closeModel()">إغلاق</button>
       </div>
     </div>
   </div>
