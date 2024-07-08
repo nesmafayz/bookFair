@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http'; 
 import { Observable } from 'rxjs';
 import { Cart } from '../../models/cart';
 import { BookItemWithUserID } from '../../models/book-item-with-user-id';
@@ -20,11 +20,13 @@ export class CartService {
   getAllItems(){
     return this.http.get(`${this.apiUrl}/api/Cart/All`);
   }
-  addToCart(BookId: BookIdDTO): Observable<any> {
+
+  addToCart(id: number): Observable<any> {
     const token = this.authService.getToken();  // Assuming you have a method to get the token
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.post<any>(`${this.apiUrl}/api/Cart/Buy-Regular-Book`, BookId, { headers });
+    return this.http.post<any>(`${this.apiUrl}/api/Cart/Buy-Regular-Book/${id}`, id, { headers });
   }
+
 
   deleteItem(bookId: BookIdDTO): Observable<any> {
     const options = {
