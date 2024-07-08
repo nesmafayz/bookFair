@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 import { BookDetailsComponent } from '../bookstore/book-details/book-details.component';
 import { SharedService } from '../../services/shared.service';
 import { Route, Router } from '@angular/router';
+import { OrderService } from '../../services/order.service';
 
 @Component({
   selector: 'app-cart',
@@ -21,8 +22,9 @@ export class CartComponent implements OnInit {
   cartItems: any[] = [];
   paymentForm: FormGroup;
   book: any[] = [];
+  userId! : string | null
 
-  constructor(private fb: FormBuilder, private cartService: CartService, private dataService: SharedService, private router:Router) {
+  constructor(private fb: FormBuilder, private orderService : OrderService , private cartService: CartService, private dataService: SharedService, private router:Router) {
     this.paymentForm = this.fb.group({
       cardHolderName: ['', [Validators.required, Validators.pattern(/^[\u0621-\u064A\s]+$/)]],
       cardNumber: ['', [Validators.required, Validators.pattern(/^\d{4}\s\d{4}\s\d{4}\s\d{4}$/)]]
@@ -30,6 +32,7 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.userId = localStorage.getItem('id')
     this.dataService.currentData.subscribe(data =>{
       if(data){
         this.book.push(data);
@@ -53,6 +56,11 @@ export class CartComponent implements OnInit {
       const modalElement = document.getElementById('successModal');
       if (modalElement) {
         const modal = new Modal(modalElement);
+          this.orderService.createOrder(this.userId).subscribe({
+            next : (res) => {
+              console.log("order response" + res)
+            }
+          })
         modal.show();
         this.book=[];
       } else {

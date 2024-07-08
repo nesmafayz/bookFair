@@ -26,7 +26,7 @@ import { AuthGuard } from './guards/auth.guard';
 export const routes: Routes = [
   { path: '', redirectTo: 'Home', pathMatch: 'full' },
   { path: 'Home', component: HomeComponent },
-  { path: 'Bookstore', component: BookstoreComponent, canActivate: [AuthGuard] },
+  { path: 'Bookstore', component: BookstoreComponent },
   { path: 'book-details/:id', component: BookDetailsComponent },
   { path: 'books-related/:id', component: BooksRelatedToPublisherComponent },
   { path: 'Author', component: AuthorComponent },
@@ -43,7 +43,7 @@ export const routes: Routes = [
   { path: 'bookingTicket', component: BookingComponent, canActivate: [AuthGuard] },
   { path: 'donate-books', component: DonateBooksComponent },
   { path: 'favorites', component: FavoritesComponent },
-  { path: 'cart', component: CartComponent, canActivate: [AuthGuard]  },
+  { path: 'cart', component: CartComponent },
   { path: 'donate-books-list', component: DonateBooksListComponent },
   { path: '**', component: NotFoundComponent }
 ];
