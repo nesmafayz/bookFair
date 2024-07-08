@@ -167,13 +167,14 @@ export class BookDetailsComponent implements OnInit {
   bookData:any;
   book: any;
   errorMessage: string = '';
+  bookId! : number
 
   constructor(private bookService: BooksService, private route: ActivatedRoute,private router: Router,private dataService: SharedService,private cartService:CartService) {}
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      const bookId = Number(params.get('id'));
-      this.loadBookDetails(bookId);
+      this.bookId = Number(params.get('id'));
+      this.loadBookDetails(this.bookId);
     });
 
     this.dataService.currentData.subscribe(data => this.bookData = data);
@@ -194,7 +195,14 @@ export class BookDetailsComponent implements OnInit {
 
   addToCart(book:any){
     this.dataService.changeData(book);
-    this.bookData = book;
+    this.bookData = book; 
+
+    console.log("book id >> " + this.bookId);
+    this.cartService.addToCart(this.bookId).subscribe({
+      next : (res) => {
+        console.log(res)
+      }
+    })
     this.router.navigate(['/cart']);
   //  const bookVM :BookIdDTO = {
   //      bookId : book.id
