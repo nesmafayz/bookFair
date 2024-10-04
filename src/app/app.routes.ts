@@ -2,7 +2,6 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { BookstoreComponent } from './components/bookstore/bookstore.component';
-import { DonationComponent } from './components/donation/donation.component';
 import { MapGuideComponent } from './components/map-guide/map-guide.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -12,7 +11,6 @@ import { TransportsComponent } from './components/transports/transports.componen
 import { BookingComponent } from './components/booking/booking.component';
 import { PublishersComponent } from './components/publisher/publisher.component';
 import { DonateBooksComponent } from './components/donate-books/donate-books.component';
-import { LogoutComponent } from './layout/components/logout/logout.component';
 import { BookDetailsComponent } from './components/bookstore/book-details/book-details.component';
 import { AuthorComponent } from './components/author/author.component';
 import { AuthorDetailsComponent } from './components/author/author-details/author-details.component';
@@ -33,10 +31,8 @@ export const routes: Routes = [
   { path: 'author-details/:id', component: AuthorDetailsComponent },
   { path: 'Publisher', component: PublishersComponent },
   { path: 'review', component: ReviewComponent },
-  { path: 'Donation', component: DonationComponent, canActivate: [AuthGuard] },
   { path: 'MapGuide', component: MapGuideComponent },
   { path: 'Login', component: LoginComponent },
-  { path: 'Logout', component: LogoutComponent },
   { path: 'Register', component: RegisterComponent },
   { path: 'Visitors', component: VisitorsComponent },
   { path: 'Transports', component: TransportsComponent },

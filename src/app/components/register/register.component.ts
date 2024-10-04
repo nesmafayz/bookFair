@@ -86,8 +86,7 @@ export class RegisterComponent {
             });
               this.Router.navigate(['/Login']);
           }
-            // if (res.message === 'success') {
-          // }
+           
         },
         error: (err) => {
           console.error('Registration error:', err);
